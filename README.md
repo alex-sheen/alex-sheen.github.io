@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Starter kit for [Alembic](https://alembic.darn.es/)
 
 This is a very simple starting point if you wish to use Alembic [as a Jekyll theme gem](https://alembic.darn.es/#as-a-jekyll-theme) or as a [GitHub Pages remote theme](https://github.com/daviddarnes/alembic-kit/tree/remote-theme) (see `remote-theme` branch).
@@ -7,3 +8,7 @@ This is a very simple starting point if you wish to use Alembic [as a Jekyll the
 or
 
 **[Download the GitHub Pages kit](https://github.com/daviddarnes/alembic-kit/archive/remote-theme.zip)**
+=======
+# alex-sheen.github.io
+Alex Sheen's Portfolio
+>>>>>>> 305491e6570c560e38c0331137235fa9274b6b5a
