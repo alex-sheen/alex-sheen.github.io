@@ -20,7 +20,7 @@ plugins:
 - jekyll-remote-theme
 
 # Site settings
-url: 'https://mydomain.com'
+url: 'https://alex-sheen.github.io'
 baseurl: ''
 title: 'My website'
 description: 'This is my new website'
@@ -37,8 +37,8 @@ navigation_header:
   url: /
 - title: About
   url: /about/
-- title: Blog
-  url: /blog/
+- title: Projects
+  url: /projects/
 
 # Footer nav
 navigation_footer:
