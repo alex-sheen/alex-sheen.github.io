@@ -1,13 +1,6 @@
-title: Alex Sheen
+title: Minimal theme
 logo: /assets/img/logo.png
-description: Portfolio
+description: Minimal is a theme for GitHub Pages.
 show_downloads: true
 google_analytics:
-<<<<<<< HEAD
 theme: jekyll-theme-minimal
-=======
-
-# The following settings are NECESSARY for the Prologue theme to run:
-theme: jekyll-theme-minimal
-collections: [sections]
->>>>>>> 960b2ae8aee835156dca3490e07e77be13161c9a
