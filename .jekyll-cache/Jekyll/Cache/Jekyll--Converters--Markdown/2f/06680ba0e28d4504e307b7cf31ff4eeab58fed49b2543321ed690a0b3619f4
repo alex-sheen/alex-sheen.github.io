@@ -1,55 +1,4 @@
-<!DOCTYPE html>
-<html lang="en-US">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Alex Sheen | Portfolio</title>
-<meta name="generator" content="Jekyll v4.0.0" />
-<meta property="og:title" content="Alex Sheen" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="Portfolio" />
-<meta property="og:description" content="Portfolio" />
-<link rel="canonical" href="http://localhost:4000/" />
-<meta property="og:url" content="http://localhost:4000/" />
-<meta property="og:site_name" content="Alex Sheen" />
-<script type="application/ld+json">
-{"@type":"WebSite","url":"http://localhost:4000/","name":"Alex Sheen","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/img/logo.png"}},"description":"Portfolio","headline":"Alex Sheen","@context":"https://schema.org"}</script>
-<!-- End Jekyll SEO tag -->
-
-    <link rel="stylesheet" href="/assets/css/style.css?v=">
-    <!--[if lt IE 9]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1><a href="http://localhost:4000/">Alex Sheen</a></h1>
-        <p>Portfolio</p>
-        
-          <img src="/assets/img/logo.png" alt="Logo" />
-        
-
-        
-
-        
-
-        
-        <ul class="downloads">
-          <li><a href="alex-sheen.github.io/_pages/about.html">[About]</a></li>
-          <li><a href="alex-sheen.github.io/pages/code.html">[Code]</a></li>
-          <li><a href="alex-sheen.github.io/video.html">[Video]</a></li>
-          <li><a href="./video.html">[Video]</a></li>
-
-        </ul>
-        
-      </header>
-      <section>
-
-      <p>Text can be <strong>bold</strong>, <em>italic</em>, or <del>strikethrough</del>.</p>
+I"Â<p>Text can be <strong>bold</strong>, <em>italic</em>, or <del>strikethrough</del>.</p>
 
 <p><a href="./another-page.html">Link to another page</a>.</p>
 
@@ -212,15 +161,4 @@
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The final element.
 </code></pre></div></div>
-
-
-      </section>
-      <footer>
-        
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
-    </div>
-    <script src="/assets/js/scale.fix.js"></script>
-    
-  </body>
-</html>
+:ET
