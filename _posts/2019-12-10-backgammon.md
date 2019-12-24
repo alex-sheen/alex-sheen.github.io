@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: backgammon
 title: "Backgammon"
 author: "Alex Sheen"
 categories: code
