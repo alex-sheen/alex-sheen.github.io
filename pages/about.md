@@ -8,3 +8,5 @@ Hi, my name is Alex Sheen and I am currently a freshman at the University of Chi
 Contact information
 
 alex.m.sheen@gmail.com
+
+[Github Portfolio](https://github.com/alex-sheen/alex-sheen-portfoli)
