@@ -5,11 +5,15 @@
 <lastmod>2018-06-26T00:00:00-04:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/code/fishtank.html</loc>
+<lastmod>2018-09-20T00:00:00-04:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/code/music-gen.html</loc>
 <lastmod>2018-12-14T00:00:00-05:00</lastmod>
 </url>
 <url>
-<loc>http://localhost:4000/video/iceland.html</loc>
+<loc>http://localhost:4000/video/bermuda.html</loc>
 <lastmod>2019-07-28T00:00:00-04:00</lastmod>
 </url>
 <url>
@@ -45,5 +49,9 @@
 </url>
 <url>
 <loc>http://localhost:4000/pages/video.html</loc>
+</url>
+<url>
+<loc>http://localhost:4000/pages/fishProject/</loc>
+<lastmod>2018-01-25T20:18:25-05:00</lastmod>
 </url>
 </urlset>

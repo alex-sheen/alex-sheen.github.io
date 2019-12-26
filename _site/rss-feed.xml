@@ -26,13 +26,12 @@
 					<dc:creator>Alex Sheen</dc:creator>
 				
 				
-					<description>&lt;p&gt;Bermuda trip, went to Bermuda&lt;/p&gt;
-
+					<description>&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/UQ3VbZ0i7Dc&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 </description>
 				
 				<pubDate>Sun, 28 Jul 2019 00:00:00 -0400</pubDate>
-				<link>http://localhost:4000/video/iceland.html</link>
-				<guid isPermaLink="true">http://localhost:4000/video/iceland.html</guid>
+				<link>http://localhost:4000/video/bermuda.html</link>
+				<guid isPermaLink="true">http://localhost:4000/video/bermuda.html</guid>
 			</item>
 		
 			<item>
@@ -47,6 +46,20 @@
 				<pubDate>Fri, 14 Dec 2018 00:00:00 -0500</pubDate>
 				<link>http://localhost:4000/code/music-gen.html</link>
 				<guid isPermaLink="true">http://localhost:4000/code/music-gen.html</guid>
+			</item>
+		
+			<item>
+				<title>Fish Tank</title>
+				
+					<dc:creator>Alex Sheen</dc:creator>
+				
+				
+					<description>
+</description>
+				
+				<pubDate>Thu, 20 Sep 2018 00:00:00 -0400</pubDate>
+				<link>http://localhost:4000/code/fishtank.html</link>
+				<guid isPermaLink="true">http://localhost:4000/code/fishtank.html</guid>
 			</item>
 		
 			<item>
