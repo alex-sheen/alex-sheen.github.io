@@ -354,7 +354,7 @@ function makeFish(type){
 
   else if(type == "Dolphin")
   {
-    makeDolphin();
+    //makeDolphin();
   }
 
   else
