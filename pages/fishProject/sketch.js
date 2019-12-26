@@ -54,51 +54,55 @@ function setup() {
 
 //Button setup
   pelletButton = createButton('Pellets').parent("buttons");
-  pelletButton.position(width*.1, height*.25);
+  pelletButton.position(width*.1, height*.31);
   pelletButton.mousePressed(makePellets);
 
   poisonButton = createButton('Poison').parent("buttons");
-  poisonButton.position(width*.2, height*.25);
+  poisonButton.position(width*.2, height*.31);
   poisonButton.mousePressed(makePoison);
 
-  bigBoiButton = createButton('Big Boi').parent("buttons");
-  bigBoiButton.position(width*.3, height*.25);
+  bigBoiButton = createButton('Bomb').parent("buttons");
+  bigBoiButton.position(width*.3, height*.31);
   bigBoiButton.mousePressed(makeBigBois);
 
-  goldfishButton = createButton('Goldfish').parent("buttons");
-  goldfishButton.position(width*.1, height*.35);
-  goldfishButton.mousePressed(makeGoldfish);
-
-  piranhaButton = createButton('Piranha').parent("buttons");
-  piranhaButton.position(width*.23, height*.35);
-  piranhaButton.mousePressed(makePiranha);
-
-  whaleButton = createButton('Whale').parent("buttons");
-  whaleButton.position(width*.36, height*.35);
-  whaleButton.mousePressed(makeWhale);
-
-  dolphinButton = createButton('Dolphin').parent("buttons");
-  dolphinButton.position(width*.48, height*.35);
-  dolphinButton.mousePressed(makeDolphin);
-
-  crabButton = createButton('Crab').parent("buttons");
-  crabButton.position(width*.63, height*.35);
-  crabButton.mousePressed(makeCrab);
-
-  squidButton = createButton('Squid').parent("buttons");
-  squidButton.position(width*.78, height*.35);
-  squidButton.mousePressed(makeSquid);
-
   tapTankButton = createButton('Tap the Tank').parent("buttons");
-  tapTankButton.position(width*.7, height*.25);
+  tapTankButton.position(width*.1, height*.36);
   tapTankButton.mousePressed(tapTank);
 
   clearTankButton = createButton('Clear the Tank').parent("buttons");
-  clearTankButton.position(width*.9, height*.25);
+  clearTankButton.position(width*.25, height*.36);
   clearTankButton.mousePressed(clearTank);
+
+  goldfishButton = createButton('Goldfish').parent("buttons");
+  goldfishButton.position(width*.1, height*.41);
+  goldfishButton.mousePressed(makeGoldfish);
+
+  piranhaButton = createButton('Piranha').parent("buttons");
+  piranhaButton.position(width*.21, height*.41);
+  piranhaButton.mousePressed(makePiranha);
+
+  whaleButton = createButton('Whale').parent("buttons");
+  whaleButton.position(width*.315, height*.41);
+  whaleButton.mousePressed(makeWhale);
+
+  dolphinButton = createButton('Dolphin').parent("buttons");
+  dolphinButton.position(width*.405, height*.41);
+  dolphinButton.mousePressed(makeDolphin);
+
+  crabButton = createButton('Crab').parent("buttons");
+  crabButton.position(width*.51, height*.41);
+  crabButton.mousePressed(makeCrab);
+
+  squidButton = createButton('Squid').parent("buttons");
+  squidButton.position(width*.59, height*.41);
+  squidButton.mousePressed(makeSquid);
+
 
 //Makes an initial goldfish
   makeFish("Goldfish");
+
+  //Makes an initial piranha
+    makeFish("Piranha");
 }
 
 function draw() {
@@ -164,9 +168,9 @@ function draw() {
         fish[f].cfLoc = fish[findClosestGoldFish(f)].loc;
         fish[f].updatecf();
       }
-    }  	
+    }
 
-    //runs through each fish 
+    //runs through each fish
     for(var fishHit = 0; fishHit<fish.length; fishHit++)
     {
       //If the two fish collide
@@ -176,7 +180,7 @@ function draw() {
         //If the fish hit is a piranha and the selected fish is goldfish
         if(fish[f].type == "Piranha" && fish[fishHit].type == "Goldfish")
         {
-            
+
           fish[fishHit].dead = true
           fish[f].weight += fish[fishHit].weight*.25;
 
@@ -188,14 +192,14 @@ function draw() {
                 particles[particles.length-1].loc.y = fish[fishHit].loc.y;
               }
 
-           
+
 
         }
 
         //If the fish hit is a whale and the selected fish is a piranha or a goldfish
         else if(fish[f].type == "Whale" && fish[fishHit].type == "Piranha" || fish[fishHit].type == "Goldfish" && fish[f].type == "Whale")
         {
-    
+
           fish[fishHit].dead = true;
           fish[f].weight += fish[fishHit].weight*.25;
 
@@ -207,13 +211,13 @@ function draw() {
                 particles[particles.length-1].loc.y = fish[fishHit].loc.y;
               }
 
-         
+
         }
 
         //If two fish hit that are the same
         else if(fish[f].name != fish[fishHit].name && fish[fishHit].type == fish[f].type && sameCollision == true)
         {
-          
+
           //creates new fish with 10% chance
           if(round(random(0, 9)) == 9)
           {
@@ -232,20 +236,20 @@ function draw() {
         if(pellet[p].type === "food")
         {
            fish[f].weight += 100;
-            pellet[p].delete(); 
+            pellet[p].delete();
         }
 
         else if(pellet[p].type === "poison")
         {
             fish[f].weight -= 200;
-          pellet[p].delete(); 
+          pellet[p].delete();
         }
 
         else if(pellet[p].type === "bigboi")
         {
              fish[f].dead = true;
 
-            pellet[p].delete(); 
+            pellet[p].delete();
 
             //blood
             for(var x =0; x<30; x++)
@@ -269,7 +273,7 @@ function draw() {
 
 //Updates pellets
   for(var p = 0; p<pellet.length; p++){
-    
+
     pellet[p].update();
 
     if(pellet[p].dead == true){
@@ -280,7 +284,7 @@ function draw() {
 
 //Updates particles
   for(var p = 0; p<particles.length; p++){
-    
+
     particles[p].update();
 
     if(particles[p].dead == true){
@@ -365,7 +369,7 @@ function makePiranha()
 {
   fishID+=1;
   fish.push(createFish("Piranha", random(2, 6), 2600, 3000, 300));
-  
+
   if(findClosestGoldFish(0) != -1)
   {
     fish[fish.length-1].cfLoc = fish[findClosestGoldFish(fish.length-1)].loc;
@@ -494,4 +498,3 @@ function clearTank(){
     }
   }
 }
-
