@@ -9,4 +9,4 @@ Contact information
 
 alex.m.sheen@gmail.com
 
-[Github Portfolio](https://github.com/alex-sheen/alex-sheen-portfoli)
+[Github Portfolio](https://github.com/alex-sheen/alex-sheen-portfolio)
