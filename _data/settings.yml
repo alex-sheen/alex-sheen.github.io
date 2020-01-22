@@ -9,6 +9,7 @@ google-ID: ''
 menu:
 - {name: 'Coding Projects', folder: 'pages', file: 'code.html'}
 - {name: 'Video', folder: 'pages', file: 'video.html'}
+- {name: 'Animation', folder: 'pages', file: 'animation.html'}
 #- {name: 'Sample Posts', folder: 'pages', file: 'sample-posts.html'}
 #- {name: 'Documentation', folder: 'pages', file: 'documentation.html'}
 - {name: 'About', folder: 'pages', file: 'about.html'}
