@@ -52,6 +52,7 @@
 <link rel="canonical" href="http://localhost:4000/" />
 <meta property="og:url" content="http://localhost:4000/" />
 <meta property="og:site_name" content="Alex Sheen" />
+<link rel="next" href="http://localhost:4000/page2" />
 <script type="application/ld+json">
 {"url":"http://localhost:4000/","name":"Alex Sheen","author":{"@type":"Person","name":"Paul Le"},"description":"Millennial Jekyll Theme","@type":"WebSite","headline":"Home","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
@@ -73,6 +74,8 @@
     
       <a href="/pages/video.html" class="menu-link">Video</a>
     
+      <a href="/pages/animation.html" class="menu-link">Animation</a>
+    
       <a href="/pages/about.html" class="menu-link">About</a>
     
 
@@ -89,6 +92,8 @@
         <a href="/pages/code.html" class="menu-link">Coding Projects</a>
       
         <a href="/pages/video.html" class="menu-link">Video</a>
+      
+        <a href="/pages/animation.html" class="menu-link">Animation</a>
       
         <a href="/pages/about.html" class="menu-link">About</a>
       
@@ -126,6 +131,16 @@
 
 
 <article>
+  <a href="/animation/animation.html">
+    <div class="featured-posts" style="background-image:url(/assets/img/maller_render.jpg)">
+      <h2><span>Animation Link</span></h2>
+    </div>
+  </a>
+</article>
+
+
+
+<article>
   <a href="/code/music-gen.html">
     <div class="featured-posts" style="background-image:url(/assets/img/music_desmos_pitch_shift.png)">
       <h2><span>Random Music Generator</span></h2>
@@ -145,20 +160,10 @@
 
 
 
-<article>
-  <a href="/code/fishtank.html">
-    <div class="featured-posts" style="background-image:url(/assets/img/fishtank.png)">
-      <h2><span>Fish Tank</span></h2>
-    </div>
-  </a>
-</article>
-
-
-
 <!-- Pagination links -->
 <div class="pagination">
   
-    <span class="pagination-button">Older</span>
+    <a class="pagination-button pagination-active next" href="/page2">Older</a>
   
 
   

@@ -15,7 +15,7 @@
 					<description>
 </description>
 				
-				<pubDate>Tue, 10 Dec 2019 00:00:00 -0500</pubDate>
+				<pubDate>Tue, 10 Dec 2019 00:00:00 -0600</pubDate>
 				<link>http://localhost:4000/code/backgammon.html</link>
 				<guid isPermaLink="true">http://localhost:4000/code/backgammon.html</guid>
 			</item>
@@ -29,9 +29,23 @@
 					<description>&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/UQ3VbZ0i7Dc&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 </description>
 				
-				<pubDate>Sun, 28 Jul 2019 00:00:00 -0400</pubDate>
+				<pubDate>Sun, 28 Jul 2019 00:00:00 -0500</pubDate>
 				<link>http://localhost:4000/video/bermuda.html</link>
 				<guid isPermaLink="true">http://localhost:4000/video/bermuda.html</guid>
+			</item>
+		
+			<item>
+				<title>Animation Link</title>
+				
+					<dc:creator>Alex Sheen</dc:creator>
+				
+				
+					<description>&lt;p&gt;Click &lt;a href=&quot;https://drive.google.com/open?id=1oU0hT-ouxbnY6rVV3r5ZPFvvsB44u6Lk&quot;&gt;here&lt;/a&gt; to view my old animation projects&lt;/p&gt;
+</description>
+				
+				<pubDate>Tue, 01 Jan 2019 00:00:00 -0600</pubDate>
+				<link>http://localhost:4000/animation/animation.html</link>
+				<guid isPermaLink="true">http://localhost:4000/animation/animation.html</guid>
 			</item>
 		
 			<item>
@@ -43,7 +57,7 @@
 					<description>
 </description>
 				
-				<pubDate>Fri, 14 Dec 2018 00:00:00 -0500</pubDate>
+				<pubDate>Fri, 14 Dec 2018 00:00:00 -0600</pubDate>
 				<link>http://localhost:4000/code/music-gen.html</link>
 				<guid isPermaLink="true">http://localhost:4000/code/music-gen.html</guid>
 			</item>
@@ -57,7 +71,7 @@
 					<description>&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/r2pNrH2odog&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 </description>
 				
-				<pubDate>Tue, 26 Jun 2018 00:00:00 -0400</pubDate>
+				<pubDate>Tue, 26 Jun 2018 00:00:00 -0500</pubDate>
 				<link>http://localhost:4000/video/spook-world-1.html</link>
 				<guid isPermaLink="true">http://localhost:4000/video/spook-world-1.html</guid>
 			</item>
@@ -71,7 +85,7 @@
 					<description>
 </description>
 				
-				<pubDate>Wed, 20 Sep 2017 00:00:00 -0400</pubDate>
+				<pubDate>Wed, 20 Sep 2017 00:00:00 -0500</pubDate>
 				<link>http://localhost:4000/code/fishtank.html</link>
 				<guid isPermaLink="true">http://localhost:4000/code/fishtank.html</guid>
 			</item>
