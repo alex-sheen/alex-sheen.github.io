@@ -1,3 +1,8 @@
+@font-face {
+  font-family:"railway";
+  src: url("/assets/fonts/raleway/Raleway-Light.ttf") format("truetype");
+}
+
 body {
   margin: 0;
   background: #000;
@@ -16,4 +21,16 @@ video {
   background: url('//demosthenes.info/assets/images/polina.jpg') no-repeat;
   background-size: cover;
   transition: 1s opacity;
+}
+
+.main {
+    font-family: railway;
+    color: #FFFFFF;
+    border-radius: 1em;
+    padding: 1em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
 }
