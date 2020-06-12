@@ -1,3 +1,11 @@
 function back() {
-    window.location.href = "https://www.youtube.com/watch?v=QyqO6PmRnqE";
+    window.location.href = "index.html";
+}
+
+function code() {
+    window.location.href = "code.html";
+}
+
+function video() {
+    window.location.href = "video.html";
 }

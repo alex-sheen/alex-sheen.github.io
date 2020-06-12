@@ -26,11 +26,47 @@ video {
 .main {
     font-family: railway;
     color: #FFFFFF;
+    font-size: 2vw;
+
     border-radius: 1em;
     padding: 1em;
+
     position: absolute;
     top: 50%;
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%)
+}
+
+.desc {
+    font-family: railway;
+    color: #FFFFFF;
+    font-size: 2vw;
+
+    border-radius: 1em;
+    padding: 1em;
+
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+
+.mid_left {
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    top: 50%;
+    left: 0;
+    padding: 2vw;
+    transform: translate(0, -50%);
+    z-index: 2;
+}
+
+.video_code {
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    top: 90%;
+    left: 50%;
+    padding: 2vw;
+    transform: translate(-50%, -50%);
+    z-index: 2;
 }
