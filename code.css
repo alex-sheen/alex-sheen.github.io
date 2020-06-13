@@ -1,5 +1,5 @@
 .code_projs {
-    width: 66%;
+    width: 75%;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -9,7 +9,7 @@
 .code_cell {
     position: relative;
     float: left;
-    width: 24.99999%;
+    width: 33.33333%;
     height: 20vw;
 }
 
