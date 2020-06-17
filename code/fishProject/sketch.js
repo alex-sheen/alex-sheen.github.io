@@ -51,6 +51,7 @@ var clearTankButton;
 function setup() {
 
   createCanvas(600, 600).parent("canvas");
+  //createCanvas(windowWidth*0.4, windowHeight*0.4).parent("canvas");
 
 //Button setup
   pelletButton = createButton('Pellets').parent("buttons");
@@ -70,7 +71,7 @@ function setup() {
   tapTankButton.mousePressed(tapTank);
 
   clearTankButton = createButton('Clear the Tank').parent("buttons");
-  clearTankButton.position(width*.25, height*.36);
+  clearTankButton.position(width*.26, height*.36);
   clearTankButton.mousePressed(clearTank);
 
   goldfishButton = createButton('Goldfish').parent("buttons");
@@ -103,6 +104,9 @@ function setup() {
 
   //Makes an initial piranha
     makeFish("Piranha");
+
+    //Makes an initial piranha
+      makeFish("Dolphin");
 }
 
 function draw() {
@@ -354,7 +358,7 @@ function makeFish(type){
 
   else if(type == "Dolphin")
   {
-    //makeDolphin();
+    makeDolphin();
   }
 
   else

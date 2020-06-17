@@ -63,3 +63,15 @@
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
 }
+
+.code_center {
+    font-family: railway;
+    color: #FFFFFF;
+    font-size: 2vw;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}

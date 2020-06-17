@@ -13,3 +13,7 @@ function fishtank() {
 function shell() {
     window.location.href = "https://github.com/alex-sheen/unix-shell";
 }
+
+function tree() {
+    window.location.href = "code/tree.html";
+}

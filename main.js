@@ -3,11 +3,15 @@ function back() {
 }
 
 function back_1() {
-    window.location.href = "./index.html";
+    window.location.href = "../code.html";
 }
 
 function code() {
     window.location.href = "code.html";
+}
+
+function github() {
+    window.location.href = "https://github.com/alex-sheen";
 }
 
 function video() {
