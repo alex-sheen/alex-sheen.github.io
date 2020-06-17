@@ -5,16 +5,18 @@ import {Graph} from '../assets/scripts/graph.js';
 
 var camera, scene, renderer, controls;
 var geometry, material, mesh;
+
 var a_points = [];
-var num_points = 300;
+var num_points = 1000;
 var radius = 10;
 var g = new Graph(0);
 var done = false;
 var di = 7;
-var dk = 3;
+var dk = 5.5;
 var D = 2.0;
 var removable_items = [];
 var edge_q = new Queue();
+var sphere;
 
 init();
 build_tree();
@@ -38,7 +40,7 @@ function init() {
 	controls = new OrbitControls( camera, renderer.domElement );
 	controls.minDistance = 10;
 	controls.maxDistance = 70;
-    controls.target.set(0, radius/4, 0);
+    controls.target.set(0, radius/2, 0);
     camera.position.set( 50, 14, 50 );
     controls.update();
 	//controls.maxPolarAngle = Math.PI / 2;
@@ -63,11 +65,11 @@ function init() {
 function set_initial_geometry() {
     geometry = new THREE.SphereGeometry( radius, 32, 32 );
     material = new THREE.MeshBasicMaterial( {color: 0x5555F2, opacity: 0.5, transparent: true} );
-    mesh = new THREE.Mesh(geometry, material);
-    scene.add(mesh);
-    mesh.position.set(0,radius,0);
+    sphere = new THREE.Mesh(geometry, material);
+    scene.add(sphere);
+    sphere.position.set(0,radius,0);
 
-    geometry = new THREE.SphereGeometry( 0.5, 15, 15 );
+    geometry = new THREE.SphereGeometry( 0.3, 15, 15 );
     material = new THREE.MeshBasicMaterial( {color: 0x00ffff} );
     for (var i = 0; i < num_points; i++) {
         var point = {pos: new THREE.Vector3(getRand(-radius,radius), getRand(-radius,radius) + radius, getRand(-radius,radius)),
@@ -139,52 +141,111 @@ function clean() {
       }
 }
 
+var stage = 0;
 var count = 0;
+var todo = false;
+document.addEventListener('keyup', event => {
+  if (event.code === 'Space') {
+      stage++;
+      if(stage >= 4) {
+          stage = 0;
+      }
+      todo = true;
+  }
+})
+
+var vprime_pairs_stage2 = new Queue();
+var vprime_stage3 = new Queue();
 function animate() {
 	requestAnimationFrame( animate );
     controls.update();
 
-    if(done == false && count < 100) {
-        for (const [node1, adjs] of g.AdjList.entries()) {
-            if(!(node1.x == 0 && node1.y == 0 && node1.z == 0)) {
-                clean();
-                var vprime = new THREE.Vector3(0,0,0);
-                var line_mat = new THREE.LineBasicMaterial({color: 0x0000ff});
-                for(var i = 0; i < a_points.length; i++) {
-                    if(a_points[i].pos.distanceTo(node1) < di) {
-                        //addLine(node1, a_points[i].pos, line_mat);
-                        var sv = a_points[i].pos.clone().sub(node1);
-                        sv.normalize();
-                        vprime.add(sv);
+    if(done == false && count < 100 && todo == true) {
+        todo = false;
+        count++;
+
+        // stage+=.05;
+        // consol.log(stage);
+
+        if(stage == 0) {
+            console.log("stage 0: clean");
+            clean();
+            for(var i = 0; i < a_points.length; i++) {
+                scene.add (a_points[i].mesh);
+                removable_items.push(a_points[i].mesh);
+            }
+        }
+
+        else if(stage == 1) {
+            for(const [node1, adjs] of g.AdjList.entries()) {
+                if(!(node1.x == 0 && node1.y == 0 && node1.z == 0)) {
+                    var vprime = new THREE.Vector3(0,0,0);
+                    var line_mat = new THREE.LineBasicMaterial({color: 0x0000ff});
+                    for(var i = 0; i < a_points.length; i++) {
+                        if(a_points[i].pos.distanceTo(node1) < di) {
+
+                            addLineRem(node1, a_points[i].pos, line_mat);
+
+                            var sv = a_points[i].pos.clone().sub(node1);
+                            sv.normalize();
+                            vprime.add(sv);
+                        }
                     }
-                }
+                    if(vprime.length() > 0) {
+                        vprime.normalize();
+                        vprime.multiplyScalar(D);
+                        vprime = node1.clone().add(vprime);
+                        vprime = new THREE.Vector3(round(vprime.x, 2), round(vprime.y, 2), round(vprime.z, 2));
+                        var tmp = {vprime: vprime, node: node1};
+                        vprime_pairs_stage2.enqueue(tmp);
+                        console.log("stage 1: enqueued");
+                    }
+                } // end of if
+            } // end of for loop, iterating through nodes
+        } // stage 1
 
-                if(vprime.length() > 0) {
-                    line_mat = new THREE.LineBasicMaterial({color: 0x00ff00});
-                    vprime.normalize();
-                    vprime.multiplyScalar(D);
-                    vprime = node1.clone().add(vprime);
-                    vprime = new THREE.Vector3(round(vprime.x, 2), round(vprime.y, 2), round(vprime.z, 2));
-                    addLine(node1, vprime, line_mat);
-                    var edge = {s0: node1, s1: vprime};
-                    edge_q.enqueue(edge);
+        if(stage == 2) {
+            while(!vprime_pairs_stage2.isEmpty()) {
+                var entry = vprime_pairs_stage2.dequeue();
+                var vprime = entry.vprime;
+                var node = entry.node;
 
-                    material = new THREE.MeshBasicMaterial( {color: 0x00ff00} );
-                    geometry = new THREE.SphereGeometry( 0.15, 15, 15 );
-                    mesh = new THREE.Mesh(geometry, material)
-                    scene.add (mesh);
-                    mesh.position.set(vprime.x, vprime.y, vprime.z);
+                line_mat = new THREE.LineBasicMaterial({color: 0x00ff00});
+                addLine(node, vprime, line_mat);
 
-                }
+                var edge = {s0: node, s1: vprime};
+                edge_q.enqueue(edge);
+
+                material = new THREE.MeshBasicMaterial( {color: 0x00ff00} );
+                geometry = new THREE.SphereGeometry( 0.15, 15, 15 );
+                mesh = new THREE.Mesh(geometry, material)
+                scene.add (mesh);
+                mesh.position.set(vprime.x, vprime.y, vprime.z);
+
+                console.log("drew new stem: " + stage);
+                console.log("vprime: (" + vprime.x + "," + vprime.y + "," + vprime.z + ")");
+                printVec(vprime);
+
+                vprime_stage3.enqueue(vprime);
+            }
+        }
+
+        else if(stage == 3) {
+            var hit = false;
+            while(!vprime_stage3.isEmpty()) {
+                var vprime = vprime_stage3.dequeue();
+
+                console.log("post-cull: " + stage);
+                console.log("vprime: (" + vprime.x + "," + vprime.y + "," + vprime.z + ")");
 
                 line_mat = new THREE.LineBasicMaterial({color: 0xffff00});
                 var culled = a_points.filter(point => point.pos.distanceTo(vprime) < dk);
                 for(var i = 0; i < culled.length; i++) {
-                    addLine(vprime, culled[i].pos, line_mat);
+                    addLineRem(vprime, culled[i].pos, line_mat);
                 }
                 a_points = a_points.filter(point => point.pos.distanceTo(vprime) >= dk);
                 console.log(culled.length + " + " + a_points.length);
-                var hit = false;
+
                 for(var i = 0; i < a_points.length; i++) {
                     scene.add (a_points[i].mesh);
                     removable_items.push(a_points[i].mesh);
@@ -193,8 +254,13 @@ function animate() {
                         hit = true;
                     }
                 }
-                if(hit == false || a_points.length == 0) { done = true };
             }
+            if(hit == false || a_points.length == 0) {
+                console.log("done");
+                done = true;
+                clean();
+                scene.remove(sphere);
+            };
         }
 
         while(!edge_q.isEmpty()) {
@@ -202,9 +268,7 @@ function animate() {
             g.addVertex(edge.s1);
             g.addEdge(edge.s0, edge.s1);
         }
-        count++;
-        //done = true;
-    }
+    } //end of main
 
 	renderer.render( scene, camera );
 }
