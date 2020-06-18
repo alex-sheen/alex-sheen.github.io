@@ -13,9 +13,10 @@ var edge_q = new Queue();
 var a_points = [];
 var removable_points = [];
 var removable_lines = [];
+var removable_skeleton = [];
 
-var num_points = 1000;
-var radius = 10;
+var num_points = 2000;
+var radius = 20;
 var di = 7;
 var dk = 5.5;
 var D = 2.0;
@@ -128,6 +129,18 @@ function addLine(s0, s1, line_mat) {
     var line = new THREE.Line( line_geo, line_mat );
     scene.add(line);
 }
+
+function addBranch(s0, s1, r) {
+    geometry = new THREE.CylinderGeometry( r, r, D, 20 );
+    geometry.translate( 0, D/2, 0 );
+    material = new THREE.MeshBasicMaterial( {color: 0x664d00} );
+    mesh = new THREE.Mesh( geometry, material );
+    scene.add( mesh );
+    mesh.position.set(s0.x,s0.y,s0.z);
+    var axis = new THREE.Vector3(0, 1, 0);
+    mesh.quaternion.setFromUnitVectors(axis, s1.clone().sub(s0).clone().normalize());
+}
+
 function build_tree() {
     //adding base stem
     var s0 = new THREE.Vector3(0,0,0);
@@ -167,6 +180,16 @@ function clean_points() {
       }
 }
 
+function clean_skeleton() {
+      if( removable_skeleton.length > 0 ) {
+        removable_skeleton.forEach(function(v,i) {
+            scene.remove(v);
+        });
+        removable_skeleton = null;
+        removable_skeleton = [];
+      }
+}
+
 function reverse_graph() {
     console.log("reverse graph");
     var visited = [];
@@ -179,13 +202,29 @@ function reverse_graph() {
             g_r.addEdge(adjs[i],node);
         }
     }
+}
 
-    for(const [node, adjs] of g_r.AdjList.entries()) {
-        for(var i = 0; i < adjs.length; i++) {
-            var line_mat = new THREE.LineBasicMaterial({color: 0x0000ff});
-            addLine(new THREE.Vector3(node.x + 25, node.y, node.z), new THREE.Vector3(adjs[i].x + 25, adjs[i].y, adjs[i].z), line_mat);
+function generate_trunk(node) {
+    clean_skeleton();
+    console.log("generate(" + node.x + "," + node.y + "," + node.z + ")");
+    var ret = 0;
+    var are_adjs = false;
+    for(const [key, adjs] of g.AdjList.entries()) {
+        if(key.x == node.x && key.y == node.y && key.z == key.z) {
+            for(var i = 0; i < adjs.length; i++) {
+                var next_ret = generate_trunk(adjs[i]);
+                ret += (next_ret*next_ret);
+                addBranch(node, adjs[i], Math.sqrt(next_ret));
+                are_adjs = true;
+            }
         }
     }
+
+    if(are_adjs == false) {
+        ret = 0.001;
+    }
+    ret = Math.sqrt(ret);
+    return ret;
 }
 
 var stage = 0;
@@ -241,7 +280,13 @@ function stage_2() {
         var node = entry.node;
 
         var line_mat = new THREE.LineBasicMaterial({color: 0x00ff00});
-        addLine(node, vprime, line_mat);
+        var points = [];
+        points.push(node);
+        points.push(vprime);
+        var line_geo = new THREE.BufferGeometry().setFromPoints( points );
+        var line = new THREE.Line( line_geo, line_mat );
+        scene.add(line);
+        removable_skeleton.push(line);
 
         var edge = {s0: node, s1: vprime};
         edge_q.enqueue(edge);
@@ -250,6 +295,8 @@ function stage_2() {
         geometry = new THREE.SphereGeometry( 0.15, 15, 15 );
         mesh = new THREE.Mesh(geometry, material)
         scene.add (mesh);
+        removable_skeleton.push(mesh);
+
         mesh.position.set(vprime.x, vprime.y, vprime.z);
 
         vprime_stage3.enqueue(vprime);
@@ -293,6 +340,7 @@ function stage_3() {
 function stage_5() {
     done = true;
     reverse_graph();
+    generate_trunk(new THREE.Vector3(0,0,0));
 }
 
 function animate() {

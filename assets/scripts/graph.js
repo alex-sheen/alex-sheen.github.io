@@ -23,6 +23,11 @@ export class Graph {
         // vertex w denoting edge between v and w
         this.AdjList.get(v).push(w);
     }
+
+    getAdjList(v)
+    {
+        return this.AdjList.get(v);
+    }
     // Prints the vertex and adjacency list
     printGraph()
     {
