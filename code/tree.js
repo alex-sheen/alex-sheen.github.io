@@ -9,7 +9,10 @@ var geometry, material, mesh, sphere;
 var g = new Graph(0);
 var g_r = new Graph(0);
 
+var vprime_pairs_stage2 = new Queue();
+var vprime_stage3 = new Queue();
 var edge_q = new Queue();
+var visited = [];
 var a_points = [];
 var removable_points = [];
 var removable_lines = [];
@@ -19,11 +22,31 @@ var num_points = 2000;
 var radius = 20;
 var di = 7;
 var dk = 5.5;
-var D = 2.0;
+var D = 2;
+var initial_radius = 0.001;
+var verbose = true;
 
-var speed = 5;
+var speed = 1;//5;
+var count = 0;
 
-var done = false;
+const g_phases = {
+    CLEAN: 'clean',
+    ASSOCIATION: 'association',
+    STEM: 'stem',
+    KILL: 'kill'
+}
+
+var growth = g_phases.ASSOCIATION;
+
+const phases = {
+    GROWTH: 'growth',
+    TRUNK: 'trunk',
+    LEAVES: 'leaves',
+    DONE: 'done'
+}
+
+var phase = phases.GROWTH;
+var twigs_todo = true;
 
 init();
 build_tree();
@@ -33,11 +56,17 @@ function getRand(min, max) {
   return Math.floor(Math.random() * (max - min) ) + min;
 }
 
+function onWindowResize() {
+	camera.aspect = window.innerWidth / window.innerHeight;
+	camera.updateProjectionMatrix();
+
+	renderer.setSize( window.innerWidth, window.innerHeight );
+}
+
 function init() {
     scene = new THREE.Scene();
     scene.background = new THREE.Color( 0xBABABA );
     camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 1, 1000 );
-
 
     renderer = new THREE.WebGLRenderer();
     renderer.setSize( window.innerWidth, window.innerHeight );
@@ -55,21 +84,20 @@ function init() {
 	scene.add( new THREE.AmbientLight( 0x222222 ) );
 
 	// light
-
 	var light = new THREE.PointLight( 0xffffff, 1 );
 	camera.add( light );
 
 	// helper
-
 	//scene.add( new THREE.AxesHelper( 20 ) );
 
     camera.position.z = 5;
 	window.addEventListener( 'resize', onWindowResize, false );
 
     set_initial_geometry();
+    set_materials();
 }
 
-function set_initial_geometry() {
+function set_space() {
     geometry = new THREE.SphereGeometry( radius, 32, 32 );
     material = new THREE.MeshBasicMaterial( {color: 0x5555F2, opacity: 0.5, transparent: true} );
     sphere = new THREE.Mesh(geometry, material);
@@ -91,54 +119,61 @@ function set_initial_geometry() {
         point.mesh.position.set(point.pos.x, point.pos.y, point.pos.z);
     }
 }
+var leaf_geo;
+function set_initial_geometry() {
+    set_space();
 
-function onWindowResize() {
+    leaf_geo = new THREE.Geometry();
+    leaf_geo.vertices.push( new THREE.Vector3( -0.5, 0, 0 ) );
+    leaf_geo.vertices.push( new THREE.Vector3(  0.5, 0, 0 ) );
+    leaf_geo.vertices.push( new THREE.Vector3(  0, 1, 0 ) );
 
-	camera.aspect = window.innerWidth / window.innerHeight;
-	camera.updateProjectionMatrix();
+    var leaf_face = new THREE.Face3( 0, 1, 2);
+    leaf_geo.faces.push( leaf_face );
 
-	renderer.setSize( window.innerWidth, window.innerHeight );
-
+    //the face normals and vertex normals can be calculated automatically if not supplied above
+    leaf_geo.computeFaceNormals();
+    leaf_geo.computeVertexNormals();
 }
 
-document.addEventListener('keyup', event => {
-  if (event.code === 'Space') {
-      stage++;
-      if(stage == 4) {
-          stage = 0;
-      }
-      todo = true;
-  }
-})
+var association_mat, branch_mat, kill_mat, leaf_mat, stem_mat;
+function set_materials() {
+    branch_mat = new THREE.MeshBasicMaterial( {color: 0x664d00} );
+    leaf_mat = new THREE.MeshStandardMaterial( { color : 0x00cc00 } );
+    leaf_mat.side = THREE.DoubleSide;
 
-function addLineRem(s0, s1, line_mat) {
+    association_mat = new THREE.LineBasicMaterial({color: 0x0000ff});
+    stem_mat = new THREE.LineBasicMaterial({color: 0x00ff00});
+    kill_mat = new THREE.LineBasicMaterial({color: 0xffff00});
+}
+
+function addLine(s0, s1, line_mat, removable) {
     var points = [];
     points.push(s0);
     points.push(s1);
     var line_geo = new THREE.BufferGeometry().setFromPoints( points );
     var line = new THREE.Line( line_geo, line_mat );
     scene.add(line);
-    removable_lines.push(line);
+    if(removable) {
+        removable_lines.push(line);
+    }
 }
 
-function addLine(s0, s1, line_mat) {
-    var points = [];
-    points.push(s0);
-    points.push(s1);
-    var line_geo = new THREE.BufferGeometry().setFromPoints( points );
-    var line = new THREE.Line( line_geo, line_mat );
-    scene.add(line);
-}
-
+var axis = new THREE.Vector3(0, 1, 0);
 function addBranch(s0, s1, r) {
     geometry = new THREE.CylinderGeometry( r, r, D, 20 );
     geometry.translate( 0, D/2, 0 );
-    material = new THREE.MeshBasicMaterial( {color: 0x664d00} );
-    mesh = new THREE.Mesh( geometry, material );
+    mesh = new THREE.Mesh( geometry, branch_mat );
     scene.add( mesh );
     mesh.position.set(s0.x,s0.y,s0.z);
-    var axis = new THREE.Vector3(0, 1, 0);
     mesh.quaternion.setFromUnitVectors(axis, s1.clone().sub(s0).clone().normalize());
+}
+
+function addLeaf(s0, vector) {
+    mesh = new THREE.Mesh( leaf_geo, leaf_mat );
+    scene.add(mesh);
+    mesh.position.set(s0.x,s0.y,s0.z);
+    mesh.quaternion.setFromUnitVectors(axis, vector.clone().normalize());
 }
 
 function build_tree() {
@@ -149,7 +184,7 @@ function build_tree() {
     g.addVertex(s1);
     g.addEdge(s0, s1);
     var line_mat = new THREE.LineBasicMaterial({color: 0x101010});
-    addLine(s0, s1, line_mat);
+    addLine(s0, s1, line_mat, true);
 }
 
 function printVec(v) {
@@ -190,70 +225,68 @@ function clean_skeleton() {
       }
 }
 
-function reverse_graph() {
-    console.log("reverse graph");
-    var visited = [];
-    for(const [node, adjs] of g.AdjList.entries()) {
-        for(var i = 0; i < adjs.length; i++) {
-            if(visited.includes(adjs[i]) == false) {
-                g_r.addVertex(adjs[i]);//g_r.AdjList.set(adjs[i], []);
-                visited.push(adjs[i]);
-            }
-            g_r.addEdge(adjs[i],node);
-        }
-    }
-}
-
 function generate_trunk(node) {
     clean_skeleton();
-    console.log("generate(" + node.x + "," + node.y + "," + node.z + ")");
     var ret = 0;
     var are_adjs = false;
     for(const [key, adjs] of g.AdjList.entries()) {
-        if(key.x == node.x && key.y == node.y && key.z == key.z) {
+        if(key.x == node.x && key.y == node.y && key.z == node.z) {
             for(var i = 0; i < adjs.length; i++) {
                 var next_ret = generate_trunk(adjs[i]);
                 ret += (next_ret*next_ret);
-                addBranch(node, adjs[i], Math.sqrt(next_ret));
+                if(!visited.includes(adjs[i])) {
+                    visited.push(adjs[i]);
+                    addBranch(node, adjs[i], Math.sqrt(next_ret));
+                }
                 are_adjs = true;
             }
         }
     }
 
     if(are_adjs == false) {
-        ret = 0.001;
+        ret = initial_radius;
     }
     ret = Math.sqrt(ret);
     return ret;
 }
 
-var stage = 0;
-var count = 0;
-var todo = false;
+function generate_leaves(node, vector) {
+    var ret = 0;
+    var are_adjs = false;
+    for(const [key, adjs] of g.AdjList.entries()) {
+        if(key.x == node.x && key.y == node.y && key.z == key.z) {
+            for(var i = 0; i < adjs.length; i++) {
+                generate_leaves(adjs[i], adjs[i].clone().sub(node));
+            }
 
-var vprime_pairs_stage2 = new Queue();
-var vprime_stage3 = new Queue();
+            if(adjs.length == 0) {
+                addLeaf(key, vector);
+            }
+        }
+    }
+}
 
-// stage 0 | clean
-function stage_0() {
-    clean_lines();
-    clean_points();
+
+
+// stage clean
+function stage_clean() {
+    clean_lines(); clean_points();
     for(var i = 0; i < a_points.length; i++) {
         scene.add (a_points[i].mesh);
         removable_points.push(a_points[i].mesh);
     }
 }
 
-// stage 1 | association point lines
-function stage_1() {
+// stage association | association point lines
+function stage_association() {
     for(const [node1, adjs] of g.AdjList.entries()) {
         if(!(node1.x == 0 && node1.y == 0 && node1.z == 0)) {
             var vprime = new THREE.Vector3(0,0,0);
-            var line_mat = new THREE.LineBasicMaterial({color: 0x0000ff});
             for(var i = 0; i < a_points.length; i++) {
                 if(a_points[i].pos.distanceTo(node1) < di) {
-
-                    addLineRem(node1, a_points[i].pos, line_mat);
+                    if(verbose == true) {
+                        addLine(node1, a_points[i].pos, association_mat, true);
+                    }
 
                     var sv = a_points[i].pos.clone().sub(node1);
                     sv.normalize();
@@ -272,28 +305,27 @@ function stage_1() {
     } // end of for loop, iterating through nodes
 }
 
-// stage 2 | stem generation
-function stage_2() {
+// stage stem | stem generation
+function stage_stem() {
+    //console.log("stage 2 | stem generation");
     while(!vprime_pairs_stage2.isEmpty()) {
         var entry = vprime_pairs_stage2.dequeue();
         var vprime = entry.vprime;
         var node = entry.node;
 
-        var line_mat = new THREE.LineBasicMaterial({color: 0x00ff00});
         var points = [];
         points.push(node);
         points.push(vprime);
         var line_geo = new THREE.BufferGeometry().setFromPoints( points );
-        var line = new THREE.Line( line_geo, line_mat );
+        var line = new THREE.Line( line_geo, stem_mat, true);
         scene.add(line);
         removable_skeleton.push(line);
 
         var edge = {s0: node, s1: vprime};
         edge_q.enqueue(edge);
 
-        material = new THREE.MeshBasicMaterial( {color: 0x00ff00} );
         geometry = new THREE.SphereGeometry( 0.15, 15, 15 );
-        mesh = new THREE.Mesh(geometry, material)
+        mesh = new THREE.Mesh(geometry, stem_mat)
         scene.add (mesh);
         removable_skeleton.push(mesh);
 
@@ -303,93 +335,117 @@ function stage_2() {
     }
 }
 
-// stage 3 | kill lines
-function stage_3() {
+// stage kill | kill lines
+function stage_kill() {
     clean_lines();
     var hit = false;
     while(!vprime_stage3.isEmpty()) {
         var vprime = vprime_stage3.dequeue();
 
-        var line_mat = new THREE.LineBasicMaterial({color: 0xffff00});
         var culled = a_points.filter(point => point.pos.distanceTo(vprime) < dk);
-        for(var i = 0; i < culled.length; i++) {
-            addLineRem(vprime, culled[i].pos, line_mat);
-        }
+
         a_points = a_points.filter(point => point.pos.distanceTo(vprime) >= dk);
 
-        for(var i = 0; i < a_points.length; i++) {
-            scene.add (a_points[i].mesh);
-            removable_points.push(a_points[i].mesh);
-            if(a_points[i].pos.distanceTo(vprime) < di)
-            {
-                hit = true;
+        if(verbose == true) {
+            for(var i = 0; i < culled.length; i++) {
+                addLine(vprime, culled[i].pos, kill_mat, true);
+            }
+
+            for(var i = 0; i < a_points.length; i++) {
+                scene.add (a_points[i].mesh);
+                removable_points.push(a_points[i].mesh);
+                if(a_points[i].pos.distanceTo(vprime) < di)
+                {
+                    hit = true;
+                }
             }
         }
     }
     if(hit == false || a_points.length == 0) {
-        console.log("stage 5 set");
-        todo = true;
-        stage = 5;
-        clean_points();
-        clean_lines();
-        scene.remove(sphere);
+        return true;
     }
+    else { return false; }
 }
 
-// stage 5 | trunk generation
-function stage_5() {
-    done = true;
-    reverse_graph();
+// stage trunk | trunk generation
+function stage_trunk() {
     generate_trunk(new THREE.Vector3(0,0,0));
+}
+
+// stage leaves | leaf generation
+function stage_leaves() {
+    generate_leaves(new THREE.Vector3(0,0,0));
 }
 
 function animate() {
 	requestAnimationFrame( animate );
     controls.update();
-
-    if(done == false) { count++; }
-
-    if(count >= speed) {
-        stage++;
-        count = 0;
-        todo = true;
+    count++;
+if(count >= speed) {
+    count = 0;
+    switch(phase){
+        case phases.GROWTH:
+            switch(growth){
+                case g_phases.CLEAN:
+                    stage_clean();
+                    growth = g_phases.ASSOCIATION;
+                    break;
+                case g_phases.ASSOCIATION:
+                    stage_association();
+                    growth = g_phases.STEM;
+                    break;
+                case g_phases.STEM:
+                    stage_stem();
+                    growth = g_phases.KILL;
+                    while(!edge_q.isEmpty()) {
+                        var edge = edge_q.dequeue();
+                        g.addVertex(edge.s1);
+                        g.addEdge(edge.s0, edge.s1);
+                    }
+                    break;
+                case g_phases.KILL:
+                    growth = g_phases.CLEAN;
+                    if(stage_kill()) {
+                        clean_points();
+                        clean_lines();
+                        scene.remove(sphere);
+                        phase = phases.TRUNK;
+                    }
+                    break;
+            }
+            break; // end of GROWTH
+        case phases.TRUNK:
+            stage_trunk();
+            phase = phases.LEAVES;
+            break; // end of TRUNK
+        case phases.LEAVES:
+            if(twigs_todo) {
+                set_space();
+                num_points = 2000;
+                initial_radius = 0.0001;
+                di = di/2;
+                dk = dk/2;
+                D = D/4;
+                phase = phases.GROWTH;
+                twigs_todo = false;
+            }
+            else {
+                stage_leaves();
+                phase = phases.DONE;
+            }
+            break; // end of LEAVES
     }
-    if(stage == 4) { stage = 0; }
-
-    if(done == false && todo == true) {
-        todo = false;
-
-        // stage 0 | clean
-        if(stage == 0) {
-            stage_0();
-        }
-
-        // stage 1 | association point lines
-        else if(stage == 1) {
-           stage_1();
-        }
-
-        // stage 2 | stem generation
-        else if(stage == 2) {
-            stage_2();
-        }
-
-        // stage 3 | kill lines
-        else if(stage == 3) {
-            stage_3();
-        }
-
-        // stage 5 | trunk generation
-        else if(stage == 5) {
-            stage_5();
-        }
-
-        while(!edge_q.isEmpty()) {
-            var edge = edge_q.dequeue();
-            g.addVertex(edge.s1);
-            g.addEdge(edge.s0, edge.s1);
-        }
-    } //end of main
+}
 
 	renderer.render( scene, camera );
 }
+
+document.addEventListener('keyup', event => {
+  if (event.code === 'Space') {
+      stage++;
+      if(stage == 4) {
+          stage = 0;
+      }
+      todo = true;
+  }
+})
