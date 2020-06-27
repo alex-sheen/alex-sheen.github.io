@@ -6,27 +6,29 @@ import {Graph} from '../assets/scripts/graph.js';
 var camera, scene, renderer, controls;
 var geometry, material, mesh, sphere;
 
-var g = new Graph(0);
-var g_r = new Graph(0);
+var g_tmp = new Graph(0);
+var g_main = new Graph(0);
 
 var vprime_pairs_stage2 = new Queue();
 var vprime_stage3 = new Queue();
 var edge_q = new Queue();
+var branch_q = [];
 var visited = [];
 var a_points = [];
 var removable_points = [];
 var removable_lines = [];
 var removable_skeleton = [];
+var removable_envelope = [];
+var removable_tree = [];
 
-var num_points = 2000;
-var radius = 20;
 var di = 7;
 var dk = 5.5;
 var D = 2;
-var initial_radius = 0.001;
+var initial_radius = 0.0005;
 var verbose = true;
+var increase_radius = true;
 
-var speed = 1;//5;
+var speed = 2;//5;
 var count = 0;
 
 const g_phases = {
@@ -42,14 +44,16 @@ const phases = {
     GROWTH: 'growth',
     TRUNK: 'trunk',
     LEAVES: 'leaves',
-    DONE: 'done'
+    DONE: 'done',
+    DISPLAY: 'display'
 }
 
 var phase = phases.GROWTH;
 var twigs_todo = true;
 
 init();
-build_tree();
+init_tree();
+speed = 4;
 animate();
 
 function getRand(min, max) {
@@ -76,8 +80,8 @@ function init() {
 	controls = new OrbitControls( camera, renderer.domElement );
 	controls.minDistance = 10;
 	controls.maxDistance = 70;
-    controls.target.set(0, radius, 0);
-    camera.position.set( 50, 14, 50 );
+    controls.target.set(0, 20, 0);
+    camera.position.set( 80, 14, 80 );
     controls.update();
 	//controls.maxPolarAngle = Math.PI / 2;
 
@@ -88,30 +92,29 @@ function init() {
 	camera.add( light );
 
 	// helper
-	//scene.add( new THREE.AxesHelper( 20 ) );
+	scene.add( new THREE.AxesHelper( 20 ) );
 
     camera.position.z = 5;
 	window.addEventListener( 'resize', onWindowResize, false );
-
-    set_initial_geometry();
     set_materials();
 }
 
-function set_space() {
+function set_sphere(radius, x_offset, y_offset, z_offset, num_points) {
     geometry = new THREE.SphereGeometry( radius, 32, 32 );
     material = new THREE.MeshBasicMaterial( {color: 0x5555F2, opacity: 0.5, transparent: true} );
     sphere = new THREE.Mesh(geometry, material);
     scene.add(sphere);
-    sphere.position.set(0,radius,0);
+    sphere.position.set(x_offset, radius + y_offset, z_offset);
+    removable_envelope.push(sphere);
 
     geometry = new THREE.SphereGeometry( 0.3, 15, 15 );
     material = new THREE.MeshBasicMaterial( {color: 0x00ffff} );
     for (var i = 0; i < num_points; i++) {
-        var point = {pos: new THREE.Vector3(getRand(-radius,radius), getRand(-radius,radius) + radius, getRand(-radius,radius)),
+        var point = {pos: new THREE.Vector3(getRand(-radius,radius) + x_offset, getRand(-radius,radius) + y_offset + radius, getRand(-radius,radius) + z_offset),
                      mesh: new THREE.Mesh(geometry, material)};
-        while(point.pos.distanceTo(new THREE.Vector3(0,radius,0)) > radius-1)
+        while(point.pos.distanceTo(new THREE.Vector3(x_offset,radius + y_offset, z_offset)) > radius)
         {
-            point.pos = new THREE.Vector3(getRand(-radius,radius), getRand(-radius,radius) + radius, getRand(-radius,radius));
+            point.pos = new THREE.Vector3(getRand(-radius,radius) + x_offset, getRand(-radius,radius) + y_offset + radius, getRand(-radius,radius) + z_offset);
         }
         a_points.push(point);
         removable_points.push(point.mesh);
@@ -119,10 +122,29 @@ function set_space() {
         point.mesh.position.set(point.pos.x, point.pos.y, point.pos.z);
     }
 }
+
+function set_box(width, height, depth, x_offset, y_offset, z_offset, num_points) {
+    geometry = new THREE.BoxGeometry( width, height, depth );
+    material = new THREE.MeshBasicMaterial( {color: 0x5555F2, opacity: 0.5, transparent: true} );
+    mesh = new THREE.Mesh(geometry, material);
+    scene.add(mesh);
+    mesh.position.set(x_offset, y_offset, z_offset);
+    removable_envelope.push(mesh);
+
+    geometry = new THREE.SphereGeometry( 0.3, 15, 15 );
+    material = new THREE.MeshBasicMaterial( {color: 0x00ffff} );
+    for (var i = 0; i < num_points; i++) {
+        var point = {pos: new THREE.Vector3(getRand(-width/2,width/2) + x_offset, getRand(-height/2,height/2) + y_offset, getRand(-depth/2,depth/2) + z_offset),
+                     mesh: new THREE.Mesh(geometry, material)};
+        a_points.push(point);
+        removable_points.push(point.mesh);
+        scene.add (point.mesh);
+        point.mesh.position.set(point.pos.x, point.pos.y, point.pos.z);
+    }
+}
+
 var leaf_geo;
 function set_initial_geometry() {
-    set_space();
-
     leaf_geo = new THREE.Geometry();
     leaf_geo.vertices.push( new THREE.Vector3( -0.5, 0, 0 ) );
     leaf_geo.vertices.push( new THREE.Vector3(  0.5, 0, 0 ) );
@@ -143,7 +165,7 @@ function set_materials() {
     leaf_mat.side = THREE.DoubleSide;
 
     association_mat = new THREE.LineBasicMaterial({color: 0x0000ff});
-    stem_mat = new THREE.LineBasicMaterial({color: 0x00ff00});
+    stem_mat = new THREE.LineBasicMaterial({color: 0x0F0F0F});
     kill_mat = new THREE.LineBasicMaterial({color: 0xffff00});
 }
 
@@ -165,6 +187,7 @@ function addBranch(s0, s1, r) {
     geometry.translate( 0, D/2, 0 );
     mesh = new THREE.Mesh( geometry, branch_mat );
     scene.add( mesh );
+    removable_tree.push(mesh);
     mesh.position.set(s0.x,s0.y,s0.z);
     mesh.quaternion.setFromUnitVectors(axis, s1.clone().sub(s0).clone().normalize());
 }
@@ -176,15 +199,85 @@ function addLeaf(s0, vector) {
     mesh.quaternion.setFromUnitVectors(axis, vector.clone().normalize());
 }
 
-function build_tree() {
+function init_root() {
     //adding base stem
     var s0 = new THREE.Vector3(0,0,0);
     var s1 = new THREE.Vector3(0,0.5,0);
-    g.addVertex(s0);
-    g.addVertex(s1);
-    g.addEdge(s0, s1);
+    g_main.addVertex(s0);
+
+    g_tmp.addVertex(s0);
+    g_tmp.addVertex(s1);
+    g_tmp.addEdge(s0, s1);
     var line_mat = new THREE.LineBasicMaterial({color: 0x101010});
     addLine(s0, s1, line_mat, true);
+}
+
+
+function init_tree() {
+    clean_envelope();
+    clean_envelope();
+    clean_points();
+    clean_lines();
+    clean_tree();
+    g_main = new Graph(0);
+    g_tmp = new Graph(0);
+    vprime_pairs_stage2 = new Queue();
+    vprime_stage3 = new Queue();
+    edge_q = new Queue();
+    verbose = true;
+    increase_radius = false;
+
+    di = 7;
+    dk = 5.5;
+    D = 2;
+    initial_radius = 0.0005;
+    verbose = true;
+    increase_radius = true;
+
+    set_sphere(18, 0, 6, 0, 2000);
+    set_box(3, 7, 3, 0, 3.5, 0, 9);
+
+    init_root();
+    count = 0;
+    phase = phases.GROWTH;
+    speed = 1;//5;
+}
+function init_boxes() {
+    clean_envelope();
+    clean_envelope();
+    clean_points();
+    clean_lines();
+    clean_tree();
+    g_main = new Graph(0);
+    g_tmp = new Graph(0);
+    vprime_pairs_stage2 = new Queue();
+    vprime_stage3 = new Queue();
+    edge_q = new Queue();
+    verbose = true;
+    increase_radius = false;
+
+    di = 2;
+    dk = 1.5;
+    D = 1;
+
+    var box_num_points = 700;
+    set_box(40, 5, 5, 0, 0, 0, box_num_points);
+    set_box(40, 5, 5, 0, 0, 40, box_num_points);
+    set_box(5, 5, 40, 20, 0, 20, box_num_points);
+    set_box(5, 5, 40, -20, 0, 20, box_num_points);
+
+    set_box(40, 5, 5, 0, 40, 0, box_num_points);
+    set_box(40, 5, 5, 0, 40, 40, box_num_points);
+    set_box(5, 5, 40, 20, 40, 20, box_num_points);
+    set_box(5, 5, 40, -20, 40, 20, box_num_points);
+
+    set_box(5, 40, 5, 20, 20, 0, box_num_points);
+    set_box(5, 40, 5, -20, 20, 0, box_num_points);
+    set_box(5, 40, 5, 20, 20, 40, box_num_points);
+    set_box(5, 40, 5, -20, 20, 40, box_num_points);
+    init_root();
+    count = 0;
+    phase = phases.GROWTH;
 }
 
 function printVec(v) {
@@ -225,15 +318,49 @@ function clean_skeleton() {
       }
 }
 
-function generate_trunk(node) {
-    clean_skeleton();
-    var ret = 0;
+function clean_envelope() {
+      if( removable_envelope.length > 0 ) {
+        removable_envelope.forEach(function(v,i) {
+            scene.remove(v);
+        });
+        removable_envelope = null;
+        removable_envelope = [];
+      }
+}
+
+function clean_tree() {
+      if( removable_tree.length > 0 ) {
+        removable_tree.forEach(function(v,i) {
+            scene.remove(v);
+        });
+        removable_tree = null;
+        removable_tree = [];
+      }
+}
+
+function graph_to_stack(g, q, node) {
     var are_adjs = false;
     for(const [key, adjs] of g.AdjList.entries()) {
         if(key.x == node.x && key.y == node.y && key.z == node.z) {
             for(var i = 0; i < adjs.length; i++) {
+                graph_to_stack(g, q, adjs[i]);
+                var obj = {s0: key, s1: adjs[i]};
+                q.push(obj);
+            }
+        }
+    }
+}
+
+function generate_trunk(node) {
+    clean_skeleton();
+    var ret = 0;
+    var are_adjs = false;
+    for(const [key, adjs] of g_main.AdjList.entries()) {
+        if(key.x == node.x && key.y == node.y && key.z == node.z) {
+            for(var i = 0; i < adjs.length; i++) {
                 var next_ret = generate_trunk(adjs[i]);
-                ret += (next_ret*next_ret);
+                if(increase_radius) { ret += (next_ret*next_ret); }
+                else { ret = next_ret; }
                 if(!visited.includes(adjs[i])) {
                     visited.push(adjs[i]);
                     addBranch(node, adjs[i], Math.sqrt(next_ret));
@@ -246,14 +373,14 @@ function generate_trunk(node) {
     if(are_adjs == false) {
         ret = initial_radius;
     }
-    ret = Math.sqrt(ret);
+    if(increase_radius) { ret = Math.sqrt(ret); }
     return ret;
 }
 
 function generate_leaves(node, vector) {
     var ret = 0;
     var are_adjs = false;
-    for(const [key, adjs] of g.AdjList.entries()) {
+    for(const [key, adjs] of g_main.AdjList.entries()) {
         if(key.x == node.x && key.y == node.y && key.z == key.z) {
             for(var i = 0; i < adjs.length; i++) {
                 generate_leaves(adjs[i], adjs[i].clone().sub(node));
@@ -279,8 +406,8 @@ function stage_clean() {
 
 // stage association | association point lines
 function stage_association() {
-    for(const [node1, adjs] of g.AdjList.entries()) {
-        if(!(node1.x == 0 && node1.y == 0 && node1.z == 0)) {
+    for(const [node1, adjs] of g_tmp.AdjList.entries()) {
+        if(!(node1.x == 0 && node1.y == 0.5 && node1.z == 0)) {
             var vprime = new THREE.Vector3(0,0,0);
             for(var i = 0; i < a_points.length; i++) {
                 if(a_points[i].pos.distanceTo(node1) < di) {
@@ -301,12 +428,16 @@ function stage_association() {
                 var tmp = {vprime: vprime, node: node1};
                 vprime_pairs_stage2.enqueue(tmp);
             }
+            else {
+                g_tmp.delete(node1);
+            }
         } // end of if
     } // end of for loop, iterating through nodes
 }
 
 // stage stem | stem generation
 function stage_stem() {
+    clean_lines();
     //console.log("stage 2 | stem generation");
     while(!vprime_pairs_stage2.isEmpty()) {
         var entry = vprime_pairs_stage2.dequeue();
@@ -340,6 +471,7 @@ function stage_kill() {
     clean_lines();
     var hit = false;
     while(!vprime_stage3.isEmpty()) {
+
         var vprime = vprime_stage3.dequeue();
 
         var culled = a_points.filter(point => point.pos.distanceTo(vprime) < dk);
@@ -350,14 +482,13 @@ function stage_kill() {
             for(var i = 0; i < culled.length; i++) {
                 addLine(vprime, culled[i].pos, kill_mat, true);
             }
-
-            for(var i = 0; i < a_points.length; i++) {
-                scene.add (a_points[i].mesh);
-                removable_points.push(a_points[i].mesh);
-                if(a_points[i].pos.distanceTo(vprime) < di)
-                {
-                    hit = true;
-                }
+        }
+        for(var i = 0; i < a_points.length; i++) {
+            scene.add (a_points[i].mesh);
+            removable_points.push(a_points[i].mesh);
+            if(a_points[i].pos.distanceTo(vprime) < di)
+            {
+                hit = true;
             }
         }
     }
@@ -377,10 +508,42 @@ function stage_leaves() {
     generate_leaves(new THREE.Vector3(0,0,0));
 }
 
+var branch_count = 0;
 function animate() {
 	requestAnimationFrame( animate );
     controls.update();
     count++;
+
+// if(verbose == false && phase == phases.GROWTH) {
+//     var tmp_while = false;
+//     while(tmp_while == false) {
+//         stage_clean();
+//         stage_association();
+//         stage_stem();
+//         while(!edge_q.isEmpty()) {
+//             var edge = edge_q.dequeue();
+//             g_main.addVertex(edge.s1);
+//             g_main.addEdge(edge.s0, edge.s1);
+//             g_tmp.addVertex(edge.s1);
+//             g_tmp.addEdge(edge.s0, edge.s1);
+//         }
+//         tmp_while = stage_kill();
+//     }
+//     clean_points();
+//     clean_lines();
+//     clean_envelope();
+//     graph_to_stack(g_main, branch_q, new THREE.Vector3(0,0,0));
+//     phase = phases.DONE;
+// }
+// if(phase = phases.DISPLAY) {
+//     if(branch_q.length > 0) {
+//         var tmp = branch_q.pop();
+//         addBranch(tmp.s0, tmp.s1, 1);
+//     }
+//     else {
+//         phase = phases.DONE;
+//     }
+// }
 if(count >= speed) {
     count = 0;
     switch(phase){
@@ -399,8 +562,10 @@ if(count >= speed) {
                     growth = g_phases.KILL;
                     while(!edge_q.isEmpty()) {
                         var edge = edge_q.dequeue();
-                        g.addVertex(edge.s1);
-                        g.addEdge(edge.s0, edge.s1);
+                        g_main.addVertex(edge.s1);
+                        g_main.addEdge(edge.s0, edge.s1);
+                        g_tmp.addVertex(edge.s1);
+                        g_tmp.addEdge(edge.s0, edge.s1);
                     }
                     break;
                 case g_phases.KILL:
@@ -408,7 +573,6 @@ if(count >= speed) {
                     if(stage_kill()) {
                         clean_points();
                         clean_lines();
-                        scene.remove(sphere);
                         phase = phases.TRUNK;
                     }
                     break;
@@ -419,20 +583,8 @@ if(count >= speed) {
             phase = phases.LEAVES;
             break; // end of TRUNK
         case phases.LEAVES:
-            if(twigs_todo) {
-                set_space();
-                num_points = 2000;
-                initial_radius = 0.0001;
-                di = di/2;
-                dk = dk/2;
-                D = D/4;
-                phase = phases.GROWTH;
-                twigs_todo = false;
-            }
-            else {
-                stage_leaves();
-                phase = phases.DONE;
-            }
+            phase = phases.DONE;
+            clean_envelope();
             break; // end of LEAVES
     }
 }
@@ -441,11 +593,7 @@ if(count >= speed) {
 }
 
 document.addEventListener('keyup', event => {
-  if (event.code === 'Space') {
-      stage++;
-      if(stage == 4) {
-          stage = 0;
-      }
-      todo = true;
+  if (event.code === 'Space' && phase == phases.DONE) {
+      init_tree();
   }
 })

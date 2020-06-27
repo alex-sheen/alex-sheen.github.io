@@ -28,6 +28,11 @@ export class Graph {
     {
         return this.AdjList.get(v);
     }
+
+    delete(v)
+    {
+        this.AdjList.delete(v);
+    }
     // Prints the vertex and adjacency list
     printGraph()
     {
