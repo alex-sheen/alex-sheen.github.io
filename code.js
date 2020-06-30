@@ -15,5 +15,5 @@ function shell() {
 }
 
 function tree() {
-    window.location.href = "code/tree.html";
+    window.location.href = "code/tree/tree.html";
 }

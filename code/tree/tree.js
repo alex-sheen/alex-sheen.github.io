@@ -1,13 +1,15 @@
-import * as THREE from '../assets/scripts/three.js-master/build/three.module.js';
-import { OrbitControls } from '../assets/scripts/three.js-master/examples/jsm/controls/OrbitControls.js';
-import {Queue} from '../assets/scripts/Queue.js';
-import {Graph} from '../assets/scripts/graph.js';
+import * as THREE from '../../assets/scripts/three.js-master/build/three.module.js';
+import { OrbitControls } from '../../assets/scripts/three.js-master/examples/jsm/controls/OrbitControls.js';
+import {Queue} from '../../assets/scripts/Queue.js';
+import {Graph} from '../../assets/scripts/graph.js';
+import * as Constants from './tree_consts.js';
+import * as Helpers from './tree_helpers.js';
 
 var camera, scene, renderer, controls;
-var geometry, material, mesh, sphere;
+var geometry, material, mesh, sphere, box;
 
 var g_tmp = new Graph(0);
-var g_main = new Graph(0);
+var g_main = new Graph(0); //graphs
 
 var vprime_pairs_stage2 = new Queue();
 var vprime_stage3 = new Queue();
@@ -28,37 +30,27 @@ var initial_radius = 0.0005;
 var verbose = true;
 var increase_radius = true;
 
-var speed = 2;//5;
+var speed = 1;//5;
 var count = 0;
 
-const g_phases = {
-    CLEAN: 'clean',
-    ASSOCIATION: 'association',
-    STEM: 'stem',
-    KILL: 'kill'
-}
+var x_coord = 0;
+var y_coord = 0;
+var z_coord = 0;
+var radius_val = 18;
+var width_val = 2;
+var height_val = 2;
+var depth_val = 2;
 
-var growth = g_phases.ASSOCIATION;
-
-const phases = {
-    GROWTH: 'growth',
-    TRUNK: 'trunk',
-    LEAVES: 'leaves',
-    DONE: 'done',
-    DISPLAY: 'display'
-}
-
-var phase = phases.GROWTH;
+var editing = Constants.editing_t.NONE;
+var growth = Constants.g_phases.ASSOCIATION;
+var phase = Constants.phases.GROWTH;
 var twigs_todo = true;
 
 init();
-init_tree();
-speed = 4;
+//init_tree();
+phase = Constants.phases.DONE;
+speed = 1;
 animate();
-
-function getRand(min, max) {
-  return Math.floor(Math.random() * (max - min) ) + min;
-}
 
 function onWindowResize() {
 	camera.aspect = window.innerWidth / window.innerHeight;
@@ -97,24 +89,31 @@ function init() {
     camera.position.z = 5;
 	window.addEventListener( 'resize', onWindowResize, false );
     set_materials();
+
+    document.getElementById("tree_geometry").style.opacity = "0";
+    document.getElementById("tree_render").style.opacity = "0";
+    document.getElementById("tree_edit").style.opacity = "0";
 }
 
-function set_sphere(radius, x_offset, y_offset, z_offset, num_points) {
+function set_sphere(radius, x_offset, y_offset, z_offset) {
+    scene.remove(sphere);
     geometry = new THREE.SphereGeometry( radius, 32, 32 );
     material = new THREE.MeshBasicMaterial( {color: 0x5555F2, opacity: 0.5, transparent: true} );
     sphere = new THREE.Mesh(geometry, material);
     scene.add(sphere);
     sphere.position.set(x_offset, radius + y_offset, z_offset);
     removable_envelope.push(sphere);
+}
 
+function render_sphere(radius, x_offset, y_offset, z_offset, num_points) {
     geometry = new THREE.SphereGeometry( 0.3, 15, 15 );
     material = new THREE.MeshBasicMaterial( {color: 0x00ffff} );
     for (var i = 0; i < num_points; i++) {
-        var point = {pos: new THREE.Vector3(getRand(-radius,radius) + x_offset, getRand(-radius,radius) + y_offset + radius, getRand(-radius,radius) + z_offset),
+        var point = {pos: new THREE.Vector3(Helpers.getRand(-radius,radius) + x_offset, Helpers.getRand(-radius,radius) + y_offset + radius, Helpers.getRand(-radius,radius) + z_offset),
                      mesh: new THREE.Mesh(geometry, material)};
         while(point.pos.distanceTo(new THREE.Vector3(x_offset,radius + y_offset, z_offset)) > radius)
         {
-            point.pos = new THREE.Vector3(getRand(-radius,radius) + x_offset, getRand(-radius,radius) + y_offset + radius, getRand(-radius,radius) + z_offset);
+            point.pos = new THREE.Vector3(Helpers.getRand(-radius,radius) + x_offset, Helpers.getRand(-radius,radius) + y_offset + radius, Helpers.getRand(-radius,radius) + z_offset);
         }
         a_points.push(point);
         removable_points.push(point.mesh);
@@ -123,18 +122,23 @@ function set_sphere(radius, x_offset, y_offset, z_offset, num_points) {
     }
 }
 
-function set_box(width, height, depth, x_offset, y_offset, z_offset, num_points) {
+function set_box(width, height, depth, x_offset, y_offset, z_offset) {
+    scene.remove(box);
     geometry = new THREE.BoxGeometry( width, height, depth );
     material = new THREE.MeshBasicMaterial( {color: 0x5555F2, opacity: 0.5, transparent: true} );
-    mesh = new THREE.Mesh(geometry, material);
-    scene.add(mesh);
-    mesh.position.set(x_offset, y_offset, z_offset);
-    removable_envelope.push(mesh);
+    box = new THREE.Mesh(geometry, material);
+    scene.add(box);
+    box.position.set(x_offset, y_offset, z_offset);
+    removable_envelope.push(box);
+}
 
+function render_box(width, height, depth, x_offset, y_offset, z_offset, num_points) {
+    console.log("dimensions: (" + width + "," + height + "," + depth + ")");
+    console.log("position: (" + x_offset + "," + y_offset + "," + z_offset + ")");
     geometry = new THREE.SphereGeometry( 0.3, 15, 15 );
     material = new THREE.MeshBasicMaterial( {color: 0x00ffff} );
     for (var i = 0; i < num_points; i++) {
-        var point = {pos: new THREE.Vector3(getRand(-width/2,width/2) + x_offset, getRand(-height/2,height/2) + y_offset, getRand(-depth/2,depth/2) + z_offset),
+        var point = {pos: new THREE.Vector3(Helpers.getRand(-width/2,width/2) + x_offset, Helpers.getRand(-height/2,height/2) + y_offset, Helpers.getRand(-depth/2,depth/2) + z_offset),
                      mesh: new THREE.Mesh(geometry, material)};
         a_points.push(point);
         removable_points.push(point.mesh);
@@ -210,22 +214,22 @@ function init_root() {
     g_tmp.addEdge(s0, s1);
     var line_mat = new THREE.LineBasicMaterial({color: 0x101010});
     addLine(s0, s1, line_mat, true);
+
+    count = 0;
+    phase = Constants.phases.GROWTH;
+    speed = 1;
 }
 
-
-function init_tree() {
-    clean_envelope();
-    clean_envelope();
-    clean_points();
-    clean_lines();
-    clean_tree();
+function reset_scene() {
+    clean_all();
     g_main = new Graph(0);
     g_tmp = new Graph(0);
     vprime_pairs_stage2 = new Queue();
     vprime_stage3 = new Queue();
     edge_q = new Queue();
-    verbose = true;
-    increase_radius = false;
+}
+function init_tree() {
+    reset_scene();
 
     di = 7;
     dk = 5.5;
@@ -234,20 +238,16 @@ function init_tree() {
     verbose = true;
     increase_radius = true;
 
-    set_sphere(18, 0, 6, 0, 2000);
-    set_box(3, 7, 3, 0, 3.5, 0, 9);
+    set_sphere(18, 0, 6, 0);
+    render_sphere(18, 0, 6, 0, 2000);
+    set_box(3, 7, 3, 0, 3.5, 0);
+    render_box(3, 7, 3, 0, 3.5, 0, 9);
 
     init_root();
-    count = 0;
-    phase = phases.GROWTH;
-    speed = 1;//5;
 }
+
 function init_boxes() {
-    clean_envelope();
-    clean_envelope();
-    clean_points();
-    clean_lines();
-    clean_tree();
+    clean_all();
     g_main = new Graph(0);
     g_tmp = new Graph(0);
     vprime_pairs_stage2 = new Queue();
@@ -261,31 +261,42 @@ function init_boxes() {
     D = 1;
 
     var box_num_points = 700;
-    set_box(40, 5, 5, 0, 0, 0, box_num_points);
-    set_box(40, 5, 5, 0, 0, 40, box_num_points);
-    set_box(5, 5, 40, 20, 0, 20, box_num_points);
-    set_box(5, 5, 40, -20, 0, 20, box_num_points);
+    set_box(40, 5, 5, 0, 0, 0);
+    render_box(40, 5, 5, 0, 0, 0, box_num_points);
+    set_box(40, 5, 5, 0, 0, 40);
+    render_box(40, 5, 5, 0, 0, 40, box_num_points);
+    set_box(5, 5, 40, 20, 0, 20);
+    render_box(5, 5, 40, 20, 0, 20, box_num_points);
+    set_box(5, 5, 40, -20, 0, 20);
+    render_box(5, 5, 40, -20, 0, 20, box_num_points);
 
-    set_box(40, 5, 5, 0, 40, 0, box_num_points);
-    set_box(40, 5, 5, 0, 40, 40, box_num_points);
-    set_box(5, 5, 40, 20, 40, 20, box_num_points);
-    set_box(5, 5, 40, -20, 40, 20, box_num_points);
+    set_box(40, 5, 5, 0, 40, 0);
+    render_box(40, 5, 5, 0, 40, 0, box_num_points);
+    set_box(40, 5, 5, 0, 40, 40);
+    render_box(40, 5, 5, 0, 40, 40, box_num_points);
+    set_box(5, 5, 40, 20, 40, 20);
+    render_box(5, 5, 40, 20, 40, 20, box_num_points);
+    set_box(5, 5, 40, -20, 40, 20);
+    render_box(5, 5, 40, -20, 40, 20, box_num_points);
 
-    set_box(5, 40, 5, 20, 20, 0, box_num_points);
-    set_box(5, 40, 5, -20, 20, 0, box_num_points);
-    set_box(5, 40, 5, 20, 20, 40, box_num_points);
-    set_box(5, 40, 5, -20, 20, 40, box_num_points);
+    set_box(5, 40, 5, 20, 20, 0);
+    render_box(5, 40, 5, 20, 20, 0, box_num_points);
+    set_box(5, 40, 5, -20, 20, 0);
+    render_box(5, 40, 5, -20, 20, 0, box_num_points);
+    set_box(5, 40, 5, 20, 20, 40);
+    render_box(5, 40, 5, 20, 20, 40, box_num_points);
+    set_box(5, 40, 5, -20, 20, 40);
+    render_box(5, 40, 5, -20, 20, 40, box_num_points);
     init_root();
     count = 0;
-    phase = phases.GROWTH;
+    phase = Constants.phases.GROWTH;
 }
 
-function printVec(v) {
-    return "(" + v.x + "," + v.y + "," + v.z + ")";
-}
-
-function round(value, decimals) {
-  return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
+function clean_all() {
+    clean_envelope();
+    clean_points();
+    clean_lines();
+    clean_tree();
 }
 
 function clean_lines() {
@@ -338,19 +349,6 @@ function clean_tree() {
       }
 }
 
-function graph_to_stack(g, q, node) {
-    var are_adjs = false;
-    for(const [key, adjs] of g.AdjList.entries()) {
-        if(key.x == node.x && key.y == node.y && key.z == node.z) {
-            for(var i = 0; i < adjs.length; i++) {
-                graph_to_stack(g, q, adjs[i]);
-                var obj = {s0: key, s1: adjs[i]};
-                q.push(obj);
-            }
-        }
-    }
-}
-
 function generate_trunk(node) {
     clean_skeleton();
     var ret = 0;
@@ -393,8 +391,6 @@ function generate_leaves(node, vector) {
     }
 }
 
-
-
 // stage clean
 function stage_clean() {
     clean_lines(); clean_points();
@@ -424,7 +420,7 @@ function stage_association() {
                 vprime.normalize();
                 vprime.multiplyScalar(D);
                 vprime = node1.clone().add(vprime);
-                vprime = new THREE.Vector3(round(vprime.x, 2), round(vprime.y, 2), round(vprime.z, 2));
+                vprime = new THREE.Vector3(Helpers.round(vprime.x, 2), Helpers.round(vprime.y, 2), Helpers.round(vprime.z, 2));
                 var tmp = {vprime: vprime, node: node1};
                 vprime_pairs_stage2.enqueue(tmp);
             }
@@ -513,53 +509,22 @@ function animate() {
 	requestAnimationFrame( animate );
     controls.update();
     count++;
-
-// if(verbose == false && phase == phases.GROWTH) {
-//     var tmp_while = false;
-//     while(tmp_while == false) {
-//         stage_clean();
-//         stage_association();
-//         stage_stem();
-//         while(!edge_q.isEmpty()) {
-//             var edge = edge_q.dequeue();
-//             g_main.addVertex(edge.s1);
-//             g_main.addEdge(edge.s0, edge.s1);
-//             g_tmp.addVertex(edge.s1);
-//             g_tmp.addEdge(edge.s0, edge.s1);
-//         }
-//         tmp_while = stage_kill();
-//     }
-//     clean_points();
-//     clean_lines();
-//     clean_envelope();
-//     graph_to_stack(g_main, branch_q, new THREE.Vector3(0,0,0));
-//     phase = phases.DONE;
-// }
-// if(phase = phases.DISPLAY) {
-//     if(branch_q.length > 0) {
-//         var tmp = branch_q.pop();
-//         addBranch(tmp.s0, tmp.s1, 1);
-//     }
-//     else {
-//         phase = phases.DONE;
-//     }
-// }
 if(count >= speed) {
     count = 0;
     switch(phase){
-        case phases.GROWTH:
+        case Constants.phases.GROWTH:
             switch(growth){
-                case g_phases.CLEAN:
+                case Constants.g_phases.CLEAN:
                     stage_clean();
-                    growth = g_phases.ASSOCIATION;
+                    growth = Constants.g_phases.ASSOCIATION;
                     break;
-                case g_phases.ASSOCIATION:
+                case Constants.g_phases.ASSOCIATION:
                     stage_association();
-                    growth = g_phases.STEM;
+                    growth = Constants.g_phases.STEM;
                     break;
-                case g_phases.STEM:
+                case Constants.g_phases.STEM:
                     stage_stem();
-                    growth = g_phases.KILL;
+                    growth = Constants.g_phases.KILL;
                     while(!edge_q.isEmpty()) {
                         var edge = edge_q.dequeue();
                         g_main.addVertex(edge.s1);
@@ -568,22 +533,22 @@ if(count >= speed) {
                         g_tmp.addEdge(edge.s0, edge.s1);
                     }
                     break;
-                case g_phases.KILL:
-                    growth = g_phases.CLEAN;
+                case Constants.g_phases.KILL:
+                    growth = Constants.g_phases.CLEAN;
                     if(stage_kill()) {
                         clean_points();
                         clean_lines();
-                        phase = phases.TRUNK;
+                        phase = Constants.phases.TRUNK;
                     }
                     break;
             }
             break; // end of GROWTH
-        case phases.TRUNK:
+        case Constants.phases.TRUNK:
             stage_trunk();
-            phase = phases.LEAVES;
+            phase = Constants.phases.LEAVES;
             break; // end of TRUNK
-        case phases.LEAVES:
-            phase = phases.DONE;
+        case Constants.phases.LEAVES:
+            phase = Constants.phases.DONE;
             clean_envelope();
             break; // end of LEAVES
     }
@@ -592,8 +557,129 @@ if(count >= speed) {
 	renderer.render( scene, camera );
 }
 
-document.addEventListener('keyup', event => {
-  if (event.code === 'Space' && phase == phases.DONE) {
-      init_tree();
-  }
-})
+function update_geometry () {
+    if(editing == Constants.editing_t.SPHERE) {
+        set_sphere(radius_val, x_coord, y_coord, z_coord);
+    }
+    else if(editing == Constants.editing_t.BOX){
+        set_box(width_val, height_val, depth_val, x_coord, y_coord, z_coord);
+    }
+}
+document.getElementById("tree_new_scene").addEventListener("click", new_scene);
+function new_scene() {
+    if(phase == Constants.phases.DONE) {
+        clean_all();
+        document.getElementById("tree_new_scene").style.opacity = "0";
+        document.getElementById("tree_geometry").style.opacity = "100";
+        phase = Constants.phases.GEOMETRY;
+    }
+}
+
+document.getElementById("tree_box").addEventListener("click", trigger_box);
+function trigger_box() {
+    if(phase == Constants.phases.GEOMETRY) {
+        console.log("box created");
+        set_box(2, 2, 2, 0, 0, 0);
+        slider_width.value = 2; width_val = 2;
+        slider_height.value = 2; height_val = 2;
+        slider_depth.value = 2; depth_val = 2;
+        slider_x.value = 0; x_coord = 0;
+        slider_y.value = 0; y_coord = 0;
+        slider_z.value = 0; z_coord = 0;
+        phase = Constants.phases.EDIT;
+        editing = Constants.editing_t.BOX;
+        document.getElementById("tree_edit").style.opacity = "100";
+        document.getElementById("tree_geometry").style.opacity = "0";
+        document.getElementById("tree_render").style.opacity = "0";
+    }
+}
+
+document.getElementById("tree_sphere").addEventListener("click", trigger_sphere);
+function trigger_sphere() {
+    if(phase == Constants.phases.GEOMETRY) {
+        console.log("sphere created");
+        set_sphere(18, 0, 0, 0);
+        slider_radius.value = 18; radius_val = 18;
+        slider_x.value = 0; x_coord = 0;
+        slider_y.value = 0; y_coord = 0;
+        slider_z.value = 0; z_coord = 0;
+        phase = Constants.phases.EDIT;
+        editing = Constants.editing_t.SPHERE;
+        document.getElementById("tree_edit").style.opacity = "100";
+        document.getElementById("tree_geometry").style.opacity = "0";
+        document.getElementById("tree_render").style.opacity = "0";
+    }
+}
+
+var slider_x = document.getElementById("slider_x");
+var slider_y = document.getElementById("slider_y");
+var slider_z = document.getElementById("slider_z");
+var slider_radius = document.getElementById("slider_radius");
+var slider_width = document.getElementById("slider_width");
+var slider_height = document.getElementById("slider_height");
+var slider_depth = document.getElementById("slider_depth");
+
+slider_x.oninput = function() {
+  x_coord = parseFloat(this.value);
+  update_geometry();
+}
+
+slider_y.oninput = function() {
+  y_coord = parseFloat(this.value);
+  update_geometry();
+}
+
+slider_z.oninput = function() {
+  z_coord = parseFloat(this.value);
+  update_geometry();
+}
+
+slider_radius.oninput = function() {
+  radius_val = parseFloat(this.value);
+  update_geometry();
+}
+
+slider_width.oninput = function() {
+  width_val = parseFloat(this.value);
+  update_geometry();
+}
+
+slider_height.oninput = function() {
+  height_val = parseFloat(this.value);
+  update_geometry();
+}
+
+slider_depth.oninput = function() {
+  depth_val = parseFloat(this.value);
+  update_geometry();
+}
+
+document.getElementById("tree_finish").addEventListener("click", trigger_finish);
+function trigger_finish() {
+    if(phase == Constants.phases.EDIT) {
+        phase = Constants.phases.GEOMETRY;
+        if(editing == Constants.editing_t.SPHERE) {
+            console.log("sphere finished");
+            render_sphere(radius_val, x_coord, y_coord, z_coord, 4 / 6 * radius_val * radius_val * radius_val);
+        }
+        else if(editing == Constants.editing_t.BOX){
+            console.log("box finished");
+            render_box(width_val, height_val, depth_val, x_coord, y_coord, z_coord, width_val * height_val * depth_val * 2);
+        }
+        editing = Constants.editing_t.NONE;
+        document.getElementById("tree_edit").style.opacity = "0";
+        document.getElementById("tree_geometry").style.opacity = "100";
+        document.getElementById("tree_render").style.opacity = "100";
+    }
+}
+
+document.getElementById("tree_render").addEventListener("click", trigger_render);
+function trigger_render() {
+    if(phase == Constants.phases.EDIT || phase == Constants.phases.GEOMETRY) {
+        document.getElementById("tree_geometry").style.opacity = "0";
+        document.getElementById("tree_render").style.opacity = "0";
+        document.getElementById("tree_edit").style.opacity = "0";
+        document.getElementById("tree_new_scene").style.opacity = "100";
+        init_root();
+    }
+}

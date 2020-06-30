@@ -6,6 +6,10 @@ function back_1() {
     window.location.href = "../code.html";
 }
 
+function back_2() {
+    window.location.href = "../../code.html";
+}
+
 function code() {
     window.location.href = "code.html";
 }
