@@ -47,9 +47,9 @@ var phase = Constants.phases.GROWTH;
 var twigs_todo = true;
 
 init();
-//init_tree();
-phase = Constants.phases.DONE;
-speed = 1;
+init_tree();
+//phase = Constants.phases.DONE;
+speed = 4;
 animate();
 
 function onWindowResize() {
@@ -680,6 +680,7 @@ function trigger_render() {
         document.getElementById("tree_render").style.opacity = "0";
         document.getElementById("tree_edit").style.opacity = "0";
         document.getElementById("tree_new_scene").style.opacity = "100";
+        reset_scene();
         init_root();
     }
 }
