@@ -1,0 +1,77 @@
+.code_projs {
+    width: 75%;
+    height: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+.code_cell {
+    position: relative;
+    float: left;
+    width: 33.33333%;
+    height: 20vw;
+}
+
+@media only screen and (max-width: 700px) {
+  .code_cell {
+    width: 49.99999%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .code_cell {
+    width: 100%;
+  }
+}
+
+.code_proj {
+  position: absolute;
+  width: 100%;
+}
+
+.code_image {
+  display: block;
+  width: 90%;
+  height: auto;
+}
+
+.code_overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 90%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #818181;
+}
+
+.code_proj:hover .code_overlay {
+  opacity: 0.75;
+}
+
+.code_desc {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.code_center {
+    font-family: railway;
+    color: #FFFFFF;
+    font-size: 2vw;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}

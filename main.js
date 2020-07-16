@@ -1,12 +1,12 @@
 function back() {
-    window.location.href = "index.html";
+    window.location.href = "../index.html";
 }
 
-function back_1() {
+function back_code_1() {
     window.location.href = "../code.html";
 }
 
-function back_2() {
+function back_code_2() {
     window.location.href = "../../code.html";
 }
 
@@ -19,5 +19,5 @@ function github() {
 }
 
 function video() {
-    window.location.href = "video.html";
+    window.location.href = "../video/datamosh.html";
 }
