@@ -10,6 +10,10 @@ function back_code_2() {
     window.location.href = "../../code.html";
 }
 
+function video_to_code() {
+    window.location.href = "../code/code.html";
+}
+
 function code() {
     window.location.href = "code.html";
 }
