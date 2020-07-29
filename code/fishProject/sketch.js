@@ -223,11 +223,11 @@ function draw() {
         {
 
           //creates new fish with 10% chance
-          if(round(random(0, 9)) == 9)
-          {
-            console.log("Breed :" + fish[f].type);
-            makeFish(fish[f].type);
-          }
+          // if(round(random(0, 9)) == 9)
+          // {
+          //   console.log("Breed :" + fish[f].type);
+          //   makeFish(fish[f].type);
+          // }
         }
       }
     }
