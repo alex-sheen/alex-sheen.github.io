@@ -6,6 +6,10 @@ function cache() {
     window.location.href = "https://github.com/alex-sheen/cache-sim";
 }
 
+function chiventure() {
+    window.location.href = "https://github.com/uchicago-cs/chiventure";
+}
+
 function fishtank() {
     window.location.href = "fishProject/fishtank.html";
 }
