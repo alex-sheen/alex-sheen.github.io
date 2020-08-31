@@ -73,6 +73,24 @@ video {
     transform: translate(-50%, -50%)
 }
 
+.maintext {
+    font-family: railway;
+    color: #FFFFFF;
+    font-size: 2vw;
+
+    border-radius: 1em;
+    padding: 1em;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+
+	width: 75%;
+	height: 100%;
+}
+
 .mid_left {
     position: fixed; /* Fixed Sidebar (stay in place on scroll) */
     top: 50%;

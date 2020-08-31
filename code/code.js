@@ -23,7 +23,7 @@ function shell() {
 }
 
 function tree() {
-    window.location.href = "tree/tree.html";
+    window.location.href = "tree/index.html";
 }
 
 function tron() {
