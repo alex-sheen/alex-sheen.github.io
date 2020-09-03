@@ -7,7 +7,7 @@ function cache() {
 }
 
 function chiventure() {
-    window.location.href = "https://github.com/uchicago-cs/chiventure";
+    window.location.href = "chiventure/index.html";//"https://github.com/uchicago-cs/chiventure";
 }
 
 function fishtank() {
