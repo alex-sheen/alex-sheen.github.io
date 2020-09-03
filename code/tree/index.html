@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="../../sidenav.css">
+  <script type="text/javascript" src="../../main.js"></script>
+</head>
+
+<body>
+    <div class="rightsidenav">
+        <img src="/assets/images/github.png" alt="Github" class="image" onclick="github()" style="width:4vw;height:4vw;">
+    </div>
+    <div class="mid_left">
+       <img src='/assets/images/noun_x.png' id = "back_button" alt="Back Button" onclick="back_code_1()" style="width:4vw;height:4vw;">
+    </div>
+
+    <div class="maintext">
+        <h1>Tree Space Colonization | Javascript</h1>
+
+        <div>
+
+
+            In this project, I followed this paper: <a href="http://algorithmicbotany.org/papers/colonization.egwnp2007.large.pdf">"Modeling Trees with a Space Colonization Algorithm"</a>.
+
+            <br><br>
+
+            <img src='/assets/images/tree.png' id = "tree" style="width:25vw;height:20vw;">
+            <img src='/assets/images/tree_viz.png' id = "tree_viz" style="width:25vw;height:20vw;">
+
+            <br><br>
+
+            As a simplified explanation, the space colonization algorithm starts at the root node and builds tree nodes into a cloud of "attraction points".
+            Each node finds the surrounding attraction points within the radius of influence 'di' and calculates the normalized vector from the node to attraction point.
+            Each node then grows a new node along the averaged vector from all of the normalized vectors.
+            Once all of the new nodes are created, a check is performed to remove any attraction point that is within kill distance 'dk'.
+            This process is repeated until no attraction point is within the distance 'di' of any node, or no attraction points remain.
+
+            <br><br>
+
+            <a href="tree.html">[Project Demo]</a>
+
+            <br><br>
+
+            Source: <br>
+            Runions, A., Lane, B., and Prusinkiewicz, P. (2007). Modeling trees with a space colonization algorithm. In
+            Proceedings of the Third Eurographics conference on
+            Natural Phenomena, NPH’07, pages 63–70, Aire-laVille, Switzerland, Switzerland. Eurographics Association.
+
+            <br><br>
+       </div>
+    </div>
+</body>
+</html>
