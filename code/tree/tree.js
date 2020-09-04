@@ -90,6 +90,8 @@ function init() {
 	window.addEventListener( 'resize', onWindowResize, false );
     set_materials();
 
+    document.getElementById("instructions1").style.opacity = "100";
+    document.getElementById("instructions2").style.opacity = "0";
     document.getElementById("tree_geometry").style.opacity = "0";
     document.getElementById("tree_render").style.opacity = "0";
     document.getElementById("tree_edit").style.opacity = "0";
@@ -571,6 +573,8 @@ function new_scene() {
         clean_all();
         document.getElementById("tree_new_scene").style.opacity = "0";
         document.getElementById("tree_geometry").style.opacity = "100";
+        document.getElementById("instructions1").style.opacity = "0";
+        document.getElementById("instructions2").style.opacity = "100";
         phase = Constants.phases.GEOMETRY;
     }
 }
@@ -677,6 +681,7 @@ document.getElementById("tree_render").addEventListener("click", trigger_render)
 function trigger_render() {
     if(phase == Constants.phases.EDIT || phase == Constants.phases.GEOMETRY) {
         document.getElementById("tree_geometry").style.opacity = "0";
+        document.getElementById("instructions2").style.opacity = "0";
         document.getElementById("tree_render").style.opacity = "0";
         document.getElementById("tree_edit").style.opacity = "0";
         document.getElementById("tree_new_scene").style.opacity = "100";
