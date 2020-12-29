@@ -112,9 +112,27 @@ video {
 .mid_right {
     position: fixed; /* Fixed Sidebar (stay in place on scroll) */
     top: 50%;
+    right: 2vw;
+    padding: 0.5vw;
+    transform: translate(0, -50%);
+    z-index: 2;
+}
+
+.top_left {
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    top: 0%;
+    left: 0;
+    padding: 2vw;
+    transform: translate(0, 0);
+    z-index: 2;
+}
+
+.top_right {
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    top: 0%;
     right: 0;
     padding: 2vw;
-    transform: translate(0, -50%);
+    transform: translate(0, 0);
     z-index: 2;
 }
 
