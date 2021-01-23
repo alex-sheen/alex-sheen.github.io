@@ -1,3 +1,6 @@
+function addiction() {
+    window.location.href = "addiction.html";
+}
 function datamosh() {
     window.location.href = "datamosh.html";
 }
