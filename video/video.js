@@ -15,7 +15,13 @@ function spook_youtube() {
 
 function toggleSound(img)
 {
-   img.src= img.src=="/assets/images/unmuted.png" ? "/assets/images/muted.png" : "/assets/images/unmuted.png";
+   console.log(img.src);
+   if(img.src == "/assets/images/muted.png") {
+       img.src = "/assets/images/unmuted.png";
+   }
+   else {
+       img.src = "/assets/images/muted.png";
+   }
    var video=document.getElementById("vid");
    video.muted = !video.muted;
 }
