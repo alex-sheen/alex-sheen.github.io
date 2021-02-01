@@ -16,7 +16,7 @@ function spook_youtube() {
 function toggleSound(img)
 {
    console.log(img.src);
-   if(img.src == "/assets/images/muted.png") {
+   if(img.src == "https://alex-sheen.github.io/assets/images/muted.png") {
        img.src = "/assets/images/unmuted.png";
    }
    else {
