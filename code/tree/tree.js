@@ -23,9 +23,12 @@ var removable_skeleton = [];
 var removable_envelope = [];
 var removable_tree = [];
 
-var di = 7;
-var dk = 5.5;
-var D = 2;
+// var di = 7;
+// var dk = 5.5;
+// var D = 2;
+var di = 4.5;
+var dk = 3.5;
+var D = 1.3;
 var initial_radius = 0.0005;
 var verbose = true;
 var increase_radius = true;
@@ -40,6 +43,8 @@ var radius_val = 18;
 var width_val = 2;
 var height_val = 2;
 var depth_val = 2;
+
+var axis = new THREE.Vector3(0, 1, 0);
 
 var editing = Constants.editing_t.NONE;
 var growth = Constants.g_phases.ASSOCIATION;
@@ -77,10 +82,13 @@ function init() {
     controls.update();
 	//controls.maxPolarAngle = Math.PI / 2;
 
-	scene.add( new THREE.AmbientLight( 0x222222 ) );
+	scene.add( new THREE.AmbientLight( 0xaaaaaa) );//0x222222 ) );
+
+    // const directionalLight = new THREE.DirectionalLight( 0xffffff, 0.5 );
+    // scene.add( directionalLight );
 
 	// light
-	var light = new THREE.PointLight( 0xffffff, 1 );
+	var light = new THREE.PointLight( 0xffffff, 5 );
 	camera.add( light );
 
 	// helper
@@ -89,6 +97,7 @@ function init() {
     camera.position.z = 5;
 	window.addEventListener( 'resize', onWindowResize, false );
     set_materials();
+    set_initial_geometry();
 
     document.getElementById("instructions1").style.opacity = "100";
     document.getElementById("instructions2").style.opacity = "0";
@@ -111,11 +120,11 @@ function render_sphere(radius, x_offset, y_offset, z_offset, num_points) {
     geometry = new THREE.SphereGeometry( 0.3, 15, 15 );
     material = new THREE.MeshBasicMaterial( {color: 0x00ffff} );
     for (var i = 0; i < num_points; i++) {
-        var point = {pos: new THREE.Vector3(Helpers.getRand(-radius,radius) + x_offset, Helpers.getRand(-radius,radius) + y_offset + radius, Helpers.getRand(-radius,radius) + z_offset),
+        var point = {pos: new THREE.Vector3(Helpers.getRandWeighted(radius)*radius*2 + x_offset, Helpers.getRandWeighted(radius)*radius - radius/2 + y_offset + radius, Helpers.getRandWeighted(radius)*radius*2 + z_offset),
                      mesh: new THREE.Mesh(geometry, material)};
-        while(point.pos.distanceTo(new THREE.Vector3(x_offset,radius + y_offset, z_offset)) > radius)
+        while(point.pos.distanceTo(new THREE.Vector3(x_offset, radius + y_offset, z_offset)) > radius)
         {
-            point.pos = new THREE.Vector3(Helpers.getRand(-radius,radius) + x_offset, Helpers.getRand(-radius,radius) + y_offset + radius, Helpers.getRand(-radius,radius) + z_offset);
+            point.pos = new THREE.Vector3(Helpers.getRandWeighted(radius)*radius*2 + x_offset, Helpers.getRandWeighted(radius)*radius - radius/2 + y_offset + radius, Helpers.getRandWeighted(radius)*radius*2 + z_offset);
         }
         a_points.push(point);
         removable_points.push(point.mesh);
@@ -156,7 +165,7 @@ function set_initial_geometry() {
     leaf_geo.vertices.push( new THREE.Vector3(  0.5, 0, 0 ) );
     leaf_geo.vertices.push( new THREE.Vector3(  0, 1, 0 ) );
 
-    var leaf_face = new THREE.Face3( 0, 1, 2);
+    var leaf_face = new THREE.Face3( 0, 2, 1);
     leaf_geo.faces.push( leaf_face );
 
     //the face normals and vertex normals can be calculated automatically if not supplied above
@@ -166,8 +175,8 @@ function set_initial_geometry() {
 
 var association_mat, branch_mat, kill_mat, leaf_mat, stem_mat;
 function set_materials() {
-    branch_mat = new THREE.MeshBasicMaterial( {color: 0x664d00} );
-    leaf_mat = new THREE.MeshStandardMaterial( { color : 0x00cc00 } );
+    branch_mat = new THREE.MeshBasicMaterial( {color: 0x4d3319} );//0x664d00} );
+    leaf_mat = new THREE.MeshStandardMaterial( { color : 0xffe6ff} ); //0x00cc00 } );
     leaf_mat.side = THREE.DoubleSide;
 
     association_mat = new THREE.LineBasicMaterial({color: 0x0000ff});
@@ -187,7 +196,6 @@ function addLine(s0, s1, line_mat, removable) {
     }
 }
 
-var axis = new THREE.Vector3(0, 1, 0);
 function addBranch(s0, s1, r) {
     geometry = new THREE.CylinderGeometry( r, r, D, 20 );
     geometry.translate( 0, D/2, 0 );
@@ -202,7 +210,8 @@ function addLeaf(s0, vector) {
     mesh = new THREE.Mesh( leaf_geo, leaf_mat );
     scene.add(mesh);
     mesh.position.set(s0.x,s0.y,s0.z);
-    mesh.quaternion.setFromUnitVectors(axis, vector.clone().normalize());
+    mesh.quaternion.setFromUnitVectors(axis, vector.clone().normalize().add(new THREE.Vector3( ).random()).normalize());//vector.clone().normalize());
+
 }
 
 function init_root() {
@@ -233,15 +242,15 @@ function reset_scene() {
 function init_tree() {
     reset_scene();
 
-    di = 7;
-    dk = 5.5;
-    D = 2;
+    // di = 7;
+    // dk = 5.5;
+    // D = 2;
     initial_radius = 0.0005;
     verbose = true;
     increase_radius = true;
 
     set_sphere(18, 0, 6, 0);
-    render_sphere(18, 0, 6, 0, 2000);
+    render_sphere(18, 0, 6, 0, 3000);
     set_box(3, 7, 3, 0, 3.5, 0);
     render_box(3, 7, 3, 0, 3.5, 0, 9);
 
@@ -387,7 +396,21 @@ function generate_leaves(node, vector) {
             }
 
             if(adjs.length == 0) {
-                addLeaf(key, vector);
+                //console.log(key.x + "," + key.y + "," + key.z);
+                //addBranch(key, key.clone().add(new THREE.Vector3(1,1,1)), 1);
+                var norm_vec = vector.clone().normalize();
+                addLeaf(key, norm_vec.clone().applyAxisAngle(norm_vec, Helpers.getRand(-6, 6)));
+                addLeaf(key, norm_vec.clone().applyAxisAngle(norm_vec, Helpers.getRand(-6, 6)));
+                addLeaf(key, norm_vec.clone().applyAxisAngle(norm_vec, Helpers.getRand(-6, 6)));
+                addLeaf(key, norm_vec.clone().applyAxisAngle(new THREE.Vector3(0,1,0), Helpers.getRand(-6, 6)));
+                addLeaf(key, norm_vec.clone().applyAxisAngle(new THREE.Vector3(1,0,0), Helpers.getRand(-6, 6)));
+                addLeaf(key, norm_vec.clone().applyAxisAngle(new THREE.Vector3(0,0,1), Helpers.getRand(-6, 6)));
+                addLeaf(key, norm_vec.clone().applyAxisAngle(new THREE.Vector3(0,1,0), Helpers.getRand(-6, 6)));
+                addLeaf(key, norm_vec.clone().applyAxisAngle(new THREE.Vector3(1,0,0), Helpers.getRand(-6, 6)));
+                addLeaf(key, norm_vec.clone().applyAxisAngle(new THREE.Vector3(0,0,1), Helpers.getRand(-6, 6)));
+                addLeaf(key, norm_vec.clone().applyAxisAngle(new THREE.Vector3(0,1,0), Helpers.getRand(-6, 6)));
+                addLeaf(key, norm_vec.clone().applyAxisAngle(new THREE.Vector3(1,0,0), Helpers.getRand(-6, 6)));
+                addLeaf(key, norm_vec.clone().applyAxisAngle(new THREE.Vector3(0,0,1), Helpers.getRand(-6, 6)));
             }
         }
     }
@@ -503,6 +526,7 @@ function stage_trunk() {
 
 // stage leaves | leaf generation
 function stage_leaves() {
+    console.log("leaves");
     generate_leaves(new THREE.Vector3(0,0,0));
 }
 
@@ -550,6 +574,7 @@ if(count >= speed) {
             phase = Constants.phases.LEAVES;
             break; // end of TRUNK
         case Constants.phases.LEAVES:
+            stage_leaves();
             phase = Constants.phases.DONE;
             clean_envelope();
             break; // end of LEAVES

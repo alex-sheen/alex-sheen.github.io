@@ -2,6 +2,16 @@ export function getRand(min, max) {
   return ((Math.random() * (max - min) ) + min);
 }
 
+export function getRandWeighted() {
+  var n = Math.random();
+  var z = Math.random();
+  var sign = -1;
+  if (z >= 0.5) {
+      sign = 1;
+  }
+  return (( (1 - (n * n * Math.sqrt(n)))/2*sign));
+}
+
 export function printVec(v) {
     return "(" + v.x + "," + v.y + "," + v.z + ")";
 }

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="stylesheet" href="../../style.css">
   <link rel="stylesheet" href="../../style2.css">
   <link rel="stylesheet" href="../../sidenav.css">
   <script type="text/javascript" src="../../main.js"></script>
@@ -10,7 +11,8 @@
     <div class="rightsidenav">
         <img src="/assets/images/github.png" alt="Github" class="inverted" onclick="github()" style="width:4vw;height:4vw;">
     </div>
-    <div class="mid_left">
+
+    <div class="top_left">
        <img src='/assets/images/noun_x.png' class = "inverted" id = "back_button" alt="Back Button" onclick="back_code_1()" style="width:4vw;height:4vw;">
     </div>
 
@@ -24,18 +26,23 @@
 
             <br><br>
 
-            <img src='/assets/images/tree.png' id = "tree" style="width:25vw;height:20vw;">
             <img src='/assets/images/tree_viz.png' id = "tree_viz" style="width:25vw;height:20vw;">
 
             <br><br>
 
-            As a simplified explanation, the space colonization algorithm starts at the root node and builds tree nodes into a cloud of "attraction points".
-            Each node finds the surrounding attraction points within the radius of influence 'di' and calculates the normalized vector from the node to attraction point.
-            Each node then grows a new node along the averaged vector from all of the normalized vectors.
-            Once all of the new nodes are created, a check is performed to remove any attraction point that is within kill distance 'dk'.
-            This process is repeated until no attraction point is within the distance 'di' of any node, or no attraction points remain.
+            The space colonization algorithm starts at a root node and builds tree nodes into a cloud of "attraction points". <br>
+            1. Each node finds the surrounding attraction points within the radius of influence 'di' and calculates the normalized vector from the node to attraction point.<br>
+            2. Each node then grows a new node along the averaged vector from all of the normalized vectors. <br>
+            3. Once all of the new nodes are created, a check is performed to remove any attraction point that is within kill distance 'dk'.<br>
+            4. This process is repeated until no attraction point is within the distance 'di' of any node, or no attraction points remain.<br>
 
-            <br><br>
+            <br>
+
+
+            <img src='/assets/images/tree_2.png' id = "tree2" style="width:25vw;height:20vw;">
+            <img src='/assets/images/tree.png' id = "tree" style="width:25vw;height:20vw;">
+
+            <br>
 
             <a href="tree.html">[Project Demo]</a>
 
