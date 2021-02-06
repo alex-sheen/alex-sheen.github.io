@@ -23,17 +23,18 @@ var removable_skeleton = [];
 var removable_envelope = [];
 var removable_tree = [];
 
-// var di = 7;
-// var dk = 5.5;
-// var D = 2;
-var di = 4.5;
-var dk = 3.5;
-var D = 1.3;
+var di = 7;
+var dk = 5.5;
+var D = 2;
+// var di = 4.5;
+// var dk = 3.5;
+// var D = 1.3;
 var initial_radius = 0.0005;
 var verbose = true;
 var increase_radius = true;
+var leaves = false;
 
-var speed = 1;//5;
+var speed = 4;//5;
 var count = 0;
 
 var x_coord = 0;
@@ -54,7 +55,6 @@ var twigs_todo = true;
 init();
 init_tree();
 //phase = Constants.phases.DONE;
-speed = 4;
 animate();
 
 function onWindowResize() {
@@ -117,6 +117,23 @@ function set_sphere(radius, x_offset, y_offset, z_offset) {
 }
 
 function render_sphere(radius, x_offset, y_offset, z_offset, num_points) {
+    geometry = new THREE.SphereGeometry( 0.3, 15, 15 );
+    material = new THREE.MeshBasicMaterial( {color: 0x00ffff} );
+    for (var i = 0; i < num_points; i++) {
+        var point = {pos: new THREE.Vector3(Helpers.getRand(-radius,radius) + x_offset, Helpers.getRand(-radius,radius) + y_offset + radius, Helpers.getRand(-radius,radius) + z_offset),
+                     mesh: new THREE.Mesh(geometry, material)};
+        while(point.pos.distanceTo(new THREE.Vector3(x_offset, radius + y_offset, z_offset)) > radius)
+        {
+            point.pos = new THREE.Vector3(Helpers.getRand(-radius,radius) + x_offset, Helpers.getRand(-radius,radius) + y_offset + radius, Helpers.getRand(-radius,radius) + z_offset);
+        }
+        a_points.push(point);
+        removable_points.push(point.mesh);
+        scene.add (point.mesh);
+        point.mesh.position.set(point.pos.x, point.pos.y, point.pos.z);
+    }
+}
+
+function render_hemisphere(radius, x_offset, y_offset, z_offset, num_points) {
     geometry = new THREE.SphereGeometry( 0.3, 15, 15 );
     material = new THREE.MeshBasicMaterial( {color: 0x00ffff} );
     for (var i = 0; i < num_points; i++) {
@@ -228,7 +245,6 @@ function init_root() {
 
     count = 0;
     phase = Constants.phases.GROWTH;
-    speed = 1;
 }
 
 function reset_scene() {
@@ -527,7 +543,9 @@ function stage_trunk() {
 // stage leaves | leaf generation
 function stage_leaves() {
     console.log("leaves");
-    generate_leaves(new THREE.Vector3(0,0,0));
+    if(leaves) {
+        generate_leaves(new THREE.Vector3(0,0,0));
+    }
 }
 
 var branch_count = 0;
