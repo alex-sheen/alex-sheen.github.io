@@ -5,6 +5,10 @@ function datamosh() {
     window.location.href = "datamosh.html";
 }
 
+function reel() {
+    window.location.href = "reel.html";
+}
+
 function spook_world_1() {
     window.location.href = "spook-world-1.html";
 }
