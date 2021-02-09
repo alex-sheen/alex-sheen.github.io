@@ -34,7 +34,7 @@ var verbose = true;
 var increase_radius = true;
 var leaves = false;
 
-var speed = 4;//5;
+var speed = 5;//5;
 var count = 0;
 
 var x_coord = 0;
@@ -76,9 +76,12 @@ function init() {
 	// controls
 	controls = new OrbitControls( camera, renderer.domElement );
 	controls.minDistance = 10;
-	controls.maxDistance = 70;
+	controls.maxDistance = 90;
     controls.target.set(0, 20, 0);
-    camera.position.set( 80, 14, 80 );
+    camera.position.set( 68, 8.4, 14 );
+
+    controls.autoRotate = true;
+    controls.autoRotateSpeed *= -0.1;
     controls.update();
 	//controls.maxPolarAngle = Math.PI / 2;
 
@@ -94,7 +97,6 @@ function init() {
 	// helper
 	scene.add( new THREE.AxesHelper( 20 ) );
 
-    camera.position.z = 5;
 	window.addEventListener( 'resize', onWindowResize, false );
     set_materials();
     set_initial_geometry();
@@ -267,6 +269,7 @@ function init_tree() {
 
     set_sphere(18, 0, 6, 0);
     render_sphere(18, 0, 6, 0, 3000);
+    //render_hemisphere(18, 0, 6, 0, 3000);
     set_box(3, 7, 3, 0, 3.5, 0);
     render_box(3, 7, 3, 0, 3.5, 0, 9);
 
@@ -550,6 +553,8 @@ function stage_leaves() {
 
 var branch_count = 0;
 function animate() {
+
+
 	requestAnimationFrame( animate );
     controls.update();
     count++;
@@ -708,6 +713,7 @@ function trigger_finish() {
         if(editing == Constants.editing_t.SPHERE) {
             console.log("sphere finished");
             render_sphere(radius_val, x_coord, y_coord, z_coord, 4 / 6 * radius_val * radius_val * radius_val);
+
         }
         else if(editing == Constants.editing_t.BOX){
             console.log("box finished");
