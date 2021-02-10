@@ -5,18 +5,13 @@
   <link rel="stylesheet" href="../sidenav.css">
   <script type="text/javascript" src="../main.js"></script>
   <script type="text/javascript" src="video.js"></script>
+  <link rel="stylesheet" href="video.css">
 </head>
 
 <body>
 
     <div class="top_left">
        <img src='/assets/images/noun_x.png' id = "back_button" alt="Back Button" onclick="back()" style="width:4vw;height:4vw;">
-    </div>
-
-    <div class="mid_bottom">
-       <img src='/assets/images/noun_next_left.png' id = "left_button" alt="Left Button" onclick="spook_world_1()" style="width:4vw;height:4vw;">
-       <img src="/assets/images/unmuted.png" onclick="toggleSound(this);" style="width:4vw;height:4vw;">
-
     </div>
 
 <div width="50%">
@@ -26,20 +21,71 @@
     </video>
 
     <div class="belowdesc">
-        <img src='/assets/images/tree_building.png' id = "tree2" style="width:20vw;height:20vw;">
-        <img src='/assets/images/tree.png' id = "tree" style="width:25vw;height:20vw;">
-        <img src='/assets/images/tree_2.png' id = "tree2" style="width:25vw;height:20vw;">
+
+        <div class="video_cell">
+            <div class="video_proj" style="width:23vw;height:23vw;">
+                <img src='/assets/images/datamosh_still.png' style="width:23vw;height:23vw;">
+                <div class="video_overlay" style="width:100%;height:100%;" onclick="datamosh()">
+                    Datamosh
+                </div>
+            </div>
+        </div>
+
+        <div class="video_cell">
+            <div class="video_proj" style="width:23vw;height:23vw;">
+                <img src='/assets/images/addiction_still.png' style="width:23vw;height:23vw;">
+                <div class="video_overlay" style="width:100%;height:100%;" onclick="addiction()">
+                    addiction
+                </div>
+            </div>
+        </div>
+
+        <div class="video_cell">
+                <img src='/assets/images/skull.png' id = "skull" style="width:23vw;height:23vw;">
+        </div>
 
         <br>
 
-        <img src='/assets/images/trinity_main.png' id = "trinity_main" style="width:23vw;height:13vw;">
-        <img src='/assets/images/trinity_ramps.png' id = "trinity_ramps" style="width:23vw;height:13vw;">
-        <img src='/assets/images/trinity_lounge.png' id = "trinity_lounge" style="width:23vw;height:13vw;">
+        <div class="video_cell">
+            <div class="video_proj" style="width:23vw;height:20vw;">
+                <img src='/assets/images/tree_building.png' id = "tree2" style="width:23vw;height:20vw;">
+                <div class="video_overlay_dark" style="width:100%;height:100%;" onclick="tree()">
+                    Tree Generation
+                </div>
+            </div>
+        </div>
+
+        <div class="video_cell">
+            <div class="video_proj" style="width:23vw;height:20vw;">
+                <img src='/assets/images/tree.png' id = "tree" style="width:23vw;height:20vw;">
+                <div class="video_overlay_dark" style="width:100%;height:100%;" onclick="tree()">
+                    Tree Generation
+                </div>
+            </div>
+        </div>
+
+        <div class="video_cell">
+            <div class="video_proj" style="width:23vw;height:20vw;">
+                <img src='/assets/images/tree_2.png' id = "tree2" style="width:23vw;height:20vw;">
+                <div class="video_overlay_dark" style="width:100%;height:100%;" onclick="tree()">
+                    Tree Generation
+                </div>
+            </div>
+        </div>
 
         <br>
 
-        <img src='/assets/images/skull.png' id = "skull" style="width:23vw;height:23vw;">
+        <div class="video_cell">
+            <img src='/assets/images/trinity_main.png' id = "trinity_main" style="width:23vw;height:13vw;">
+        </div>
+        
+        <div class="video_cell">
+            <img src='/assets/images/trinity_ramps.png' id = "trinity_ramps" style="width:23vw;height:13vw;">
+        </div>
 
+        <div class="video_cell">
+            <img src='/assets/images/trinity_lounge.png' id = "trinity_lounge" style="width:23vw;height:13vw;">
+        </div>
     </div>
 </div>
 

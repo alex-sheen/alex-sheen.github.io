@@ -17,6 +17,10 @@ function spook_youtube() {
     window.location.href = "https://www.youtube.com/watch?v=r2pNrH2odog";
 }
 
+function tree() {
+    window.location.href = "../code/tree/index.html";
+}
+
 function toggleSound(img)
 {
    console.log(img.src);
