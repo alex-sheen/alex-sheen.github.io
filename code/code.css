@@ -27,14 +27,8 @@
 }
 
 .code_proj {
-  position: absolute;
+  position: relative;
   width: 100%;
-}
-
-.code_image {
-  display: block;
-  width: 90%;
-  height: auto;
 }
 
 .code_overlay {
@@ -44,7 +38,7 @@
   left: 0;
   right: 0;
   height: 100%;
-  width: 90%;
+  width: 100%;
   opacity: 0;
   transition: .5s ease;
   background-color: #818181;

@@ -4,6 +4,7 @@
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="../sidenav.css">
   <link rel="stylesheet" href="code.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
   <script type="text/javascript" src="../main.js"></script>
   <script type="text/javascript" src="code.js"></script>
@@ -23,62 +24,56 @@
        <img src='/assets/images/noun_x.png' id = "back_button" alt="Back Button" onclick="back()" style="width:4vw;height:4vw;">
     </div>
 
-    <div class="code_projs">
-
-        <div class="code_cell">
-            <div class="code_proj">
-                <img src="/assets/images/chiventure-terminal.jpg" alt="Chiventure" class="code_image">
-                <div class="code_overlay" onclick="chiventure()">
-                    <div class="code_desc">Chiventure | C</div>
-                </div>
-            </div>
+    <!-- Grid for photos -->
+    <div class="w3-padding-64 w3-content" id="photos">
+      <div class="w3-padding-16" style="margin:0 -16px">
+        <!-- left Container -->
+        <div class="w3-third">
+          <div class="code_proj" style="width:100%">
+              <img src="/assets/images/chiventure-terminal.jpg" alt="Chiventure" style="width:100%">
+              <div style="width:100%" class="code_overlay" onclick="chiventure()">
+                  <div class="code_desc">Chiventure | C</div>
+              </div>
+          </div>
+          <div class="code_proj" style="width:100%">
+              <img src="/assets/images/polsky.jpg" alt="Polsky" style="width:100%">
+              <div style="width:100%" class="code_overlay" onclick="ceres()">
+                  <div class="code_desc">Ceres | Swift</div>
+              </div>
+          </div>
         </div>
-
-        <div class="code_cell">
-            <div class="code_proj">
-                <img src="/assets/images/polsky.jpg" alt="Ceres" class="code_image">
-                <div class="code_overlay" onclick="ceres()">
-                    <div class="code_desc">Ceres | Swift</div>
-                </div>
-            </div>
+        <!-- Middle Container -->
+        <div class="w3-third">
+          <div class="code_proj" style="width:100%">
+              <img src="/assets/images/tree_2.png" style="width:100%">
+              <div style="width:100%" class="code_overlay" onclick="tree()">
+                  <div class="code_desc">Space Colonization Procedural Tree Generation | JavaScript</div>
+              </div>
+          </div>
         </div>
-
-        <div class="code_cell">
-            <div class="code_proj">
-                <img src="/assets/images/shell.png" alt="Shell" class="code_image">
-                <div class="code_overlay" onclick="shell()">
-                    <div class="code_desc">Unix Shell | C</div>
-                </div>
-            </div>
+        <!-- Left Container -->
+        <div class="w3-third">
+          <div class="code_proj" style="width:100%">
+              <img src="/assets/images/shell.png" style="width:100%">
+              <div style="width:100%" class="code_overlay" onclick="shell()">
+                  <div class="code_desc">Unix Shell | C</div>
+              </div>
+          </div>
+          <div class="code_proj" style="width:100%">
+              <img src="/assets/images/cache.png" style="width:100%">
+              <div style="width:100%" class="code_overlay" onclick="cache()">
+                  <div class="code_desc">Cache Sim | C</div>
+              </div>
+          </div>
+          <div class="code_proj" style="width:100%">
+              <img src="/assets/images/backgammon-start.png" style="width:100%">
+              <div style="width:100%" class="code_overlay" onclick="backgammon()">
+                  <div class="code_desc">Backgammon | C</div>
+              </div>
+          </div>
         </div>
-
-        <div class="code_cell">
-            <div class="code_proj">
-                <img src="/assets/images/cache.png" alt="Cache" class="code_image">
-                <div class="code_overlay" onclick="cache()">
-                    <div class="code_desc">Cache Sim | C</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="code_cell">
-            <div class="code_proj">
-                <img src="/assets/images/tree_2.png" alt="Fish Tank" class="code_image">
-                <div class="code_overlay" onclick="tree()">
-                    <div class="code_desc">Space Colonization Tree Generation | JavaScript</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="code_cell">
-            <div class="code_proj">
-                <img src="/assets/images/backgammon-start.png" alt="Backgammon" class="code_image">
-                <div class="code_overlay" onclick="backgammon()">
-                    <div class="code_desc">Backgammon | Racket</div>
-                </div>
-            </div>
-        </div>
-
-    </div> <!-- end of code projs -->
+      <!-- End photo grid -->
+      </div>
+    </div>
 </body>
 </html>
