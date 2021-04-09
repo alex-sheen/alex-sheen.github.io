@@ -1,0 +1,39 @@
+.video_desc {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+}
+
+.video_overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #818181;
+}
+
+.proj:hover .video_overlay {
+  opacity: 0.05;
+}
+
+.proj:hover .video_desc {
+  opacity: 0.65;
+}
+
+
+/* Hide Play button + controls on iOS */
+/* video::-webkit-media-controls {
+    display:none !important;
+} */

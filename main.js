@@ -23,5 +23,5 @@ function github() {
 }
 
 function video() {
-    window.location.href = "../video/datamosh.html";
+    window.location.href = "../video/reel.html";
 }

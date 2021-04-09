@@ -40,18 +40,8 @@ body {
 
 .videoembedded {
     position: relative;
-    top: 100%;
-    left: 50%;
-    min-width: 80%;
-    min-height: 100%;
-    width: 80%;
+    width: 100%;
     height: auto;
-    z-index: -100;
-    transform: translateX(-50%) translateY(0%);
-    background-size: cover;
-    transition: 1s opacity;
-    overflow: hidden;
-
 }
 
 .video-container {

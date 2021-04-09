@@ -3,13 +3,29 @@
 <head>
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="../sidenav.css">
-  <script type="text/javascript" src="../main.js"></script>
-  <script type="text/javascript" src="video.js"></script>
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="../containers.css">
+  <link rel="stylesheet" href="video.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript" src="../main.js"></script>
+  <script type="text/javascript" src="video.js"></script>
 </head>
 
 <body>
+
+  <div class="top_right">
+      <img src="/assets/images/github.png" alt="Github" class="image" onclick="github()" style="width:4vw;height:4vw;">
+  </div>
+  <div class="mid_right" style="border-style: solid; border-color: white;">
+      <img src='/assets/images/noun_video_selected.png' id = "video_button" alt="Video Button" onclick="video()" style="width:4.5vw;height:4.5vw;">
+      <br>
+      <img src='/assets/images/noun_code_deselected.png' id = "code_button" alt="Code Button" onclick="code()" style="width:4.5vw;height:4.5vw;">
+  </div>
+
+  <div class="top_left">
+     <img src='/assets/images/noun_x.png' id = "back_button" alt="Back Button" onclick="back()" style="width:4vw;height:4vw;">
+  </div>
 
   <!-- Grid for photos -->
   <div class="w3-padding-64 w3-content" id="photos">
@@ -17,43 +33,46 @@
       <!-- left Container -->
       <div class="w3-third">
         <div class="proj" style="width:100%">
-            <img src="/assets/images/datamosh_still.png" alt="datamosh" style="width:100%">
-            <div style="width:100%" class="overlay" onclick="datamosh()">
-                <div class="desc">datamoshing | After Effects</div>
-            </div>
+            <!-- <img src="/assets/images/datamosh_still.png" alt="datamosh" style="width:100%"> -->
+            <video class="videoembedded" muted loop playsinline>
+                <source src="https://alex-sheen.github.io/assets/videos/datamosh.mp4" type="video/mp4" style="width:100%">
+                Your browser does not support the video tag.
+            </video>
+            <div style="width:100%" class="video_overlay"></div>
+            <div class="video_desc" onclick="datamosh()"
+              onmouseover="console.log(1);this.previousElementSibling.previousElementSibling.play()" onmouseout="console.log(2);this.previousElementSibling.previousElementSibling.pause();"
+              >datamoshing | After Effects</div>
         </div>
         <div class="proj" style="width:100%">
             <img src="/assets/images/addiction_still.png/assets/images/addiction_still.png" alt="addicted" style="width:100%">
-            <div style="width:100%" class="overlay" onclick="addiction()">
-                <div class="desc">addicted | After Effects</div>
-            </div>
+            <div style="width:100%" class="video_overlay" onclick="addiction()"></div>
+            <div class="video_desc" onclick="addiction()">addicted | After Effects</div>
         </div>
       </div>
       <!-- Middle Container -->
       <div class="w3-third">
         <div class="proj" style="width:100%">
-            <video class="videoembedded" id="vid" muted autoplay loop playsinline autobuffer preload>
-                <source src="/assets/videos/dream3" type="video/mp4">
+            <video class="videoembedded" muted loop playsinline>
+                <source src="https://alex-sheen.github.io/assets/videos/dream3.mp4" type="video/mp4" style="width:100%">
                 Your browser does not support the video tag.
             </video>
-            <div style="width:100%" class="overlay" onclick="tree()">
-                <div class="desc">Space Colonization Procedural Tree Generation | JavaScript</div>
-            </div>
+            <div style="width:100%" class="video_overlay"></div>
+            <div class="video_desc"
+              onmouseover="console.log(1);this.previousElementSibling.previousElementSibling.play()" onmouseout="console.log(2);this.previousElementSibling.previousElementSibling.pause();"
+              >dream3 | Blender3D</div>
         </div>
         <div class="proj" style="width:100%">
             <img src="/assets/images/skull.png" style="width:100%">
-            <div style="width:100%" class="overlay" onclick="tree()">
-                <div class="desc">Space Colonization Procedural Tree Generation | JavaScript</div>
-            </div>
+            <div style="width:100%" class="video_overlay"></div>
+            <div class="video_desc">skull | Blender3D</div>
         </div>
       </div>
       <!-- Left Container -->
       <div class="w3-third">
         <div class="proj" style="width:100%">
             <img src="/assets/images/tree_2.png" style="width:100%">
-            <div style="width:100%" class="overlay" onclick="tree()">
-                <div class="desc">Space Colonization Procedural Tree Generation</div>
-            </div>
+            <div style="width:100%" class="video_overlay" onclick="tree()"></div>
+            <div class="video_desc" onclick="tree()">Space Colonization Procedural Tree Generation</div>
         </div>
       </div>
     </div>
@@ -86,12 +105,12 @@
         Your browser does not support the video tag.
     </video>
 
-    <div class="belowdesc">
+    <div class="belowvideo_video_desc">
 
         <div class="video_cell">
             <div class="video_proj" style="width:23vw;height:23vw;">
                 <img src='/assets/images/datamosh_still.png' style="width:23vw;height:23vw;">
-                <div class="video_overlay" style="width:100%;height:100%;" onclick="datamosh()">
+                <div class="video_video_overlay" style="width:100%;height:100%;" onclick="datamosh()">
                     Datamosh
                 </div>
             </div>
@@ -100,7 +119,7 @@
         <div class="video_cell">
             <div class="video_proj" style="width:23vw;height:23vw;">
                 <img src='/assets/images/addiction_still.png' style="width:23vw;height:23vw;">
-                <div class="video_overlay" style="width:100%;height:100%;" onclick="addiction()">
+                <div class="video_video_overlay" style="width:100%;height:100%;" onclick="addiction()">
                     addiction
                 </div>
             </div>
@@ -115,7 +134,7 @@
         <div class="video_cell">
             <div class="video_proj" style="width:23vw;height:20vw;">
                 <img src='/assets/images/tree_building.png' id = "tree2" style="width:23vw;height:20vw;">
-                <div class="video_overlay_dark" style="width:100%;height:100%;" onclick="tree()">
+                <div class="video_video_overlay_dark" style="width:100%;height:100%;" onclick="tree()">
                     Tree Generation
                 </div>
             </div>
@@ -124,7 +143,7 @@
         <div class="video_cell">
             <div class="video_proj" style="width:23vw;height:20vw;">
                 <img src='/assets/images/tree.png' id = "tree" style="width:23vw;height:20vw;">
-                <div class="video_overlay_dark" style="width:100%;height:100%;" onclick="tree()">
+                <div class="video_video_overlay_dark" style="width:100%;height:100%;" onclick="tree()">
                     Tree Generation
                 </div>
             </div>
@@ -133,7 +152,7 @@
         <div class="video_cell">
             <div class="video_proj" style="width:23vw;height:20vw;">
                 <img src='/assets/images/tree_2.png' id = "tree2" style="width:23vw;height:20vw;">
-                <div class="video_overlay_dark" style="width:100%;height:100%;" onclick="tree()">
+                <div class="video_video_overlay_dark" style="width:100%;height:100%;" onclick="tree()">
                     Tree Generation
                 </div>
             </div>
