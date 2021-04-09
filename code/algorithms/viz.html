@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="../../style2.css">
+  <link rel="stylesheet" href="../../sidenav.css">
+  <script type="text/javascript" src="../../main.js"></script>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+  <title>GraphJS Demo</title>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.18.2/cytoscape.min.js"></script> -->
+  <script src="cytoscape.umd.js" type="text/javascript"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.18.2/cytoscape.umd.js"></script> -->
+  <script src="algorithms.js" type="text/javascript"></script>
+  <style>
+    #cy {
+       width: 85%;
+       height: 100%;
+       position: absolute;
+       top: 0px;
+       left: 15em;
+       background: #FFFFFF;
+     }
+  </style>
+</head>
+
+<body>
+  <div>
+    <select name="algo_category" id="algo_category">
+      <option value="greedy">Greedy Algorithms</option>
+      <option value="divide">Divide and Conquer</option>
+      <option value="dynamic">Dynamic Progamming</option>
+      <option value="flow">Network Flow</option>
+    </select>
+    <br>
+    <select name="greedy_algos" id="greedy_algos">
+      <option value="dijkstras">Dijkstra's Algorithm</option>
+      <option value="prims">Prim's Algorithm</option>
+      <option value="kruskals">Kruskal's Algorithm</option>
+    </select>
+    <select name="flow_algos" id="flow_algos">
+      <option value="fordfulkerson">Ford-Fulkerson Algorithm</option>
+    </select>
+  </div>
+  <div id="cy">
+  </div>
+  <script src="viz.js" type="text/javascript"></script>
+</body>
+</html>
