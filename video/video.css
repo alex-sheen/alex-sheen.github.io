@@ -25,7 +25,7 @@
 }
 
 .proj:hover .video_overlay {
-  opacity: 0.05;
+  opacity: 0.2;
 }
 
 .proj:hover .video_desc {
