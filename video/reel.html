@@ -17,21 +17,21 @@
   <div class="top_right">
       <img src="/assets/images/github.png" alt="Github" class="image" onclick="github()" style="width:4vw;height:4vw;">
   </div>
-  <div class="mid_right" style="border-style: solid; border-color: white;">
-      <img src='/assets/images/noun_video_selected.png' id = "video_button" alt="Video Button" onclick="video()" style="width:4.5vw;height:4.5vw;">
-      <br>
-      <img src='/assets/images/noun_code_deselected.png' id = "code_button" alt="Code Button" onclick="back_code_1()" style="width:4.5vw;height:4.5vw;">
-  </div>
 
   <div class="top_left">
      <img src='/assets/images/noun_x.png' id = "back_button" alt="Back Button" onclick="back()" style="width:4vw;height:4vw;">
   </div>
 
+  <div class="top_bar w3-content" style="border-bottom: solid white;">
+      <img src='/assets/images/noun_video_selected.png' id = "video_button" alt="Video Button" onclick="video()" style="width:4.5vw;height:4.5vw;">
+      <img src='/assets/images/noun_code_deselected.png' id = "code_button" alt="Code Button" onclick="back_code_1()" style="width:4.5vw;height:4.5vw;">
+  </div>
+
   <!-- Grid for photos -->
   <div class="w3-padding-64 w3-content" id="photos">
     <div class="w3-padding-16" style="margin:0 -16px">
-      <!-- left Container -->
-      <div class="w3-third">
+      <!-- First Container -->
+      <div class="w3-quarter">
         <div class="proj" style="width:100%">
             <!-- <img src="/assets/images/datamosh_still.png" alt="datamosh" style="width:100%"> -->
             <video class="videoembedded" muted loop playsinline>
@@ -49,30 +49,25 @@
             <div class="video_desc" onclick="addiction()">addicted | After Effects</div>
         </div>
       </div>
-      <!-- Middle Container -->
-      <div class="w3-third">
+      <!-- Second Container -->
+      <div class="w3-quarter">
         <div class="proj" style="width:100%">
             <img src="/assets/images/dream4_1.png" style="width:100%">
             <div style="width:100%" class="video_overlay"></div>
             <div class="video_desc">alice-01 | Blender3D</div>
         </div>
-        <!-- <div class="proj" style="width:100%"> -->
-            <!-- <img src="/assets/images/dream4_2.png" style="width:100%">
+        <div class="proj" style="width:100%">
+            <img src="/assets/images/alice-03-08.png" style="width:100%">
             <div style="width:100%" class="video_overlay"></div>
-            <div class="video_desc">alice-02-b | Blender3D</div>
-        </div> -->
+            <div class="video_desc">alice-03 | Blender3D</div>
+        </div>
+      </div>
+      <!-- Third Container -->
+      <div class="w3-quarter">
         <div class="proj" style="width:100%">
             <img src="/assets/images/alice-02.png" style="width:100%">
             <div style="width:100%" class="video_overlay"></div>
             <div class="video_desc">alice-02 | Blender3D</div>
-        </div>
-      </div>
-      <!-- Left Container -->
-      <div class="w3-third">
-        <div class="proj" style="width:100%">
-            <img src="/assets/images/tree_2.png" style="width:100%">
-            <div style="width:100%" class="video_overlay" onclick="tree()"></div>
-            <div class="video_desc" onclick="tree()">Space Colonization Procedural Tree Generation</div>
         </div>
         <div class="proj" style="width:100%">
             <video class="videoembedded" muted loop playsinline>
@@ -84,6 +79,15 @@
               onmouseover="this.previousElementSibling.previousElementSibling.play()" onmouseout="this.previousElementSibling.previousElementSibling.pause();"
               >dream3 | Blender3D</div>
         </div>
+      </div>
+      <!-- Fourth Container -->
+      <div class="w3-quarter">
+        <div class="proj" style="width:100%">
+            <img src="/assets/images/tree_2.png" style="width:100%">
+            <div style="width:100%" class="video_overlay" onclick="tree()"></div>
+            <div class="video_desc" onclick="tree()">Space Colonization Procedural Tree Generation</div>
+        </div>
+
       </div>
     </div>
   </div><!-- End photo grid -->
