@@ -1,8 +1,17 @@
 function addiction() {
     window.location.href = "addiction.html";
 }
+
+function alice() {
+    window.location.href = "alice.html";
+}
+
 function datamosh() {
     window.location.href = "datamosh.html";
+}
+
+function d3() {
+    window.location.href = "d3.html";
 }
 
 function reel() {

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../sidenav.css">
+  <script type="text/javascript" src="../main.js"></script>
+  <script type="text/javascript" src="video.js"></script>
+
+  <link rel="stylesheet" href="video.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="../containers.css">
+</head>
+
+<body>
+
+  <div class="top_right">
+      <img src="/assets/images/github.png" alt="Github" class="image" onclick="github()" style="width:4vw;height:4vw;">
+  </div>
+
+  <div class="top_left">
+     <img src='/assets/images/noun_return_4.png' id = "back_button" alt="Back Button" onclick="reel()" style="width:4vw;height:4vw;">
+  </div>
+
+  <div class="top_bar w3-content" style="border-bottom: solid white;">
+      <img src='/assets/images/noun_video_selected.png' id = "video_button" alt="Video Button" onclick="video()" style="width:4.5vw;height:4.5vw;">
+      <img src='/assets/images/noun_code_deselected.png' id = "code_button" alt="Code Button" onclick="back_code_1()" style="width:4.5vw;height:4.5vw;">
+  </div>
+
+  <!-- Grid for photos -->
+  <div class="w3-padding-64 w3-content" id="photos">
+  <div class="w3-padding-16" style="margin:0 -16px">
+      <!-- First Container -->
+      <div class="w3-half">
+        <div class="proj" style="width:100%">
+          <img src="/assets/images/alice-03-final.png" style="width:100%; opacity: 0;">
+          <div class="projtitle" style = "width:100%">
+            alice-03
+            <div class="projtext" style = "width:100%">
+              Created with - Blender 2.92 <br>
+              Render Engine - Cycles <br>
+              Photogrammetry AliceVision Meshroom <br>
+              <br>
+              alice-03 was inspired by the work of Midge Sinnaeve. I photoscanned
+              vines growing on the Kent Chemical Laboratory building located on
+              the University of Chicago's campus. I then took a 3D base model of
+              a human bust and unwrapped its mesh to a 2D plane. Lastly, I
+              projected the photoscanned vines onto the unwrapped mesh by applying a
+              Surface Deform modifier to have the vine texture conform to the 2D unwrapped mesh.
+            </div>
+          </div>
+        </div>
+        <div class="proj" style="width:100%">
+          <img src="/assets/images/alice-03-final.png" style="width:100%; opacity: 0;">
+          <div class="projtitle" style = "width:100%">
+            alice-02
+            <div class="projtext" style = "width:100%">
+              Created with - Blender 2.92 <br>
+              Render Engine - Cycles <br>
+              Photogrammetry AliceVision Meshroom <br>
+              <br>
+              alice-02 followed a similar process as alice-03. Instead of photoscanned
+              vines, I instead photoscanned a tree on the University of Chicago's main quad.
+            </div>
+          </div>
+        </div>
+        <div class="proj" style="width:100%">
+          <img src="/assets/images/alice-03-final.png" style="width:100%; opacity: 0;">
+          <div class="projtitle" style = "width:100%">
+            alice-01
+            <div class="projtext" style = "width:100%">
+              Created with - Blender 2.92 <br>
+              Render Engine - Cycles <br>
+              Photogrammetry AliceVision Meshroom <br>
+              <br>
+              alice-01 began with a photoscan of my own head and shoulder. I then
+              duplicated the resulting mesh and used various modifiers to create the
+              web and grid-like projections.
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Second Container -->
+      <div class="w3-half">
+        <div class="proj" style="width:100%">
+            <img src="/assets/images/alice-03-final.png" style="width:100%">
+        </div>
+        <div class="proj" style="width:100%">
+            <img src="/assets/images/alice-02.png" style="width:100%">
+        </div>
+        <div class="proj" style="width:100%">
+            <img src="/assets/images/dream4_1.png" style="width:100%">
+        </div>
+      </div>
+  </div><!-- End padding -->
+  </div><!-- End photo grid -->
+
+</body>
+</html>

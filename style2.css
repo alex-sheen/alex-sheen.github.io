@@ -8,7 +8,7 @@ body {
   background: #888;
 }
 
-video {
+/* video {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -21,7 +21,7 @@ video {
     background-size: cover;
     transition: 1s opacity;
     overflow: hidden;
-}
+} */
 
 .video-container {
 	position: absolute;

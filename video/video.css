@@ -1,3 +1,25 @@
+.projtitle {
+    font-family: railway;
+    color: #FFFFFF;
+    font-size: 2vw;
+
+    border-radius: 1em;
+    padding: 1em;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.projtext {
+    font-family: railway;
+    color: #FFFFFF;
+    font-size: 1vw;
+
+    border-radius: 1em;
+    padding: 1em;
+}
+
 .video_desc {
   color: white;
   font-size: 20px;

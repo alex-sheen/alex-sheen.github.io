@@ -5,7 +5,12 @@
   <link rel="stylesheet" href="../../style2.css">
   <link rel="stylesheet" href="../../sidenav.css">
   <script type="text/javascript" src="../../main.js"></script>
+
+  <link rel="stylesheet" href="../../video/video.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="../../containers.css">
 </head>
+
 
 <body>
     <div class="rightsidenav">
@@ -24,36 +29,38 @@
 
             In this project, I implemented the tree generation algorithm featured in this paper: <a href="http://algorithmicbotany.org/papers/colonization.egwnp2007.large.pdf">"Modeling Trees with a Space Colonization Algorithm"</a>.
 
-            <br><br>
 
-            <img src='/assets/images/tree_viz.png' id = "tree_viz" style="width:25vw;height:20vw;">
-
-            <br><br>
+            <video class="videoembedded" autoplay muted loop playsinline>
+                <source src="https://alex-sheen.github.io/assets/videos/tree.mp4" type="video/mp4" style="width:75%">
+                Your browser does not support the video tag.
+            </video>
 
             The space colonization algorithm starts at a root node and builds tree nodes into a cloud of "attraction points". <br>
+            <img src='/assets/images/tree_viz.png' id = "tree_viz" style="width:35%; height: auto;"> <br>
             1. Each node finds the surrounding attraction points within the radius of influence 'di' and calculates the normalized vector from the node to attraction point.<br>
             2. Each node then grows a new node along the averaged vector from all of the normalized vectors. <br>
             3. Once all of the new nodes are created, a check is performed to remove any attraction point that is within kill distance 'dk'.<br>
             4. This process is repeated until no attraction point is within the distance 'di' of any node, or no attraction points remain.<br>
 
-            <br>
-
-            <img src='/assets/images/tree_building.png' id = "tree2" style="width:20vw;height:20vw;">
-            <img src='/assets/images/tree.png' id = "tree" style="width:25vw;height:20vw;">
-            <img src='/assets/images/tree_2.png' id = "tree2" style="width:25vw;height:20vw;">
-
-            <br>
-
             <a href="tree.html">[Project Demo]</a>
 
-            <br><br>
+            <br>
 
-            Source: <br>
+            <img src='/assets/images/tree_building.png' id = "tree2" style="width:30%; height: auto;">
+
+            <img src='/assets/images/tree.png' id = "tree2" style="width:30%; height: auto;">
+
+            <img src='/assets/images/tree_2.png' id = "tree2" style="width:30%; height: auto;">
+
+
+            <br>
+
+            <div style="width:100%">
             Runions, A., Lane, B., and Prusinkiewicz, P. (2007). Modeling trees with a space colonization algorithm. In
             Proceedings of the Third Eurographics conference on
             Natural Phenomena, NPH’07, pages 63–70, Aire-laVille, Switzerland, Switzerland. Eurographics Association.
+            </div>
 
-            <br><br>
        </div>
     </div>
 </body>
