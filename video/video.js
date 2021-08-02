@@ -14,6 +14,10 @@ function d3() {
     window.location.href = "d3.html";
 }
 
+function rabbithole() {
+    window.location.href = "rabbithole.html";
+}
+
 function reel() {
     window.location.href = "reel.html";
 }
