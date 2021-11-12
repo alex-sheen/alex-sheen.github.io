@@ -18,6 +18,10 @@ function field2() {
     window.location.href = "field2.html";
 }
 
+function formCode() {
+    window.location.href = "formCode.html";
+}
+
 function rabbithole() {
     window.location.href = "rabbithole.html";
 }
