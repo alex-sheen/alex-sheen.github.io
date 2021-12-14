@@ -33,6 +33,10 @@
   opacity: 0;
 }
 
+.video_desc span {
+  background-color: rgb(65, 57, 57);
+}
+
 .video_overlay {
   position: absolute;
   top: 0;
@@ -51,6 +55,10 @@
 }
 
 .proj:hover .video_desc {
+  opacity: 0.65;
+}
+
+.proj:hover .video_desc_light {
   opacity: 0.65;
 }
 
