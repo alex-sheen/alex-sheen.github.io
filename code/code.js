@@ -36,3 +36,7 @@ function tree() {
 function tron() {
     window.location.href = "tron/index.html";
 }
+
+function uarch() {
+    window.location.href = "uarch/index.html";
+}
