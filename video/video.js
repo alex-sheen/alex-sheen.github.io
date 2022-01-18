@@ -30,6 +30,10 @@ function reel() {
     window.location.href = "reel.html";
 }
 
+function reel2() {
+    window.location.href = "../reel.html";
+}
+
 function spook_world_1() {
     window.location.href = "spook-world-1.html";
 }
