@@ -6,6 +6,10 @@ function alice() {
     window.location.href = "alice.html";
 }
 
+function artml() {
+    window.location.href = "artmachineintelligence/sketch1.html";
+}
+
 function datamosh() {
     window.location.href = "datamosh.html";
 }
