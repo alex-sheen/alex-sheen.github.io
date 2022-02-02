@@ -7,7 +7,7 @@ function alice() {
 }
 
 function artml() {
-    window.location.href = "artmachineintelligence/sketch1.html";
+    window.location.href = "artmachineintelligence/sketch3.html";
 }
 
 function datamosh() {
