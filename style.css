@@ -81,6 +81,12 @@ body {
     transform: translate(-50%, -50%)
 }
 
+.desc_sub {
+  font-family: railway;
+  color: #FFFFFF;
+  font-size: 1vw;
+}
+
 .belowdesc {
     font-family: railway;
     color: #FFFFFF;

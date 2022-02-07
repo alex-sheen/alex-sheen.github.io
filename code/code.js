@@ -25,6 +25,10 @@ function juliaset() {
     window.location.href = "juliaset/index.html";
 }
 
+function security() {
+    window.location.href = "security/index.html";
+}
+
 function shell() {
     window.location.href = "https://github.com/alex-sheen/unix-shell";
 }

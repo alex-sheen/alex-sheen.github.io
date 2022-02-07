@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="../../sidenav.css">
+  <script type="text/javascript" src="../../main.js"></script>
+  <script type="text/javascript" src="../../video/video.js"></script>
+
+  <link rel="stylesheet" href="../../video/video.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="../../containers.css">
+</head>
+
+<body>
+
+  <div class="top_right">
+      <img src="/assets/images/github.png" alt="Github" class="image" onclick="github()" style="width:4vw;height:4vw;">
+  </div>
+
+  <div class="top_left">
+     <img src='/assets/images/noun_return_4.png' id = "back_button" alt="Back Button" onclick="back_code_1()" style="width:4vw;height:4vw;">
+  </div>
+
+  <div class="top_bar w3-content" style="border-bottom: solid white;">
+      <img src='/assets/images/noun_video_deselected.png' id = "video_button" alt="Video Button" onclick="video_2()" style="width:4.5vw;height:4.5vw;">
+      <img src='/assets/images/noun_code_selected.png' id = "code_button" alt="Code Button" onclick="back_code_1()" style="width:4.5vw;height:4.5vw;">
+  </div>
+
+  <!-- Grid for photos -->
+  <div class="w3-padding-64 w3-content" id="photos">
+  <div class="w3-padding-16" style="margin:0 -16px">
+
+        <div class = "w3-row">
+            <div class="w3-twothird">
+                <div class="proj_rel" style = "width:100%">
+                    Introduction to Computer Security
+                    <div class="projtext" style = "width:100%">
+                        UChicago CMSC-23200 Intro, Win 2021<br>
+                        <br>
+                        Stack Memory Exploits, Length Extension Attacks, Fuzzing, Password Cracking
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class = "w3-row">
+            <div class="w3-twothird">
+                <div class="proj_rel" style="width:100%">
+                    Assignment 2 | C
+                    <div class="projtext" style = "width:100%">
+                        Memory Bug Exploitation
+                        <br>
+                        <br>
+                        In this assignment, I implemented buffer-overflow attacks to hijack sample, victim programs (labelled as sploit0-5). 
+                        I used GDB to locate the memory addresses of stack variables and relied on C memory vulnerabilities to inject shellcode into sample programs.
+                        <br>
+                        <br>
+                        sploit1-sploit4 required the implementation of buffer-overflow attacks.
+                        <br>
+                        <br>
+                        sploit5 featured a non-executable stack and required the implementation of a return-to-libc attack.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class = "w3-row">
+            <div class="w3-twothird">
+                <div class="proj_rel" style="width:100%">
+                    Assignment 3 | C
+                    <div class="projtext" style = "width:100%">
+                        Fuzzing and Cryptography
+                    </div>
+                    Part 1: Fuzzing
+                    <div class="projtext" style = "width:100%">
+                        For Part 1, I used fuzzing tool AFL to crash a JSON-parsing library and a plotting program called <a href="https://github.com/silentbicycle/guff">guff</a>..
+                        
+                    </div>
+                    Part 2: Cryptography
+                    <div class="projtext" style = "width:100%">
+                        In Part 2, I implemented a length-extension attack on demo website that hashes URL parameters with MD5.
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class = "w3-row">
+            <div class="w3-twothird">
+                <div class="proj_rel" style="width:100%">
+                    Assignment 4 | Python, HashCat, Jupiter Notebook
+                    <div class="projtext" style = "width:100%">
+                        Password Cracking
+                        <br>
+                        <br>
+                        Part 1: Fast Hashes
+                        <div class="projtext" style = "width:100%">
+                            For Part 1, I used HashCat to crack 51% of a list of 400 password hashes -- SHA1($pass.$salt). 
+                            <br> I used the following methods:<br><br>
+                            1. brute-force guesses, such as 5 digit numbers, 6 digit numbers, capitalized 5 letter word + two numbers at the end (e.g. Alex87, for an Alex born in 1987).<br>
+                            2. selected wordlists, such as passwords from the RockYou data breach.<br>
+                            3. wordslists + mangling, such as RockYou data breach + leetspeak rule set.<br><br>
+                            51% of 400 hashes took roughly 4 hours of computing time on Jupiter Notebook.
+                        </div>
+                        Part 2: Slow Hashes
+                        <div class="projtext" style = "width:100%">
+                            
+                        </div>
+                        Part 3&4: Online Attacks
+                        <div class="projtext" style = "width:100%">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      
+
+  </div><!-- End padding -->
+  </div><!-- End photo grid -->
+
+</body>
+</html>

@@ -25,3 +25,7 @@ function github() {
 function video() {
     window.location.href = "../video/reel.html";
 }
+
+function video_2() {
+    window.location.href = "../../video/reel.html";
+}
