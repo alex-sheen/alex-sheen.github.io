@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../sidenav.css">
+  <script type="text/javascript" src="../main.js"></script>
+  <script type="text/javascript" src="video.js"></script>
+
+  <link rel="stylesheet" href="video.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="../containers.css">
+</head>
+
+<body>
+
+  <div class="top_right">
+      <img src="/assets/images/github.png" alt="Github" class="image" onclick="github()" style="width:4vw;height:4vw;">
+  </div>
+
+  <div class="top_left">
+     <img src='/assets/images/noun_return_4.png' id = "back_button" alt="Back Button" onclick="reel()" style="width:4vw;height:4vw;">
+  </div>
+
+  <div class="top_bar w3-content" style="border-bottom: solid white;">
+      <img src='/assets/images/noun_video_selected.png' id = "video_button" alt="Video Button" onclick="video()" style="width:4.5vw;height:4.5vw;">
+      <img src='/assets/images/noun_code_deselected.png' id = "code_button" alt="Code Button" onclick="back_code_1()" style="width:4.5vw;height:4.5vw;">
+  </div>
+
+  <!-- Grid for photos -->
+  <div class="w3-padding-64 w3-content" id="photos">
+  <div class="w3-padding-16" style="margin:0 -16px">
+      <!-- Project Description -->
+      <div class = "w3-row">
+        <div class="w3-rest">
+            <div class="proj_rel" style = "width:100%">
+                Sanatizing the Shadow of a Past
+                <div class="projtext" style = "width:100%">
+                    Photogrammetry - AliceVision Meshroom <br>
+                    Render Engine - Blender Cycles <br>
+                    <br>
+                    Is it possible to escape the shadow of the past in Greece today? <br>
+                    <br>
+                    The reality is that the Greek state has already erased certain aspects of its own past 
+                    to create a homogenous and unifying memory that dominates public perception of Greece, both locally and abroad. Whether
+                    it is through the removal of non-Classical structures on the Athenian Acropolis or the forced renaming of towns from Slavic to Greek names, 
+                    Greece's attempts to escape the shadow of its past have largely demonstrated success in shaping perceptions by the 
+                    average individual. This work walks through a photogrammetric reconstruction of the Ancient Athenian Agora and the adjacent
+                    Adrianou street, a site where historical and modern strata meet in tension. By shifting and dissolving these strata, the work
+                    visualizes the steps the modern Greek State has taken to curate its historical narratives and exposes the voices and 
+                    cultural vibrancies that will be overwritten by a continuation of such efforts.
+                
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of Project Description -->
+
+    <div class = "w3-row">
+      <video class="videoembedded" autoplay loop muted playsinline scrolling="no">
+        <!-- <source src="https://alex-sheen.github.io/assets/images/artmachineintelligence/sketch3/ebsynth/room.mp4" type="video/mp4" style="width:100%"> -->
+        <source src="/assets/images/artmachineintelligence/sketch3/ebsynth/room_dizzy.webm" type="video/webm" style="width:100%">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <!-- Project Commentary -->
+    <div class = "w3-row">
+      <div class="w3-rest">
+          <div class="proj_rel" style="width:100%">
+            Sanitization of Greek History
+              <div class="projtext" style = "width:100%">
+                  In its efforts to root its nation's foundations in the Classical period, the Greek state has metaphorically and physically destroyed
+                  aspects from its past to create a sanitized version that permeates popular culture both locally and internationally. The modern
+                  presentation of the Athenian Acropolis, for example, has stripped the site of any non-Classical or non-structural elements. The result
+                  is a white-washed, curated image of the Acropolis that has become the embodiment of Greece as a whole, one that attracts millions of 
+                  tourists each year. The sanitization of the Acropolis is therefore a testament to the success Greece has had in escaping the 
+                  shadow of their past, at least in the eyes of international popular culture.
+                  <br><br>
+
+                  In recent years, there has been increased pushback against the destructive tendencies that arise from such historical sanitization.
+                  In 2019, the Greek courts blocked the demolition of two Art Deco era buildings on Dionysiou Areopagitou Street in Athens. These
+                  buildings were scheduled to be removed to clear a view from the New Acropolis Museum up to the Acropolis itself, a demolition that would
+                  have aligned with Greek's history of sanitization efforts. Although these conflicts reveal dissent against sanitization, nevertheless
+                  these examples don't contradict the fact that Greece's sanitization efforts have proved successful when decisions are unanimous, 
+                  demonstrating that it is indeed possible to escape the shadow of the past in Greece when it is desired.
+                  <br><br>
+
+                  If decisions were unanimous and such sanitization efforts continue, what will happen to the excavataions at the Ancient Athenian 
+                  Agora? Presently, excavations are halted as the archaeolical site extends below the modern street of Adrianou. This work visualizes
+                  what possibilities might arise should the opinion of the Greek courts shift, demolishing the modern building facades in an 
+                  explosion of points that reveal the potential archaeological remains that lie below.
+
+
+                  http://www.elginism.com/new-acropolis-museum/demolition-of-buildings-in-front-of-new-acropolis-museum-blocked-by-greek-courts/20090713/2244/
+                  
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- End of Project Commentary -->
+
+    <!-- Project Documentation -->
+    <div class = "w3-row">
+        <div class="w3-half">
+            <div class="proj_rel" style="width:100%">
+                Documentation | Process
+                <div class="projtext" style = "width:100%">
+                    281 images of the Ancient Athenian Agora were processed with photogrammetric software AliceVision Meshroom to
+                    produce a 3D mesh reconstruction. The 3D mesh was then modified manually in Blender3D to imagine how the
+                    Agora might extend below the modern street.
+                </div>
+
+                <img src="/assets/images/civ/civ_cc.png" style="width:100%; opacity: 0%;">
+
+                <div class="projtext" style = "width:100%">
+                    The 3D mesh reconstruction was then processed with CloudCompare to produce a uniform-density pount cloud.
+                </div>
+
+
+                <img src="/assets/images/civ/civ_cc.png" style="width:100%; opacity: 0%;">
+
+                <div class="projtext" style = "width:100%">
+                    The resulting pount cloud was then animated and rendered in Blender3D.
+                </div>
+            </div>
+        </div>
+
+        <div class="w3-half">
+            <div class="proj_rel" style="width:100%">
+                <div class="projtext" style = "width:100%">
+                    <img src="/assets/images/civ/civ_cc.png" style="width:100%;">
+                </div>
+                <br>
+                <div class="projtext" style = "width:100%">
+                    <img src="/assets/images/civ/civ_cc_cloud.png" style="width:100%;">
+                </div>
+                <br>
+                <div class="projtext" style = "width:100%">
+                    <img src="/assets/images/civ/civ_blender.png" style="width:100%;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class = "w3-row">
+        <div class="w3-rest">
+            <div class="proj_rel" style="width:100%">
+                Documentation | Photogrammetry
+                <div class="projtext" style = "width:100%">
+                    Computation Time - 19 hrs
+                    <br><br>
+                    Meshroom ran on UChicago's Peanut Cluster using 281 photos taken from the Ancient Agora in Athens, Greece. Non-research jobs are capped at 4 hrs
+                    on the Peanut Cluster, so the photo set had to be broken into two, one for the Ancient Agora and one
+                    for the modern street, Adrianou.
+                    <br><br>
+                    The photo set included many sub-optimal photos that included tourists who changed positions across different images. To improve output, the Meshroom 
+                    <a href="https://github.com/alicevision/meshroom/issues/683#issuecomment-545801680">--overrides</a> parameter was used to set the 
+                    <a href="https://github.com/alicevision/meshroom/wiki/Reconstruction-parameters">parameters</a> for <i>minNumOfConsistentCams</i> to 2 and 
+                    <i>minNumOfConsistentCamsWithLowSimilarity</i> to 3, under <i>DepthMapFilter_1</i>. Additionally, to fit the job within the time constraints of the Peanut Cluster, parameter <i>describerPreset</i>
+                    was set to "low" under <i>FeatureExtraction_1</i>. This reduced accuracy but improved computation time.
+                    <br><br>
+                    Trial runs using Google Colab were unsuccessful due limitations on GPU usages for free version users that disconnected the runtime
+                    when the CAPTCHA's failed.
+                </div>
+            </div>
+            <div class="proj_rel" style="width:100%">
+                Documentation | Animation
+                <div class="projtext" style = "width:100%">
+                    Render Time - 32 hrs (2:00 per frame for 1200 frames)
+                    <br><br>
+                    Video fly-through animated and rendered using Blender's Cycles. The point cloud was imported using <a href="https://github.com/uhlik/bpy">Point Cloud Visualizer</a> add-on
+                    with Blender3D Version 2.83.0 (up-to-date versions were incompatible).
+                </div>
+          </div>
+        </div>
+    </div>
+    <!-- End of Project Documentation -->
+  </div><!-- End padding -->
+  </div><!-- End photo grid -->
+
+</body>
+</html>
