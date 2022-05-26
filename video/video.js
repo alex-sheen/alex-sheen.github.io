@@ -26,6 +26,10 @@ function formCode() {
     window.location.href = "formCode.html";
 }
 
+function greece() {
+    window.location.href = "https://youtu.be/G7ey7Gqe8wo";
+}
+
 function rabbithole() {
     window.location.href = "rabbithole.html";
 }
