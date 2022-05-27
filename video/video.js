@@ -27,6 +27,10 @@ function formCode() {
 }
 
 function greece() {
+    window.location.href = "greece.html";
+}
+
+function greece_video() {
     window.location.href = "https://youtu.be/ixlhGLY-BeQ";
 }
 
