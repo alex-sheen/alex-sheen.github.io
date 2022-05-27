@@ -27,7 +27,7 @@ function formCode() {
 }
 
 function greece() {
-    window.location.href = "https://youtu.be/G7ey7Gqe8wo";
+    window.location.href = "https://youtu.be/ixlhGLY-BeQ";
 }
 
 function rabbithole() {
