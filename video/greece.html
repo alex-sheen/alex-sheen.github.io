@@ -41,9 +41,11 @@
                     Is it possible to escape the shadow of the past in Greece today? <br>
                     <br>
                     The reality is that the Greek state has already erased certain aspects of its own past 
-                    to create a homogenous and unifying memory that dominates public perception of Greece, both locally and abroad. Whether
-                    it is through the removal of non-Classical structures on the Athenian Acropolis or the forced renaming of towns from Slavic to Greek names, 
-                    Greece's attempts to escape the shadow of its past have largely demonstrated success in shaping perceptions by the 
+                    to create a homogenous and unifying memory that dominates public perception of Greece, both locally and abroad. 
+                    To escape the shadow of its past, Greece has attempted to establish a national identity around a continuous 
+                    history from Classical, Byzantine, to Modern Greece, one that ignores all other historical influences.
+                    Whether it is through the removal of non-Classical structures on the Athenian Acropolis or the forced 
+                    renaming of towns from Slavic to Greek names, these attempts have largely demonstrated success in shaping perceptions by the 
                     average individual. This work walks through a photogrammetric reconstruction of the Ancient Athenian Agora and the adjacent
                     Adrianou street, a site where historical and modern strata meet in tension. By shifting and dissolving these strata, the work
                     visualizes the steps the modern Greek State has taken to curate its historical narratives and exposes the voices and 
@@ -85,9 +87,17 @@
                   In 2019, the Greek courts blocked the demolition of two Art Deco era buildings on Dionysiou Areopagitou Street in Athens. These
                   buildings were scheduled to be removed to clear a view from the New Acropolis Museum up to the Acropolis itself, a demolition that would
                   have aligned with Greek's history of sanitization efforts. On other cases, such as the approved demolition of buildings on the corner
-                  of Makrygiannis 10 and Hatzichristou 21, these sanitizations are fulfilled. Although the existence of these conflicts reveal internal conflict regarding this
-                  issue, they do not contradict the fact that Greece's sanitization efforts have proved successful when decisions are unanimous, 
-                  demonstrating that it is indeed possible to escape the shadow of the past in Greece when it is desired.
+                  of Makrygiannis 10 and Hatzichristou 21, these sanitizations are fulfilled. 
+                  <br><br>
+                  
+                  Although the existence of these conflicts reveal internal conflict regarding this
+                  issue, they do not contradict the fact that Greece's sanitization efforts have proved successful when decisions are unanimous.
+                  New city plans have been designed with western grid systems with Neoclassical architecture that expunge any Ottoman influence.
+                  Similarly, efforts to reach a unified "Greek" identity have seen the forced renaming of rural villages from Slavic names to "Greek" names.
+                  Most impactful, perhaps, has been Konstantine Paparrigopoulos <i>History of the Hellenic Nation from the Ancient Times Until the Modern</i>,
+                  which traces an unbroken history from Classical, Byzantine, and Modern Greece. As a state-mandated text in public education, Paparrigopoulos' history
+                  has become a powerful unifying narrative, one that nevertheless largely ignores the role of Ottoman, Slavic, and other influences.
+                  These examples demonstrate that it is indeed possible to escape the shadow of the past in Greece when it is desired.
                   <br><br>
 
                   If decisions were unanimous and such sanitization efforts continue, what will happen to the excavataions at the Ancient Athenian 
@@ -100,6 +110,9 @@
                  <br><br>
                   Athens News Agency. "Demolition of buildings in front of New Acropolis Museum blocked by Greek courts." Accessed May 27, 2022.<br>
                   http://www.elginism.com/new-acropolis-museum/demolition-of-buildings-in-front-of-new-acropolis-museum-blocked-by-greek-courts/20090713/2244/
+                  <br><br>
+                  Camp, John. "The Athenian Agora: A Short Guide." Accessed May 27, 2022.<br>
+                  http://www.agathe.gr/icons/pdfs/agorapicbk-16.pdf
                   <br><br>
                   Gallant, Thomas. Modern Greece. New York: Oxford University Press, 2001.
                   <br><br>
@@ -118,7 +131,9 @@
                 Documentation | Process
                 <div class="projtext" style = "width:100%">
                     281 images of the Ancient Athenian Agora were processed with photogrammetric software AliceVision Meshroom to
-                    produce a 3D mesh reconstruction. The 3D mesh was then modified manually in Blender3D to imagine how the
+                    produce a 3D mesh reconstruction. Unfortunately, the quality of the 3D mesh had to be decreased to improve
+                    computation time. As a result, the 3D mesh was then modified manually in Blender3D to replace missing pieces
+                    and to imagine how the
                     Agora might extend below the modern street.
                 </div>
 
@@ -159,11 +174,11 @@
             <div class="proj_rel" style="width:100%">
                 Documentation | Photogrammetry
                 <div class="projtext" style = "width:100%">
-                    Computation Time - 19 hrs
+                    Computation Time - 19 hours
                     <br><br>
-                    Meshroom ran on UChicago's Peanut Cluster using 281 photos taken from the Ancient Agora in Athens, Greece. Non-research jobs are capped at 4 hrs
+                    Meshroom ran on UChicago's Peanut Cluster using 281 photos taken from the Ancient Agora in Athens, Greece. Non-research jobs are capped at 4 hours
                     on the Peanut Cluster, so the photo set had to be broken into two, one for the Ancient Agora and one
-                    for the modern street, Adrianou.
+                    for the modern street, Adrianou. This ensured that distinct tasks could be run in under 4 hours.
                     <br><br>
                     The photo set included many sub-optimal photos that included tourists who changed positions across different images. To improve output, the Meshroom 
                     <a href="https://github.com/alicevision/meshroom/issues/683#issuecomment-545801680">--overrides</a> parameter was used to set the 
@@ -178,7 +193,7 @@
             <div class="proj_rel" style="width:100%">
                 Documentation | Animation
                 <div class="projtext" style = "width:100%">
-                    Render Time - 32 hrs (2:00 per frame for 1200 frames)
+                    Render Time - 50 hours (~2:30 per frame for 1200 frames)
                     <br><br>
                     Video fly-through animated and rendered using Blender's Cycles. The point cloud was imported using <a href="https://github.com/uhlik/bpy">Point Cloud Visualizer</a> add-on
                     with Blender3D Version 2.83.0 (up-to-date versions were incompatible).
