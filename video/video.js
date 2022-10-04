@@ -34,6 +34,10 @@ function greece_video() {
     window.location.href = "https://youtu.be/ixlhGLY-BeQ";
 }
 
+function lovely() {
+    window.location.href = "lovely.html"
+}
+
 function rabbithole() {
     window.location.href = "rabbithole.html";
 }
