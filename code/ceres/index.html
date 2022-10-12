@@ -1,28 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="../../style2.css">
+  <link rel="stylesheet" href="../../style.css">
   <link rel="stylesheet" href="../../sidenav.css">
   <script type="text/javascript" src="../../main.js"></script>
+  <script type="text/javascript" src="../../video/video.js"></script>
+
+  <link rel="stylesheet" href="../../video/video.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="../../containers.css">
 </head>
 
 <body>
-    <div class="rightsidenav">
-        <img src="/assets/images/github.png" alt="Github" class="inverted" onclick="github()" style="width:4vw;height:4vw;">
-    </div>
-    <div class="mid_left">
-       <img src='/assets/images/noun_x.png' class = "inverted" id = "back_button" alt="Back Button" onclick="back_code_1()" style="width:4vw;height:4vw;">
-    </div>
 
-    <div class="maintext">
-        <h1>Ceres | Swift</h1>
+  <div class="top_right">
+      <img src="/assets/images/github.png" alt="Github" class="image" onclick="github()" style="width:4vw;height:4vw;">
+  </div>
 
-        <div>
-            I helped to design the prototype app for <a href="https://polsky.uchicago.edu/2020/05/20/2020-snvc-finalists-announced/">Ceres</a>, a digital health platform and finalist in the <a href="https://polsky.uchicago.edu/programs-events/new-venture-challenge/social-new-venture-challenge/">Chicago Booth Social New Venture Challenge</a> (SNVC).
-            I implemented the Ceres client protocol, a real-time chat system using Firebase, and a nearby clinic search function using Google’s Maps SDK.
-            Ceres is a health platform with privacy concerns, so a project demo is currently unavailable.
-       </div>
+  <div class="top_left">
+     <img src='/assets/images/noun_return_4.png' id = "back_button" alt="Back Button" onclick="back_code_1()" style="width:4vw;height:4vw;">
+  </div>
 
-    </div>
+  <div class="top_bar w3-content" style="border-bottom: solid white;">
+      <img src='/assets/images/noun_video_deselected.png' id = "video_button" alt="Video Button" onclick="video_2()" style="width:4.5vw;height:4.5vw;">
+      <img src='/assets/images/noun_code_selected.png' id = "code_button" alt="Code Button" onclick="back_code_1()" style="width:4.5vw;height:4.5vw;">
+  </div>
+
+  <!-- Grid for photos -->
+  <div class="w3-padding-64 w3-content" id="photos">
+  <div class="w3-padding-16" style="margin:0 -16px">
+
+        <div class = "w3-row">
+                <div class="proj_rel" style = "width:100%">
+                    Ceres | Swift
+                      <div class="projtext" style = "width:100%">
+                        <div>
+                            I helped to design the prototype app for <a href="https://polsky.uchicago.edu/2020/05/20/2020-snvc-finalists-announced/">Ceres</a>, a digital health platform and finalist in the <a href="https://polsky.uchicago.edu/programs-events/new-venture-challenge/social-new-venture-challenge/">Chicago Booth Social New Venture Challenge</a> (SNVC).
+                            I implemented the Ceres client protocol, a real-time chat system using Firebase, and a nearby clinic search function using Google's Maps SDK.
+                       </div>
+                    </div>
+                </div>
+        </div>
+
+
+      
+
+  </div><!-- End padding -->
+  </div><!-- End photo grid -->
+
 </body>
 </html>
