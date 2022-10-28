@@ -166,11 +166,25 @@
         <!-- MAIN RIGHT -->
         <div class="w3-half">
             <div class="w3-row">
-                <div class="links center white_text">
-                    Digital Art
+                <div class="center white_text">
+                    right-click - rotate | left-click - pan | scroll-wheel - zooom
                 </div>
+                <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+                <model-viewer src="/assets/models/final.glb" ar ar-modes="webxr scene-viewer quick-look" 
+                    camera-controls poster="/assets/models/poster.webp" 
+                    shadow-intensity="1" camera-target="0.0m -0.5m -1.0m"
+                    camera-orbit="-152deg 82.44deg 70%">
+                    <div class="progress-bar hide" slot="progress-bar">
+                        <div class="update-bar"></div>
+                    </div>
+                </model-viewer>
+                
             </div>
             <div class="w3-row"> <!-- VIDEO / VFX -->
+                <div class="links center white_text">
+                    Videos / VFX
+                </div>
+
                 <div class="cards_padding w3-content" id="photos">
                     <div class="w3-half"> <!-- Left Container -->
                         <!-- GREECE -->

@@ -127,3 +127,8 @@
   opacity: 0.4;
 }
 
+model-viewer {
+  width: 800px;
+  height: 600px;
+}
+
