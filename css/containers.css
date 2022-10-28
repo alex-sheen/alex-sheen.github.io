@@ -1,0 +1,129 @@
+.projs {
+    width: 100%;
+    height: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+
+.margin {
+  margin: 15px 7px 15px 7px;
+}
+
+.proj {
+  position: relative;
+  width: 100%;
+}
+
+.proj_rel{
+  font-family: railway;
+  font-size: 2vw;
+}
+
+.proj_title {
+  font-family: railway;
+  font-size: 3vw;
+}
+
+.proj_text {
+  font-family: railway;
+  font-size: 2vw;
+}
+
+.proj_lang {
+  font-family: railway;
+  font-size: 1vw;
+}
+
+.desc {
+  font-size: 3vh;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+}
+
+.desc span {
+  background-color: rgb(65, 57, 57);
+}
+
+.videoregular {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: 100%;
+  height: auto;
+  z-index: -100;
+  transform: translateX(-50%) translateY(-50%);
+  background-size: cover;
+  transition: 1s opacity;
+  overflow: hidden;
+}
+
+.video_overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #818181;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #818181;
+}
+
+.overlay_dark {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #707070;
+}
+
+.proj:hover .overlay {
+  opacity: 0.5;
+}
+
+.proj:hover .overlay_dark {
+  opacity: 0.8;
+}
+
+.proj:hover .video_overlay {
+  opacity: 0.2;
+}
+
+.proj:hover .desc {
+  opacity: 1;
+}
+
+.proj:hover .desc_light {
+  opacity: 0.4;
+}
+

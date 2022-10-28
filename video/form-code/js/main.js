@@ -64,10 +64,11 @@ function resetCanvas(){
     default:
       // code block
   }
-}
-function mouseClicked() {
-  resetCanvas();
-  return false;
+
+  fill(255, 255, 255);
+  textSize(26);
+  text('Press any key to reset', innerWidth / 2, 110);
+  noFill()
 }
 
 function keyPressed() {

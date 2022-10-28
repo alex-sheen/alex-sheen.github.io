@@ -1,95 +1,112 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="../style.css">
-  <link rel="stylesheet" href="../sidenav.css">
-  <script type="text/javascript" src="../main.js"></script>
-  <script type="text/javascript" src="video.js"></script>
-
-  <link rel="stylesheet" href="video.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href = "/css/containers.css">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" href="../containers.css">
+
+  <script type="text/javascript" src="/js/main.js"></script>
+  <script type="text/javascript" src="/js/code.js"></script>
+  <script type="text/javascript" src="/js/video.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 
-<body>
+<body class="black_back">
+    <!-- header -->
+    <div class="base_padding header">
+        <div class="w3-row">
+            <div class="name white_text">
+                Alex Sheen
+            </div>
+        </div>
 
-  <div class="top_right">
-      <img src="/assets/images/github.png" alt="Github" class="image" onclick="github()" style="width:4vw;height:4vw;">
-  </div>
+        <div class="w3-row">
+            <div class="title white_text">
+                Computer Science | Media Arts & Design
+            </div>
+        </div>
 
-  <div class="top_left">
-     <img src='/assets/images/noun_return_4.png' id = "back_button" alt="Back Button" onclick="reel()" style="width:4vw;height:4vw;">
-  </div>
+        <div class="w3-row">
+            <div class="links white_text">
+                <a href="/">CS</a><span></span>
+                <a href="/art.html">Art</a><span></span>
+                <a href = "mailto: alexsheen@uchicago.edu">Email</a>
+            </div>
+        </div>
+    </div>
 
-  <div class="top_bar w3-content" style="border-bottom: solid white;">
-      <img src='/assets/images/noun_video_selected.png' id = "video_button" alt="Video Button" onclick="video()" style="width:4.5vw;height:4.5vw;">
-      <img src='/assets/images/noun_code_deselected.png' id = "code_button" alt="Code Button" onclick="back_code_1()" style="width:4.5vw;height:4.5vw;">
-  </div>
-  ar_final
-  <!-- Grid for photos -->
-  <div class="w3-padding-64 w3-content" id="photos">
-  <div class="w3-padding-16" style="margin:0 -16px">
-      <!-- First Container -->
-      <div class="w3-half">
-        <div class="proj" style="width:100%">
-          <video style="opacity: 0%; width:100%" id="vid" muted>
-            <source src="https://alex-sheen.github.io/assets/videos/ar_final_compressed3.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <div class="projtitle" style = "width:100%">
-            Frames
-            <div class="projtext" style = "width:100%">
-              OpenEndedGroup Field2 / AR <br>
-              <br>
-              For this project, I partnered with an MFA graduate student to translate their physical sculptures into an interactive Augmented Reality experience.
-              Their work frequently features hinged frames of differing dimensions and explores how their movement can reveal 
-              new interactions between the sculpture and the space it occupies. Our AR piece extends this notion with the common idea in 
-              AR of "a world inside a world".
-              <br><br>
-              
-              I used Open-Ended Group's Field to place virtual objects in the viewer's live camera feed of the real-world environment, allowing the viewer to 
-              physically walk around the virtual sculpture. Our piece utilizes the OpenGL Stencil Buffer to 
-              only draw the light gray sculptures when they are viewed <i>through</i> a black frame. Each frame is paired with a 
-              single gray object, but overlapping frames will reveal all of their respective objects. By utilizing the Stencil 
-              Buffer in this way, we create a metaphysical world within the frames in this AR space.
-
+    <!-- body -->
+    <div class="base_padding">
+        <!-- row 1 -->
+        <div class="w3-row">
+          <!-- half 1 -->
+          <div class="w3-half">
+            <div class="proj" style="width:100%">
+              <div class="projtitle white_text" style = "width:100%">
+                Frames
+                <div class="projtext" style = "width:100%">
+                  OpenEndedGroup Field2 / AR <br>
+                  <br>
+                  For this project, I partnered with an MFA graduate student to translate their physical sculptures into an interactive Augmented Reality experience.
+                  Their work frequently features hinged frames of differing dimensions and explores how their movement can reveal 
+                  new interactions between the sculpture and the space it occupies. Our AR piece extends this notion with the common idea in 
+                  AR of "a world inside a world".
+                  <br><br>
+                  
+                  I used Open-Ended Group's Field to place virtual objects in the viewer's live camera feed of the real-world environment, allowing the viewer to 
+                  physically walk around the virtual sculpture. Our piece utilizes the OpenGL Stencil Buffer to 
+                  only draw the light gray sculptures when they are viewed <i>through</i> a black frame. Each frame is paired with a 
+                  single gray object, but overlapping frames will reveal all of their respective objects. By utilizing the Stencil 
+                  Buffer in this way, we create a metaphysical world within the frames in this AR space.
+    
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="proj" style="width:100%">
-          <video style="opacity: 0%; width:100%" id="vid" muted>
-            <source src="https://alex-sheen.github.io/assets/videos/ar_sketch2.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <div class="projtitle" style = "width:100%">
-            sketch3 - lines
-            <div class="projtext" style = "width:100%">
-              OpenEndedGroup Field2 / AR <br>
-              <br>
-              I was initially inspired by vines growing on the buildings on UChicago's campus. 
-              I decided to create a brush that allows you to draw these wandering tendrils in space. 
-              The root is drawn at a set distance from the camera while the offshoots randomly spiral away at an angle to the main branch.
+          <!-- half 1 -->
+          <!-- half 2 -->
+          <div class="w3-half">
+            <div class="proj" style="width:100%">
+              <video style="width:100%" id="vid" muted autoplay loop playsinline>
+                <source src="https://alex-sheen.github.io/assets/videos/ar_final_compressed3.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
             </div>
           </div>
+          <!-- half 2 -->
         </div>
-      </div>
-      <!-- Second Container -->
-      <div class="w3-half">
-        <div class="proj" style="width:100%">
-          <video style="width:100%" id="vid" muted autoplay loop playsinline>
-            <source src="https://alex-sheen.github.io/assets/videos/ar_final_compressed3.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
+        <!-- row 1 -->
+        <!-- row 2 -->
+        <div class="w3-row">
+          <!-- half 1 -->
+          <div class="w3-half">
+            <div class="proj" style="width:100%">
+              <div class="projtitle white_text" style = "width:100%">
+                sketch3 - lines
+                <div class="projtext" style = "width:100%">
+                  OpenEndedGroup Field2 / AR <br>
+                  <br>
+                  I was initially inspired by vines growing on the buildings on UChicago's campus. 
+                  I decided to create a brush that allows you to draw these wandering tendrils in space. 
+                  The root is drawn at a set distance from the camera while the offshoots randomly spiral away at an angle to the main branch.
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- half 1 -->
+          <!-- half 2 -->
+          <div class="w3-half">
+            <div class="proj" style="width:100%">
+              <video style="width:100%" id="vid" muted autoplay loop playsinline>
+                <source src="https://alex-sheen.github.io/assets/videos/ar_sketch2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+          <!-- half 2 -->
         </div>
-        <div class="proj" style="width:100%">
-          <video style="width:100%" id="vid" muted autoplay loop playsinline>
-            <source src="https://alex-sheen.github.io/assets/videos/ar_sketch2.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      </div>
-  </div><!-- End padding -->
-  </div><!-- End photo grid -->
-
+        <!-- row 2 -->
+    </div>
 </body>
 </html>

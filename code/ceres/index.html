@@ -1,52 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="../../style.css">
-  <link rel="stylesheet" href="../../sidenav.css">
-  <script type="text/javascript" src="../../main.js"></script>
-  <script type="text/javascript" src="../../video/video.js"></script>
-
-  <link rel="stylesheet" href="../../video/video.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href = "/css/containers.css">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" href="../../containers.css">
+
+  <script type="text/javascript" src="/js/main.js"></script>
+  <script type="text/javascript" src="/js/code.js"></script>
+  <script type="text/javascript" src="/js/video.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 
 <body>
-
-  <div class="top_right">
-      <img src="/assets/images/github.png" alt="Github" class="image" onclick="github()" style="width:4vw;height:4vw;">
-  </div>
-
-  <div class="top_left">
-     <img src='/assets/images/noun_return_4.png' id = "back_button" alt="Back Button" onclick="back_code_1()" style="width:4vw;height:4vw;">
-  </div>
-
-  <div class="top_bar w3-content" style="border-bottom: solid white;">
-      <img src='/assets/images/noun_video_deselected.png' id = "video_button" alt="Video Button" onclick="video_2()" style="width:4.5vw;height:4.5vw;">
-      <img src='/assets/images/noun_code_selected.png' id = "code_button" alt="Code Button" onclick="back_code_1()" style="width:4.5vw;height:4.5vw;">
-  </div>
-
-  <!-- Grid for photos -->
-  <div class="w3-padding-64 w3-content" id="photos">
-  <div class="w3-padding-16" style="margin:0 -16px">
-
-        <div class = "w3-row">
-                <div class="proj_rel" style = "width:100%">
-                    Ceres | Swift
-                      <div class="projtext" style = "width:100%">
-                        <div>
-                            I helped to design the prototype app for <a href="https://polsky.uchicago.edu/2020/05/20/2020-snvc-finalists-announced/">Ceres</a>, a digital health platform and finalist in the <a href="https://polsky.uchicago.edu/programs-events/new-venture-challenge/social-new-venture-challenge/">Chicago Booth Social New Venture Challenge</a> (SNVC).
-                            I implemented the Ceres client protocol, a real-time chat system using Firebase, and a nearby clinic search function using Google's Maps SDK.
-                       </div>
-                    </div>
-                </div>
+    <!-- header -->
+    <div class="base_padding header">
+        <div class="w3-row">
+            <div class="name">
+                Alex Sheen
+            </div>
         </div>
 
+        <div class="w3-row">
+            <div class="title">
+                Computer Science | Media Arts & Design
+            </div>
+        </div>
 
-      
+        <div class="w3-row">
+            <div class="links">
+                <a href="/">CS</a><span></span>
+                <a href="/art.html">Art</a><span></span>
+                <a href = "mailto: alexsheen@uchicago.edu">Email</a>
+            </div>
+        </div>
+    </div>
 
-  </div><!-- End padding -->
-  </div><!-- End photo grid -->
-
+    <!-- body -->
+    <div class="base_padding">
+      <div class = "w3-row">
+        <div class="proj" style = "width:100%">
+            <b>Ceres | Swift</b>
+            <div>
+                I helped to design the prototype app for <a href="https://polsky.uchicago.edu/2020/05/20/2020-snvc-finalists-announced/">Ceres</a>, a digital health platform and finalist in the <a href="https://polsky.uchicago.edu/programs-events/new-venture-challenge/social-new-venture-challenge/">Chicago Booth Social New Venture Challenge</a> (SNVC).
+                I implemented the Ceres client protocol, a real-time chat system using Firebase, and a nearby clinic search function using Google's Maps SDK.
+            </div>
+        </div>
+      </div>
+    </div>
 </body>
 </html>
+

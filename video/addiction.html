@@ -1,38 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="../style.css">
-  <link rel="stylesheet" href="../sidenav.css">
-  <script type="text/javascript" src="../main.js"></script>
-  <script type="text/javascript" src="video.js"></script>
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href = "/css/containers.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+  <script type="text/javascript" src="/js/main.js"></script>
+  <script type="text/javascript" src="/js/code.js"></script>
+  <script type="text/javascript" src="/js/video.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 
-<body>
-    <div class="mid_right" style="border-style: solid; border-color: white;">
-        <img src='/assets/images/noun_video_selected.png' id = "video_button" alt="Video Button" onclick="video()" style="width:4.5vw;height:4.5vw;">
-        <br>
-        <img src='/assets/images/noun_code_deselected.png' id = "code_button" alt="Code Button" onclick="video_to_code()" style="width:4.5vw;height:4.5vw;">
+<body class="black_back">
+    <!-- header -->
+    <div class="base_padding header">
+        <div class="w3-row">
+            <div class="name white_text">
+                Alex Sheen
+            </div>
+        </div>
+
+        <div class="w3-row">
+            <div class="title white_text">
+                Computer Science | Media Arts & Design
+            </div>
+        </div>
+
+        <div class="w3-row">
+            <div class="links white_text">
+                <a href="/">CS</a><span></span>
+                <a href="/art.html">Art</a><span></span>
+                <a href = "mailto: alexsheen@uchicago.edu">Email</a>
+            </div>
+        </div>
     </div>
 
-    <div class="top_left">
-       <img src='/assets/images/noun_return_4.png' id = "back_button" alt="Back Button" onclick="reel()" style="width:4vw;height:4vw;">
-    </div>
-
-    <div class="mid_bottom">
-       <img src='/assets/images/noun_next_left.png' id = "left_button" alt="Left Button" onclick="datamosh()" style="width:4vw;height:4vw;">
-       <img src="/assets/images/muted.png" onclick="toggleSound(this);" style="width:4vw;height:4vw;">
-       <img src='/assets/images/noun_next_right.png' id = "right_button" alt="Right Button" onclick="spook_world_1()" style="width:4vw;height:4vw;">
-    </div>
-
-    <video class="videoregular" id="vid" muted autoplay loop playsinline>
-        <source src="https://alex-sheen.github.io/assets/videos/addiction.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-
-    <div class="desc">
-        <h5 style="text-align:center">
-          [WORK IN PROGRESS]
-        </h5>
+    <div class="w3-content">
+        <div class="w3-col" style="width:150px">
+            <img src="/assets/images/muted.png" onclick="toggleSound(this);" style="width:4vw;height:4vw;">
+        </div>
+        <div class="w3-rest">
+            <video id="vid" style="width:100%" autoplay muted loop playsinline>
+                <source src="https://alex-sheen.github.io/assets/videos/addiction.mp4" type="video/mp4" style="width:100%">
+                Your browser does not support the video tag.
+            </video>
+        </div>
     </div>
 </body>
 </html>

@@ -1,0 +1,90 @@
+@font-face {
+  font-family:"railway";
+  src: url("/assets/fonts/raleway/Raleway-Light.ttf") format("truetype");
+}
+
+.header {
+  text-align: center;
+}
+
+.black_back {
+  background-color: black;
+}
+
+.white_back {
+  background-color: white;
+}
+
+.black_text {
+  color: black;
+}
+
+.white_text {
+  color: white;
+}
+
+.base_padding {
+  padding: 25px 30px 20px 30px;
+}
+
+.base_padding_more {
+  padding: 40px 50px 20px 50px;
+}
+
+.base_padding_even_more {
+  padding: 40px 100px 20px 100px;
+}
+
+.cards_padding {
+  padding: 25px 30px 10px 30px;
+}
+
+.flex_space_between {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.name {
+  font-family: railway;
+  font-size: 10vh;
+}
+
+.title {
+  font-family: railway;
+  font-size: 2vh;
+}
+
+.links {
+  font-family: railway;
+  font-size: 4vh;
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: line-through;
+}
+
+span {
+  margin: 0 20px;
+}
+
+.videoembedded {
+  position: relative;
+  width: 100%;
+  height: auto;
+  outline: none;
+  display: block
+}

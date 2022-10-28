@@ -7,26 +7,26 @@ function cache() {
 }
 
 function ceres() {
-    window.location.href = "ceres/index.html";
+    window.location.href = "/code/ceres/index.html";
 }
 function ceres_polsky() {
     window.location.href = "https://polsky.uchicago.edu/2020/05/20/2020-snvc-finalists-announced/";
 }
 
 function chiventure() {
-    window.location.href = "chiventure/index.html";//"https://github.com/uchicago-cs/chiventure";
+    window.location.href = "/code/chiventure/index.html";//"https://github.com/uchicago-cs/chiventure";
 }
 
 function fishtank() {
-    window.location.href = "fishProject/fishtank.html";
+    window.location.href = "/code/fishProject/fishtank.html";
 }
 
 function juliaset() {
-    window.location.href = "juliaset/index.html";
+    window.location.href = "/code/juliaset/index.html";
 }
 
 function security() {
-    window.location.href = "security/index.html";
+    window.location.href = "/code/security/index.html";
 }
 
 function shell() {
@@ -34,13 +34,13 @@ function shell() {
 }
 
 function tree() {
-    window.location.href = "tree/index.html";
+    window.location.href = "/code/tree/index.html";
 }
 
 function tron() {
-    window.location.href = "tron/index.html";
+    window.location.href = "/code/tron/index.html";
 }
 
 function uarch() {
-    window.location.href = "uarch/index.html";
+    window.location.href = "/code/uarch/index.html";
 }

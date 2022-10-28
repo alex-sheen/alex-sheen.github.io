@@ -1,42 +1,157 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="sidenav.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href = "css/containers.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-  <script type="text/javascript" src="main.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+  <script type="text/javascript" src="js/code.js"></script>
+  <script type="text/javascript" src="js/video.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 
 <body>
-    <!-- Side navigation -->
-    <div class="sidenav">
-      <a href="about.html">About</a>
-      <a href="video/reel.html">Work</a>
+    <!-- header -->
+    <div class="base_padding header">
+        <div class="w3-row">
+            <div class="name">
+                Alex Sheen
+            </div>
+        </div>
+
+        <div class="w3-row">
+            <div class="title">
+                Computer Science | Media Arts & Design
+            </div>
+        </div>
+
+        <div class="w3-row">
+            <div class="links">
+                <a href="/">CS</a><span></span>
+                <a href="/art.html">Art</a><span></span>
+                <a href = "mailto: alexsheen@uchicago.edu">Email</a>
+            </div>
+        </div>
     </div>
-    <div class="rightsidenav">
-        <img src="/assets/images/github.png" alt="Github" class="image" onclick="github()" style="width:4vw;height:4vw;">
-    </div>
 
-    <!-- <div class="video-container"> -->
-    <video class="videoregular" id="vid" autoplay loop muted playsinline scrolling="no">
-        <source src="https://alex-sheen.github.io/assets/videos/home_page.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <!-- </div> -->
+    <!-- body -->
+    <div class="base_padding">
+        <!-- MAIN LEFT -->
+        <div class="w3-half">
+            <div class="w3-row"> <!-- COMPUTER SCIENCE -->
+                <div class="links center">
+                    Projects | Experiences
+                </div>
 
-    <div class="fade-in">
+                <div class="cards_padding w3-content" id="photos">
+                    <div class="w3-half"> <!-- Left Container -->
+                        <!-- SECURITY -->
+                        <div class="margin">
+                            <div class="proj" style="width:100%">
+                                <div class="overlay_screen">
+                                    <img src="/assets/images/security.png" style="width:100%">
+                                    <div style="width:100%" class="overlay_dark" onclick="security()">
+                                        <div class="desc white_text">
+                                            Computer Security
 
+                                            <div class="proj_lang">
+                                                C, Python, Javascript
+                                            </div>
+                                            <br>
+                                            <div class="proj_lang">
+                                                Stack memory exploits, Length extension attacks, Fuzzing, Password cracking
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- SECURITY -->
+                        <!-- CHIVENTURE -->
+                        <div class="margin">
+                            <div class="proj" style="width:100%">
+                                <img src="/assets/images/chiventure-terminal.jpg" alt="Chiventure" style="width:100%">
+                                <div style="width:100%" class="overlay_dark" onclick="chiventure()">
+                                    <div class="desc white_text">Chiventure | C</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- CHIVENTURE -->
+                        <!-- CERES -->
+                        <div class="margin">
+                            <div class="proj" style="width:100%">
+                                <img src="/assets/images/polsky.jpg" alt="Polsky" style="width:100%">
+                                <div style="width:100%" class="overlay_dark" onclick="ceres()">
+                                    <div class="desc white_text">Ceres | Swift</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- CERES -->
+                    </div> <!-- Left Container -->
 
-        <h1>
-            A &nbsp
-            l &nbsp
-            e &nbsp
-            x &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-            S &nbsp
-            h &nbsp
-            e &nbsp
-            e &nbspn
-        </h1>
+                    <div class="w3-half"> <!-- Right Container -->
+                        <!-- UARCH SIM -->
+                        <div class="margin">
+                            <div class="proj" style="width:100%">
+                                <img src="/assets/images/armv8.png" style="width:100%">
+                                <div style="width:100%" class="overlay_dark" onclick="uarch()">
+                                    <div class="desc white_text">UArch ARMv8 Sim | C</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- UARCH SIM -->
+                        <!-- UNIX SHELL -->
+                        <div class="margin">
+                            <div class="proj" style="width:100%">
+                            <img src="/assets/images/shell.png" style="width:100%">
+                            <div style="width:100%" class="overlay_dark" onclick="shell()">
+                                <div class="desc white_text">Unix Shell | C</div>
+                            </div>
+                            </div>
+                        </div>
+                        <!-- UNIX SHELL -->
+                        <!-- CACHE SIM -->
+                        <div class="margin">
+                            <div class="proj" style="width:100%">
+                                <img src="/assets/images/cache.png" style="width:100%">
+                                <div style="width:100%" class="overlay_dark" onclick="cache()">
+                                    <div class="desc white_text">Cache Sim | C</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- CACHE SIM -->
+                        <!-- BACKGAMMON -->
+                        <div class="margin">
+                            <div class="proj" style="width:100%">
+                                <img src="/assets/images/backgammon-start.png" style="width:100%">
+                                <div style="width:100%" class="overlay_dark" onclick="backgammon()">
+                                    <div class="desc white_text">Backgammon | Racket</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- BACKGAMMON -->
+                    </div> <!-- Right Container -->
+                </div>
+            </div> <!-- COMPUTER SCIENCE -->
+
+            
+        </div>
+        <!-- MAIN LEFT -->
+
+        <!-- MAIN RIGHT -->
+        <div class="w3-half">
+            <div class="w3-row" height="100%">
+                <div class="links center">
+                    Resume
+                </div>
+
+                <iframe src="/assets/images/sheen_resume_10_26.pdf#toolbar=0" width="100%" height="800px">
+                </iframe>
+            </div>
+        </div>
+        <!-- MAIN RIGHT -->
     </div>
 </body>
 </html>

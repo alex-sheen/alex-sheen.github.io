@@ -1,87 +1,89 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="../../style.css">
-  <link rel="stylesheet" href="../../sidenav.css">
-  <script type="text/javascript" src="../../main.js"></script>
-  <script type="text/javascript" src="../../video/video.js"></script>
-
-  <link rel="stylesheet" href="../../video/video.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href = "/css/containers.css">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" href="../../containers.css">
+
+  <script type="text/javascript" src="/js/main.js"></script>
+  <script type="text/javascript" src="/js/code.js"></script>
+  <script type="text/javascript" src="/js/video.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 
-<body>
-
-  <div class="top_right">
-      <img src="/assets/images/github.png" alt="Github" class="image" onclick="github()" style="width:4vw;height:4vw;">
-  </div>
-
-  <div class="top_left">
-     <img src='/assets/images/noun_return_4.png' id = "back_button" alt="Back Button" onclick="back_code_1()" style="width:4vw;height:4vw;">
-  </div>
-
-  <div class="top_bar w3-content" style="border-bottom: solid white;">
-      <img src='/assets/images/noun_video_deselected.png' id = "video_button" alt="Video Button" onclick="video_2()" style="width:4.5vw;height:4.5vw;">
-      <img src='/assets/images/noun_code_selected.png' id = "code_button" alt="Code Button" onclick="back_code_1()" style="width:4.5vw;height:4.5vw;">
-  </div>
-
-  <!-- Grid for photos -->
-  <div class="w3-padding-64 w3-content" id="photos">
-  <div class="w3-padding-16" style="margin:0 -16px">
-
-        <div class = "w3-row">
-                <div class="proj_rel" style = "width:100%">
-                    Tree Space Colonization | Javascript
-                      <div class="projtext" style = "width:100%">
-                        In this project, I implemented the tree generation algorithm featured in this paper: <a href="http://algorithmicbotany.org/papers/colonization.egwnp2007.large.pdf">"Modeling Trees with a Space Colonization Algorithm"</a>.
-                        <br>
-                        <br>
-
-                        <video style="width:100%" autoplay muted loop playsinline>
-                            <source src="https://alex-sheen.github.io/assets/videos/tree.mp4" type="video/mp4" style="width:75%">
-                            Your browser does not support the video tag.
-                        </video>
-
-                        <br>
-            
-                        The space colonization algorithm starts at a root node and builds tree nodes into a cloud of "attraction points". <br>
-                        <br>
-                        <img src='/assets/images/tree_viz.png' id = "tree_viz" style="width:35%; height: auto;"> <br>
-                        <br>
-                        1. Each node finds the surrounding attraction points within the radius of influence 'di' and calculates the normalized vector from the node to attraction point.<br>
-                        2. Each node then grows a new node along the averaged vector from all of the normalized vectors. <br>
-                        3. Once all of the new nodes are created, a check is performed to remove any attraction point that is within kill distance 'dk'.<br>
-                        4. This process is repeated until no attraction point is within the distance 'di' of any node, or no attraction points remain.<br>
-                        <br>
-
-                        <a href="tree.html">[Project Demo]</a>
-                        <br>
-                        <br>
-            
-                        <img src='/assets/images/tree_building.png' id = "tree2" style="width:30%; height: auto;">
-            
-                        <img src='/assets/images/tree.png' id = "tree2" style="width:30%; height: auto;">
-            
-                        <img src='/assets/images/tree_2.png' id = "tree2" style="width:30%; height: auto;">
-            
-                        <br>
-                        <br>
-            
-                        <div style="width:100%">
-                        Runions, A., Lane, B., and Prusinkiewicz, P. (2007). Modeling trees with a space colonization algorithm. In
-                        Proceedings of the Third Eurographics conference on
-                        Natural Phenomena, NPH’07, pages 63–70, Aire-laVille, Switzerland, Switzerland. Eurographics Association.
-                        </div>
-                    </div>
-                </div>
+<body class="black_back">
+    <!-- header -->
+    <div class="base_padding header">
+        <div class="w3-row">
+            <div class="name white_text">
+                Alex Sheen
+            </div>
         </div>
 
+        <div class="w3-row">
+            <div class="title white_text">
+                Computer Science | Media Arts & Design
+            </div>
+        </div>
 
-      
+        <div class="w3-row">
+            <div class="links white_text">
+                <a href="/">CS</a><span></span>
+                <a href="/art.html">Art</a><span></span>
+                <a href = "mailto: alexsheen@uchicago.edu">Email</a>
+            </div>
+        </div>
+    </div>
 
-  </div><!-- End padding -->
-  </div><!-- End photo grid -->
+    <!-- body -->
+    <div class="base_padding_more">
+      <div class = "w3-row">
+        <div class="proj_rel white_text" style = "width:100%">
+            Tree Space Colonization | Javascript
+              <div class="projtext" style = "width:100%">
+                In this project, I implemented the tree generation algorithm featured in this paper: <a href="http://algorithmicbotany.org/papers/colonization.egwnp2007.large.pdf">"Modeling Trees with a Space Colonization Algorithm"</a>.
+                <br>
+                <br>
 
+                <video style="width:100%" autoplay muted loop playsinline>
+                    <source src="https://alex-sheen.github.io/assets/videos/tree.mp4" type="video/mp4" style="width:75%">
+                    Your browser does not support the video tag.
+                </video>
+
+                <br>
+    
+                The space colonization algorithm starts at a root node and builds tree nodes into a cloud of "attraction points". <br>
+                <br>
+                <img src='/assets/images/tree_viz.png' id = "tree_viz" style="width:35%; height: auto;"> <br>
+                <br>
+                1. Each node finds the surrounding attraction points within the radius of influence 'di' and calculates the normalized vector from the node to attraction point.<br>
+                2. Each node then grows a new node along the averaged vector from all of the normalized vectors. <br>
+                3. Once all of the new nodes are created, a check is performed to remove any attraction point that is within kill distance 'dk'.<br>
+                4. This process is repeated until no attraction point is within the distance 'di' of any node, or no attraction points remain.<br>
+                <br>
+
+                <a href="tree.html">~~~~~~ [Project Demo] ~~~~~~</a>
+                <br>
+                <br>
+    
+                <img src='/assets/images/tree_building.png' id = "tree2" style="width:30%; height: auto;">
+    
+                <img src='/assets/images/tree.png' id = "tree2" style="width:30%; height: auto;">
+    
+                <img src='/assets/images/tree_2.png' id = "tree2" style="width:30%; height: auto;">
+    
+                <br>
+                <br>
+    
+                <div style="width:100%">
+                Runions, A., Lane, B., and Prusinkiewicz, P. (2007). Modeling trees with a space colonization algorithm. In
+                Proceedings of the Third Eurographics conference on
+                Natural Phenomena, NPH’07, pages 63–70, Aire-laVille, Switzerland, Switzerland. Eurographics Association.
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
 </body>
 </html>
