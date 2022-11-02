@@ -26,7 +26,7 @@ function juliaset() {
 }
 
 function security() {
-    window.location.href = "/code/security/index.html";
+    window.location.href = "https://github.com/alex-sheen/computer-security";
 }
 
 function shell() {
