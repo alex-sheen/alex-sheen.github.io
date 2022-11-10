@@ -49,6 +49,13 @@
   opacity: 0;
 }
 
+.technologies_desc {
+  font-size: 2vh;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
 .desc span {
   background-color: rgb(65, 57, 57);
 }
