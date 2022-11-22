@@ -18,6 +18,10 @@ function d3() {
     window.location.href = "/video/d3.html";
 }
 
+function diver() {
+    window.location.href = "/video/diver.html";
+}
+
 function field2() {
     window.location.href = "/video/field2.html";
 }
