@@ -7,7 +7,7 @@ function alice() {
 }
 
 function artml() {
-    window.location.href = "/video/artmachineintelligence/sketch3.html";
+    window.location.href = "/video/artml/sketch3.html";
 }
 
 function datamosh() {
@@ -40,6 +40,10 @@ function greece_video() {
 
 function lovely() {
     window.location.href = "/video/lovely.html"
+}
+
+function posedetection() {
+    window.location.href = "/video/posedetection.html";
 }
 
 function rabbithole() {

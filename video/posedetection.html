@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href = "/css/containers.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+  <script type="text/javascript" src="/js/main.js"></script>
+  <script type="text/javascript" src="/js/code.js"></script>
+  <script type="text/javascript" src="/js/video.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
+<body class="black_back">
+    <!-- header -->
+    <div class="base_padding header">
+        <div class="w3-row">
+            <div class="name white_text">
+                Alex Sheen
+            </div>
+        </div>
+
+        <div class="w3-row">
+            <div class="title white_text">
+                Computer Science | Media Arts & Design
+            </div>
+        </div>
+
+        <div class="w3-row">
+            <div class="links white_text">
+                <a href="/">CS</a><span></span>
+                <a href="/art.html">Art</a><span></span>
+                <a href = "mailto: alexsheen@uchicago.edu">Email</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- body -->
+    <div class="base_padding">
+        <div class="w3-row">
+          <div class="projtitle white_text base_padding" style = "width:100%">
+            Pose-Detection
+            <div class="projtext" style = "width:100%">
+              <br>
+              TensorFlow.js <br>
+              Created: 2022
+            </div>
+          </div>
+      
+          <div class="proj" style="width:100%">
+            <video style="width:100%" id="vid" muted autoplay loop playsinline>
+              <source src="/assets/videos/pose-detection/posenet.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+        <!-- row 1 -->
+        <div class="w3-row">
+          <!-- half 1 -->
+          <div class="w3-half base_padding">
+            <div class="proj" style="width:100%">
+              <div class="projtitle white_text" style = "width:100%">
+                <div class="projtext" style = "width:100%">
+                  This project used pre-trained pose-detection TensorFlow.js models to create an interactive art installation which was 
+                  showcased in the lobby of UChicago's Media Arts, Data, and Design Center (MADD).<br><br>
+                  
+                  I set up a camera to catch the movements of passersby 
+                  and projected the generated visual on to the wall using the MADD center's projector. Various parameters are tied to the position, distance, angle,
+                   and speed of the user's hands, feet, and arms. The installation accommodated multiple users.
+
+                  <br><br>
+                  Unfortunately, I can't find videos/images of the installation at the moment, but you can see a test-run of the pose-detection to the right -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- half 1 -->
+          <!-- half 2 -->
+          <div class="w3-half base_padding">
+            <div class="proj" style="width:100%">
+              <video style="width:100%" id="vid" muted autoplay loop playsinline>
+                <source src="/assets/videos/pose-detection/blazepose.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+          <!-- half 2 -->
+        </div>
+        <!-- row 1 -->
+    </div>
+</body>
+</html>
