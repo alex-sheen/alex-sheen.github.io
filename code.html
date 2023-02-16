@@ -1,13 +1,162 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="sidenav.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href = "css/containers.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-  <script type="text/javascript" src="main.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+  <script type="text/javascript" src="js/code.js"></script>
+  <script type="text/javascript" src="js/video.js"></script>
 
-  <meta http-equiv='refresh' content='0; URL=https://alex-sheen.github.io/'>
+  <script src="components/header.js" type="text/javascript" defer></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
+
+<body>
+    <!-- HEADER -->
+    <header-component></header-component>
+    <!-- HEADER -->
+
+    <!-- body -->
+    <div class="base_padding">
+        <!-- MAIN LEFT -->
+        <div class="w3-half">
+            <div class="w3-row"> <!-- COMPUTER SCIENCE -->
+                <div class="links center">
+                    Projects | Experiences
+                </div>
+
+                <div class="cards_padding w3-content" id="photos">
+                    <div class="w3-half"> <!-- Left Container -->
+                        <!-- SECURITY -->
+                        <div class="margin">
+                            <div class="proj" style="width:100%">
+                                <div class="overlay_screen">
+                                    <img src="/assets/images/security.png" style="width:100%">
+                                    <div style="width:100%" class="overlay_dark" onclick="security()">
+                                        <div class="desc white_text">
+                                            Computer Security
+
+                                            <div class="proj_lang">
+                                                C, Python, Javascript
+                                            </div>
+                                            <br>
+                                            <div class="proj_lang">
+                                                Stack memory exploits, Length extension attacks, Fuzzing, Password cracking
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- SECURITY -->
+                        <!-- DIVER INTERFACE -->
+                        <div class="margin">
+                            <div class="proj" style="width:100%">
+                                <img src="/assets/images/diver/wrist_left.png" style="width:100%">
+                                <div style="width:100%" class="overlay_dark" onclick="diver()">
+                                    <div class="desc white_text">
+                                        3D Diver Interface
+
+                                        <div class="technologies_desc">
+                                            Virtual Reality - Oculus, Unity
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- DIVER INTERFACE -->
+                        <!-- AUGMENTED REALITY -->
+                        <div class="margin">
+                            <div class="proj" style="width:100%">
+                                <img src="/assets/videos/ar/ar_still.png" style="width:100%">
+                                <div style="width:100%" class="overlay_dark" onclick="field2()">
+                                    <div class="desc white_text"
+                                    onmouseover="this.previousElementSibling.previousElementSibling.play()" onmouseout="this.previousElementSibling.previousElementSibling.pause();"
+                                    >Frames
+                                        <div class="technologies_desc">
+                                            Augmented Reality - field2
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- AUGMENTED REALITY -->
+                    </div> <!-- Left Container -->
+
+                    <div class="w3-half"> <!-- Right Container -->
+                        <!-- UARCH SIM -->
+                        <div class="margin">
+                            <div class="proj" style="width:100%">
+                                <img src="/assets/images/armv8.png" style="width:100%">
+                                <div style="width:100%" class="overlay_dark" onclick="uarch()">
+                                    <div class="desc white_text">UArch ARMv8 Sim | C</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- UARCH SIM -->
+                        <!-- UNIX SHELL -->
+                        <div class="margin">
+                            <div class="proj" style="width:100%">
+                            <img src="/assets/images/shell.png" style="width:100%">
+                            <div style="width:100%" class="overlay_dark" onclick="shell()">
+                                <div class="desc white_text">Unix Shell | C</div>
+                            </div>
+                            </div>
+                        </div>
+                        <!-- UNIX SHELL -->
+                        <!-- CACHE SIM -->
+                        <div class="margin">
+                            <div class="proj" style="width:100%">
+                                <img src="/assets/images/cache.png" style="width:100%">
+                                <div style="width:100%" class="overlay_dark" onclick="cache()">
+                                    <div class="desc white_text">Cache Sim | C</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- CACHE SIM -->
+                        <!-- BACKGAMMON -->
+                        <div class="margin">
+                            <div class="proj" style="width:100%">
+                                <img src="/assets/images/backgammon-start.png" style="width:100%">
+                                <div style="width:100%" class="overlay_dark" onclick="backgammon()">
+                                    <div class="desc white_text">Backgammon | Racket</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- BACKGAMMON -->
+                        <!-- CHIVENTURE -->
+                        <div class="margin">
+                            <div class="proj" style="width:100%">
+                                <img src="/assets/images/chiventure-terminal.jpg" alt="Chiventure" style="width:100%">
+                                <div style="width:100%" class="overlay_dark" onclick="chiventure()">
+                                    <div class="desc white_text">Chiventure | C</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- CHIVENTURE -->
+                    </div> <!-- Right Container -->
+                </div>
+            </div> <!-- COMPUTER SCIENCE -->
+
+            
+        </div>
+        <!-- MAIN LEFT -->
+
+        <!-- MAIN RIGHT -->
+        <div class="w3-half">
+            <div class="w3-row" height="100%">
+                <div class="links center">
+                    Resume
+                </div>
+
+                <iframe src="/assets/images/sheen_resume_cs_11_26_22.pdf#toolbar=0" width="100%" height="800px">
+                </iframe>
+            </div>
+        </div>
+        <!-- MAIN RIGHT -->
+    </div>
+</body>
 </html>
