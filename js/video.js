@@ -50,6 +50,10 @@ function rabbithole() {
     window.location.href = "/video/rabbithole.html";
 }
 
+function ricebox() {
+    window.location.href = "video/ricebox.html"
+}
+
 function spook_world_1() {
     window.location.href = "/video/spook-world-1.html";
 }
