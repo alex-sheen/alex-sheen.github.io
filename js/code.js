@@ -17,6 +17,10 @@ function chiventure() {
     window.location.href = "/code/chiventure/index.html";//"https://github.com/uchicago-cs/chiventure";
 }
 
+function covidtakedown() {
+    window.location.href = "/code/covidtakedown.html";
+}
+
 function fishtank() {
     window.location.href = "/code/fishProject/fishtank.html";
 }

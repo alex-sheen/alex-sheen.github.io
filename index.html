@@ -64,20 +64,6 @@
                         <!-- lovely -->
                         <div class="margin">
                             <div class="proj" style="width:100%">
-                                <img src="/assets/images/lovely/dress4.4.jpg" style="width:100%">
-                                <div style="width:100%" class="video_overlay"></div>
-                                <div class="desc white_text" onclick="lovely()">
-                                    lovely
-                                    <div class="technologies_desc">
-                                        Blender3D | geometry-nodes
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- lovely -->
-                        <!-- lovely -->
-                        <div class="margin">
-                            <div class="proj" style="width:100%">
                                 <img src="/assets/images/lovely/dress4.5.jpg" style="width:100%">
                                 <div style="width:100%" class="video_overlay"></div>
                                 <div class="desc white_text" onclick="lovely()">
@@ -89,13 +75,27 @@
                             </div>
                         </div>
                         <!-- lovely -->
+                        <!-- GREECE -->
+                        <div class="margin">
+                            <div class="proj" style="width:100%">
+                                <img src="/assets/images/civ/civ_frame1_cropped.png" style="width:100%">
+                                <div style="width:100%" class="video_overlay"></div>
+                                <div class="desc white_text" onclick="greece()">
+                                    Greece
+                                    <div class="technologies_desc">
+                                        photogrammetry
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- GREECE -->
                     </div> <!-- Right Container -->
                 </div>
             </div> <!-- 3D -->
 
-            <div class="w3-row"> <!-- Code -->
+            <div class="w3-row"> <!-- HCI -->
                 <div class="links center white_text">
-                    Code
+                    Human-Computer Interaction
                 </div>
 
                 <div class="cards_padding w3-content" id="photos">
@@ -116,22 +116,22 @@
                             </div>
                         </div>
                         <!-- DIVER INTERFACE -->
-                        <!-- SPACE COLONIZATION -->
+                        <!-- COVID TAKEDOWN -->
                         <div class="margin">
                             <div class="proj" style="width:100%">
-                                <img src="/assets/images/tree_2.png" style="width:100%">
-                                <div style="width:100%" class="overlay_dark" onclick="tree()">
+                                <img src="/assets/images/hci/board_cropped.jpeg" style="width:100%">
+                                <div style="width:100%" class="overlay_dark" onclick="covidtakedown()">
                                     <div class="desc white_text">
-                                        Space Colonization Procedural Tree Generation
+                                        covid taKedown
 
                                         <div class="technologies_desc">
-                                            three.js
+                                            Actuated User Interfaces
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- SPACE COLONIZATION -->
+                        <!-- COVID TAKEDOWN -->
                     </div> <!-- Left Container -->
 
                     <div class="w3-half"> <!-- Right Container -->
@@ -151,6 +151,35 @@
                             </div>
                         </div>
                         <!-- AUGMENTED REALITY -->
+                    </div> <!-- Right Container -->
+                </div>
+            </div> <!-- HCI -->
+            <div class="w3-row"> <!-- Code -->
+                <div class="links center white_text">
+                    Code
+                </div>
+
+                <div class="cards_padding w3-content" id="photos">
+                    <div class="w3-half"> <!-- Left Container -->
+                        <!-- SPACE COLONIZATION -->
+                        <div class="margin">
+                            <div class="proj" style="width:100%">
+                                <img src="/assets/images/tree_2.png" style="width:100%">
+                                <div style="width:100%" class="overlay_dark" onclick="tree()">
+                                    <div class="desc white_text">
+                                        Space Colonization Procedural Tree Generation
+
+                                        <div class="technologies_desc">
+                                            three.js
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- SPACE COLONIZATION -->
+                    </div> <!-- Left Container -->
+
+                    <div class="w3-half"> <!-- Right Container -->
                         <!-- FORM CODE -->
                         <div class="margin">
                             <div class="proj" style="width:100%">
@@ -172,6 +201,66 @@
                     </div> <!-- Right Container -->
                 </div>
             </div> <!-- Code -->
+            <div class="w3-row"> <!-- ML -->
+                <div class="links center white_text">
+                    ML
+                </div>
+
+                <div class="cards_padding w3-content" id="photos">
+                    <div class="w3-twothird"> <!-- Left Container -->
+                        <!-- GREECE -->
+                        <div class="margin">
+                            <div class="proj" style="width:100%">
+                                <img src="/assets/images/pose-detection/pose-detection.png" style="width:100%">
+                                <div style="width:100%" class="video_overlay"></div>
+                                <div class="desc white_text" onclick="posedetection()">
+                                    Pose-Detection
+                                    <div class="technologies_desc">
+                                        TensorFlow.js
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- GREECE -->
+                    </div> <!-- Left Container -->
+
+                    <div class="w3-third"> <!-- Right Container -->
+                        <!-- Art&ML -->
+                        <div class="margin">
+                            <div class="proj" style="width:100%">
+                                <img src="/assets/images/artmachineintelligence/sketch3/point2.jpg" style="width:100%">
+                                <div style="width:100%" class="overlay_dark"></div>
+                                <div class="desc white_text" onclick="artml()">
+                                    Art&ML Sketches
+                                    <div class="technologies_desc">
+                                        style transfer, pixel sorting
+                                    </div>
+                                </div>
+                            </div>
+                         </div>
+                        <!-- Art&ML -->
+                    </div> <!-- Right Container -->
+                </div>
+            </div> <!-- ML -->
+        </div>
+        <!-- MAIN LEFT -->
+
+        <!-- MAIN RIGHT -->
+        <div class="w3-half">
+            <div class="w3-row">
+                <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+                <model-viewer style="width:100%" src="/assets/models/final.glb" ar ar-modes="webxr scene-viewer quick-look" 
+                    camera-controls poster="/assets/models/poster.webp" 
+                    shadow-intensity="1" camera-target="0.0m -0.5m -1.0m"
+                    camera-orbit="-152deg 82.44deg 70%">
+                    <div class="progress-bar hide" slot="progress-bar">
+                        <div class="update-bar"></div>
+                    </div>
+                </model-viewer>
+                <div class="center white_text">
+                    left-click - rotate | right-click - pan | scroll-wheel - zoom
+                </div>
+            </div>
             <div class="w3-row"> <!-- Digital Fabrication -->
                 <div class="links center white_text">
                     Digital Fabrication
@@ -197,25 +286,6 @@
                     </div> <!-- Right Container -->
                 </div>
             </div> <!-- Digital Fabrication -->
-        </div>
-        <!-- MAIN LEFT -->
-
-        <!-- MAIN RIGHT -->
-        <div class="w3-half">
-            <div class="w3-row">
-                <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-                <model-viewer style="width:100%" src="/assets/models/final.glb" ar ar-modes="webxr scene-viewer quick-look" 
-                    camera-controls poster="/assets/models/poster.webp" 
-                    shadow-intensity="1" camera-target="0.0m -0.5m -1.0m"
-                    camera-orbit="-152deg 82.44deg 70%">
-                    <div class="progress-bar hide" slot="progress-bar">
-                        <div class="update-bar"></div>
-                    </div>
-                </model-viewer>
-                <div class="center white_text">
-                    left-click - rotate | right-click - pan | scroll-wheel - zoom
-                </div>
-            </div>
             <div class="w3-row"> <!-- VIDEO / VFX -->
                 <div class="links center white_text">
                     Videos / VFX
@@ -223,20 +293,6 @@
 
                 <div class="cards_padding w3-content" id="photos">
                     <div class="w3-half"> <!-- Left Container -->
-                        <!-- GREECE -->
-                        <div class="margin">
-                            <div class="proj" style="width:100%">
-                                <img src="/assets/images/civ/civ_frame1.png" style="width:100%">
-                                <div style="width:100%" class="video_overlay"></div>
-                                <div class="desc white_text" onclick="greece()">
-                                    Greece
-                                    <div class="technologies_desc">
-                                        photogrammetry
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- GREECE -->
                         <!-- DATAMOSH -->
                         <div class="margin">
                             <div class="proj" style="width:100%">
@@ -294,47 +350,6 @@
                     </div> <!-- Right Container -->
                 </div>
             </div> <!-- VIDEO / VFX -->
-            <div class="w3-row"> <!-- ML -->
-                <div class="links center white_text">
-                    ML
-                </div>
-
-                <div class="cards_padding w3-content" id="photos">
-                    <div class="w3-twothird"> <!-- Left Container -->
-                        <!-- GREECE -->
-                        <div class="margin">
-                            <div class="proj" style="width:100%">
-                                <img src="/assets/images/pose-detection/pose-detection.png" style="width:100%">
-                                <div style="width:100%" class="video_overlay"></div>
-                                <div class="desc white_text" onclick="posedetection()">
-                                    Pose-Detection
-                                    <div class="technologies_desc">
-                                        TensorFlow.js
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- GREECE -->
-                    </div> <!-- Left Container -->
-
-                    <div class="w3-third"> <!-- Right Container -->
-                        <!-- Art&ML -->
-                        <div class="margin">
-                            <div class="proj" style="width:100%">
-                                <img src="/assets/images/artmachineintelligence/sketch3/point2.jpg" style="width:100%">
-                                <div style="width:100%" class="overlay_dark"></div>
-                                <div class="desc white_text" onclick="artml()">
-                                    Art&ML Sketches
-                                    <div class="technologies_desc">
-                                        style transfer, pixel sorting
-                                    </div>
-                                </div>
-                            </div>
-                         </div>
-                        <!-- Art&ML -->
-                    </div> <!-- Right Container -->
-                </div>
-            </div> <!-- ML -->
         </div>
         <!-- MAIN RIGHT -->
     </div>

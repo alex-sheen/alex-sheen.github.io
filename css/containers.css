@@ -32,6 +32,14 @@
   font-size: 2vw;
 }
 
+.projtitle {
+  font-size: 2vw;
+}
+
+.projtext {
+  font-size: 1vw;
+}
+
 .proj_lang {
   font-family: railway;
   font-size: 1vw;
