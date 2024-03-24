@@ -81,7 +81,7 @@
                                 <img src="/assets/images/civ/civ_frame1_cropped.png" style="width:100%">
                                 <div style="width:100%" class="video_overlay"></div>
                                 <div class="desc white_text" onclick="greece()">
-                                    Greece
+                                    Greece: Shadows of the Past
                                     <div class="technologies_desc">
                                         photogrammetry
                                     </div>
@@ -208,7 +208,7 @@
 
                 <div class="cards_padding w3-content" id="photos">
                     <div class="w3-twothird"> <!-- Left Container -->
-                        <!-- GREECE -->
+                        <!-- PoseDetection -->
                         <div class="margin">
                             <div class="proj" style="width:100%">
                                 <img src="/assets/images/pose-detection/pose-detection.png" style="width:100%">
@@ -221,7 +221,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- GREECE -->
+                        <!-- PoseDetection -->
                     </div> <!-- Left Container -->
 
                     <div class="w3-third"> <!-- Right Container -->
@@ -249,10 +249,16 @@
         <div class="w3-half">
             <div class="w3-row">
                 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-                <model-viewer style="width:100%" src="/assets/models/final.glb" ar ar-modes="webxr scene-viewer quick-look" 
+                <model-viewer style="width:100%" src="/assets/models/lovely.glb" ar ar-modes="webxr scene-viewer quick-look" 
                     camera-controls poster="/assets/models/poster.webp" 
                     shadow-intensity="1" camera-target="0.0m -0.5m -1.0m"
-                    camera-orbit="-152deg 82.44deg 70%">
+                    exposure="0.85"
+                    camera-orbit="-152deg 82.44deg 70%"
+                    max-camera-orbit="auto 87deg auto"
+                    min_camera-orbit="auto 78deg auto"
+                    min-field-of-view="15deg"
+                    max-field-of-view="21deg"
+                >
                     <div class="progress-bar hide" slot="progress-bar">
                         <div class="update-bar"></div>
                     </div>
