@@ -251,20 +251,25 @@
                 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
                 <model-viewer style="width:100%" src="/assets/models/lovely.glb" ar ar-modes="webxr scene-viewer quick-look" 
                     camera-controls poster="/assets/models/poster.webp" 
+                    disable-zoom
+                    auto-rotate
                     shadow-intensity="1" camera-target="0.0m -0.5m -1.0m"
                     exposure="0.85"
                     camera-orbit="-152deg 82.44deg 70%"
                     max-camera-orbit="auto 87deg auto"
                     min_camera-orbit="auto 78deg auto"
-                    min-field-of-view="15deg"
-                    max-field-of-view="21deg"
                 >
+                <!-- max-camera-orbit="auto 87deg auto"
+                min_camera-orbit="auto 78deg auto"
+                min-field-of-view="15deg"
+                max-field-of-view="21deg" -->
                     <div class="progress-bar hide" slot="progress-bar">
                         <div class="update-bar"></div>
                     </div>
                 </model-viewer>
                 <div class="center white_text">
-                    left-click - rotate | right-click - pan | scroll-wheel - zoom
+                    left-click - rotate | right-click - pan
+                    <br><br>
                 </div>
             </div>
             <div class="w3-row"> <!-- Digital Fabrication -->
