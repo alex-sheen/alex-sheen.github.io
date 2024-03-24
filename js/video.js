@@ -14,6 +14,14 @@ function datamosh() {
     window.location.href = "/video/datamosh.html";
 }
 
+function dancingwithdata() {
+    window.location.href = "/video/dancingwithdata.html";
+}
+
+function dancingwithdata_video() {
+    window.location.href = "https://www.youtube.com/watch?v=REYuRUseZWE";
+}
+
 function d3() {
     window.location.href = "/video/d3.html";
 }
