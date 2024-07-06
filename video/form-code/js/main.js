@@ -26,10 +26,10 @@ function setup() {
   textAlign(CENTER);
   sel = createSelect();
   sel.position(50, height/2);
-  sel.option('experiment 1');
-  sel.option('experiment 2');
-  sel.option('experiment 3');
-  sel.selected('experiment 2');
+  // sel.option('experiment 1');
+  sel.option('v1');
+  sel.option('v2');
+  sel.selected('v1');
   sel.changed(resetCanvas);
 
 
@@ -43,23 +43,23 @@ function resetCanvas(){
   c_r = random(30, 170);
   c_g = random(30, 170);
   switch(sel.value()) {
-    case "experiment 1":
-      for(let i = 0; i < 100; i++){
-        let x_rand = random(x_mid - r/2, x_mid + r/2);
-        let y_rand = random(y_mid - r/2, y_mid + r/2);
-        while(dist(x_rand, y_rand, x_mid, y_mid) > r/2 - 10) {
-          x_rand = random(x_mid - r/2, x_mid + r/2);
-          y_rand = random(y_mid - r/2, y_mid + r/2);
-        }
-        objs.push({pos: createVector(x_rand, y_rand), target: createVector(r/200, 0).rotate(random(-4,4))});
-      }
-      break;
-    case "experiment 2":
+    // case "experiment 1":
+    //   for(let i = 0; i < 100; i++){
+    //     let x_rand = random(x_mid - r/2, x_mid + r/2);
+    //     let y_rand = random(y_mid - r/2, y_mid + r/2);
+    //     while(dist(x_rand, y_rand, x_mid, y_mid) > r/2 - 10) {
+    //       x_rand = random(x_mid - r/2, x_mid + r/2);
+    //       y_rand = random(y_mid - r/2, y_mid + r/2);
+    //     }
+    //     objs.push({pos: createVector(x_rand, y_rand), target: createVector(r/200, 0).rotate(random(-4,4))});
+    //   }
+    //   break;
+    case "v1":
       for(let i = 0; i < 100; i++){
         objs.push({pos: createVector(width / 2, height / 2), target: createVector(r/200, 0).rotate(random(-4,4))});
       }
       break;
-    case "experiment 3":
+    case "v2":
       objs.push({pos: createVector(width / 2, height / 2), target: createVector(r/200, 0).rotate(random(-4,4)), c_r: random(30,170), c_g: random(30,170), c_b: random(30,170), c_d: Math.round(random(0,1)*2-1)});
     default:
       // code block
@@ -150,13 +150,13 @@ function v3_draw() {
 
 function draw() {
   switch(sel.value()) {
-    case "experiment 1":
-      v1_draw();
-      break;
-    case "experiment 2":
+    // case "experiment 1":
+    //   v1_draw();
+    //   break;
+    case "v1":
       v2_draw();
       break;
-    case "experiment 3":
+    case "v2":
       v3_draw();
       break;
     default:
