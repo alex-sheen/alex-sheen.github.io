@@ -70,12 +70,6 @@ class Header extends HTMLElement {
                     <a href="/">Alex Sheen</a><span></span>
                     </div>
                 </div>
-    
-                <div class="w3-row">
-                    <div class="title white_text">
-                        Computer Science | Media Arts & Design
-                    </div>
-                </div>
             </div>
           `;
         }

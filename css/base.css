@@ -8,19 +8,23 @@
 }
 
 .black_back {
-  background-color: black;
+  /* background-color: black; */
+  background-color: rgb(25, 25, 25);
 }
 
 .white_back {
-  background-color: white;
+  /* background-color: white; */
+  background-color: rgb(205, 205, 205);
 }
 
 .black_text {
-  color: black;
+  /* color: black; */
+  color: rgb(25, 25, 25);
 }
 
 .white_text {
-  color: white;
+  /* color: white; */
+  color: rgb(205, 205, 205);
 }
 
 .base_padding {
@@ -33,6 +37,10 @@
 
 .base_padding_even_more {
   padding: 40px 100px 20px 100px;
+}
+
+.base_padding_index {
+  padding: 0px 120px 40px 120px;
 }
 
 .cards_padding {
@@ -88,4 +96,10 @@ span {
   height: auto;
   outline: none;
   display: block
+}
+
+.ratio_image {
+  object-fit: cover;
+  width: 100%;
+  aspect-ratio: 1/1
 }
