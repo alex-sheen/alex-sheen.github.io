@@ -32,7 +32,7 @@
 }
 
 .base_padding_more {
-  padding: 40px 50px 20px 50px;
+  padding: 1vw 3vw 1vw 3vw;
 }
 
 .base_padding_even_more {
@@ -40,7 +40,9 @@
 }
 
 .base_padding_index {
-  padding: 0px 120px 40px 120px;
+  /* padding: 0px 120px 40px 120px; */
+  padding: 0px 6vw 0vw 6vw;
+
 }
 
 .cards_padding {
