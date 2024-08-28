@@ -21,7 +21,7 @@
 
     <!-- BODY CONTENT -->
     <div class="base_padding_index w3-row">
-        <div class="w3-row">
+        <div class="w3-row" style="padding: 0 5px 0 5px">
             <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
             <model-viewer style="width:100%" src="/assets/models/lovely.glb" ar ar-modes="webxr scene-viewer quick-look" 
                 camera-controls poster="/assets/models/poster.webp" 
@@ -51,10 +51,10 @@
             <!-- ALICE -->
             <div class="w3-third">
                 <div class="margin">
-                    <div class="proj" style="width:100%">
+                    <div class="project_box" style="width:100%">
                         <img src="/assets/images/dream4_1.png" style="width:100%">
                         <div style="width:100%" class="video_overlay"></div>
-                        <div class="desc white_text" onclick="alice()">
+                        <div class="project_box_desc white_text" onclick="alice()">
                             alice-01
                             <div class="technologies_desc">
                                 Blender3D | photogrammetry
@@ -67,10 +67,10 @@
             <!-- ALICE -->
             <div class="w3-third">
                 <div class="margin">
-                    <div class="proj" style="width:100%">
+                    <div class="project_box" style="width:100%">
                         <img src="/assets/images/alice-03-final.png" style="width:100%">
                         <div style="width:100%" class="video_overlay"></div>
-                        <div class="desc white_text" onclick="alice()">
+                        <div class="project_box_desc white_text" onclick="alice()">
                             alice-03
                             <div class="technologies_desc">
                                 Blender3D | photogrammetry
@@ -83,10 +83,10 @@
             <!-- lovely -->
             <div class="w3-third">
                 <div class="margin">
-                    <div class="proj" style="width:100%">
+                    <div class="project_box" style="width:100%">
                         <img src="/assets/images/lovely/dress4.5.jpg" style="width:100%">
                         <div style="width:100%" class="video_overlay"></div>
-                        <div class="desc white_text" onclick="lovely()">
+                        <div class="project_box_desc white_text" onclick="lovely()">
                             lovely
                             <div class="technologies_desc">
                                 Blender3D | geometry-nodes
@@ -103,10 +103,10 @@
             <!-- DIVER INTERFACE -->
             <div class="w3-third">
                 <div class="margin">
-                    <div class="proj" style="width:100%">
+                    <div class="project_box" style="width:100%">
                         <img src="/assets/images/diver/wrist_left.png" style="width:100%">
                         <div style="width:100%" class="overlay_dark" onclick="diver()">
-                            <div class="desc white_text">
+                            <div class="project_box_desc white_text">
                                 3D Diver Interface
 
                                 <div class="technologies_desc">
@@ -121,10 +121,10 @@
             <!-- COVID TAKEDOWN -->
             <div class="w3-third">
                 <div class="margin">
-                    <div class="proj" style="width:100%">
+                    <div class="project_box" style="width:100%">
                         <img class="ratio_image" src="/assets/images/hci/board_cropped.jpeg" style="width:100%">
                         <div style="width:100%" class="overlay_dark" onclick="field2()">
-                            <div class="desc white_text">
+                            <div class="project_box_desc white_text">
                                 covid taKedown
 
                                 <div class="technologies_desc">
@@ -139,10 +139,10 @@
             <!-- AUGMENTED REALITY -->
             <div class="w3-third">
                 <div class="margin">
-                    <div class="proj" style="width:100%">
+                    <div class="project_box" style="width:100%">
                         <img class="ratio_image" src="/assets/videos/ar/ar_still.png" style="width:100%">
                         <div style="width:100%" class="overlay_dark" onclick="field2()">
-                            <div class="desc white_text">
+                            <div class="project_box_desc white_text">
                                 Frames
 
                                 <div class="technologies_desc">
@@ -161,10 +161,10 @@
             <!-- DANCINGWITHDATA -->
             <div class="w3-third">
                 <div class="margin">
-                    <div class="proj" style="width:100%">
+                    <div class="project_box" style="width:100%">
                         <img class="ratio_image" src="/assets/images/dancingwithdata/cover.png" style="width:100%">
                         <div style="width:100%" class="overlay_dark"></div>
-                        <div class="desc white_text" onclick="dancingwithdata()">
+                        <div class="project_box_desc white_text" onclick="dancingwithdata()">
                             Dancing with Data
                             <div class="technologies_desc">
                                 3rd Place MAAD EXPO23
@@ -177,13 +177,13 @@
             <!-- RABBITHOLE -->
             <div class="w3-third">
                 <div class="margin">
-                    <div class="proj" style="width:100%">
+                    <div class="project_box" style="width:100%">
                         <video class="ratio_image videoembedded" muted loop playsinline>
                             <source src="https://alex-sheen.github.io/assets/videos/rabbithole_compressed.mp4" type="video/mp4" style="width:100%">
                             Your browser does not support the video tag.
                         </video>
                         <div style="width:100%" class="video_overlay"></div>
-                        <div class="desc white_text" onclick="rabbithole()"
+                        <div class="project_box_desc white_text" onclick="rabbithole()"
                         onmouseover="this.previousElementSibling.previousElementSibling.play()" onmouseout="this.previousElementSibling.previousElementSibling.pause();"
                         >
                             rabbithole
@@ -198,13 +198,13 @@
             <!-- DATAMOSH -->
             <div class="w3-third">
                 <div class="margin">
-                    <div class="proj" style="width:100%">
+                    <div class="project_box" style="width:100%">
                         <video class="ratio_image videoembedded" muted loop playsinline>
                             <source src="https://alex-sheen.github.io/assets/videos/datamosh_cropped.mp4" type="video/mp4" style="width:100%">
                             Your browser does not support the video tag.
                         </video>
                         <div style="width:100%" class="video_overlay"></div>
-                        <div class="desc white_text" onclick="datamosh()"
+                        <div class="project_box_desc white_text" onclick="datamosh()"
                         onmouseover="this.previousElementSibling.previousElementSibling.play()" onmouseout="this.previousElementSibling.previousElementSibling.pause();"
                         >
                             datamosh
@@ -223,13 +223,13 @@
             <!-- FORM CODE -->
             <div class="w3-third">
                 <div class="margin">
-                    <div class="proj" style="width:100%">
+                    <div class="project_box" style="width:100%">
                         <video class="ratio_image videoembedded" muted loop playsinline>
                             <source src="https://alex-sheen.github.io/assets/videos/formCode.mp4" type="video/mp4" style="width:100%">
                             Your browser does not support the video tag.
                         </video>
                         <div style="width:100%" class="video_overlay"></div>
-                        <div class="desc white_text" onclick="formCode()"
+                        <div class="project_box_desc white_text" onclick="formCode()"
                             onmouseover="this.previousElementSibling.previousElementSibling.play()" onmouseout="this.previousElementSibling.previousElementSibling.pause();"
                             >form-code
                             <div class="technologies_desc">
@@ -243,10 +243,10 @@
             <!-- EVERYTHING I TOUCH -->
             <div class="w3-third">
                 <div class="margin">
-                    <div class="proj" style="width:100%">
+                    <div class="project_box" style="width:100%">
                         <img class="ratio_image" src="/assets/images/digital_fabrication/main.jpeg" style="width:100%">
                         <div style="width:100%" class="overlay_dark" onclick="ricebox()">
-                            <div class="desc white_text">
+                            <div class="project_box_desc white_text">
                                 everything i touch
                             </div>
                         </div>

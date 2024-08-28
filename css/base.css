@@ -3,13 +3,28 @@
   src: url("/assets/fonts/raleway/Raleway-Light.ttf") format("truetype");
 }
 
+html {
+  font-size: 34px;
+}
+
 .header {
   text-align: center;
 }
 
-.black_back {
-  /* background-color: black; */
-  background-color: rgb(25, 25, 25);
+@media screen and (min-width: 601px) {
+  .black_back {
+    background-color: rgb(25, 25, 25);
+    font-size: 16px;
+    font-family: railway;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .black_back {
+    background-color: rgb(25, 25, 25);
+    font-size: 12px;
+    font-family: railway;
+  }
 }
 
 .white_back {
@@ -58,7 +73,7 @@
 
 .name {
   font-family: railway;
-  font-size: 70px;
+  font-size: 6em;
 }
 
 .title {
