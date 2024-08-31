@@ -8,18 +8,20 @@
     transform: translate(-50%, -50%)
 }
 
-.margin {
-  /* margin: 10px 10px 10px 10px; */
-  margin: 0.5vw 0.5vw 0.5vw 0.5vw;
+.project_image {
+  position: relative;
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 1/1
 }
 
 .project_box {
-  position: relative;
   width: 100%;
+  padding: 0.5vw 0.5vw 0.5vw 0.5vw;
 }
 
 .projtitle {
-  font-size: 1.5em;
+  font-size: 1.6em;
 }
 
 .projtext {
@@ -27,24 +29,18 @@
 }
 
 .project_box_desc {
-  font-size: 3em;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin-left: 10px;
+  font-size: 1.8em;
+  margin-left: 0px;
   margin-top: 5px;
+  padding-bottom: 35px;
   height: 100%;
   width: 100%;
-  opacity: 0;
 }
 
-.technologies_desc {
-  font-size: 0.5em;
-  position: absolute;
-  bottom: 10px;
-  left: 0px;
+.project_box_sub_desc {
+  font-size: 0.6em;
+  top: 10px;
+  font-style: italic;
 }
 
 .project_box_desc span {
@@ -66,66 +62,17 @@
   overflow: hidden;
 }
 
-.video_overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
+.project_image:hover {
+  filter: brightness(88%);
+}
+
+.model-viewer-container {
   width: 100%;
-  opacity: 0;
-  transition: .5s ease;
-  background-color: #818181;
-}
-
-.overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  opacity: 0;
-  transition: .5s ease;
-  background-color: #818181;
-}
-
-.overlay_dark {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  opacity: 0;
-  transition: .5s ease;
-  /* background-color: #707070; */
-  /* background-image: linear-gradient(#606060, red, #606060); */
-  /* linear-gradient(rgba(96,96,,0), rgba(255,0,0,1)); */
-  background-image: linear-gradient(rgba(90,90,90,100), rgba(112,112,112,0), rgba(90,90,90,100));
-}
-
-.project_box:hover .overlay {
-  opacity: 0.9;
-}
-
-.project_box:hover .overlay_dark {
-  opacity: 0.9;
-}
-
-.project_box:hover .video_overlay {
-  opacity: 0.2;
-}
-
-.project_box:hover .project_box_desc {
-  opacity: 1;
+  height: 98vh;
+  padding-bottom: 30px;
 }
 
 model-viewer {
-  width: 800px;
-  height: 600px;
-  padding-bottom: 10px;
+  width: 90%;
+  height: 91vh;
 }

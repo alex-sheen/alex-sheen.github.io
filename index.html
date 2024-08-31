@@ -11,252 +11,230 @@
 
   <script src="components/header.js" type="text/javascript" defer></script>
 
+  <link href='https://fonts.googleapis.com/css?family=EB Garamond' rel='stylesheet'>
+
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
 </head>
-
-<body class="black_back">
-    <!-- HEADER -->
-    <header-component-white></header-component-white>
-    <!-- HEADER -->
-
-    <!-- BODY CONTENT -->
-    <div class="base_padding_index w3-row">
-        <div class="w3-row" style="padding: 0 5px 0 5px">
-            <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-            <model-viewer style="width:100%" src="/assets/models/lovely.glb" ar ar-modes="webxr scene-viewer quick-look" 
-                camera-controls poster="/assets/models/poster.webp" 
-                disable-zoom
-                auto-rotate
-                shadow-intensity="1" camera-target="0.0m -1.6m -1.0m"
-                exposure="0.85"
-                camera-orbit="-152deg 82.44deg 70%"
-                max-camera-orbit="auto 87deg auto"
-                min_camera-orbit="auto 78deg auto"
-            >
-            <!-- max-camera-orbit="auto 87deg auto"
-            min_camera-orbit="auto 78deg auto"
-            min-field-of-view="15deg"
-            max-field-of-view="21deg" -->
-                <div class="progress-bar hide" slot="progress-bar">
-                    <div class="update-bar"></div>
-                </div>
-            </model-viewer>
-            <div class="center white_text">
-                left-click - rotate | right-click - pan
+    
+<body class="base_padding black_back">
+    <!-- ROW LOVELY -->
+    <div class="w3-row">
+        <div class="w3-half white_text" style="font-size: 1.2em">
+            <!-- HEADER -->
+            <header-component-white></header-component-white>
+            <!-- HEADER -->
+            <div style="padding-top: 2em">
+                <span class="beige_text">Software Engineer</span> at <a style="color: rgb(149,45,55)" href="https://www.arrowstreetcapital.com/"><span>Arrowstreet Capital</span></a> working on CI/CD pipelines and full-stack applications.
                 <br><br>
+                <span class="beige_text">Technologist</span> with interests spanning AR/VR tech, Human-Computer Interaction, 3D graphics, and digital fabrication.
+            </div>
+            <div style="padding-top: 2em">
+                <span class="beige_text">Contact Info</span>
+                <br>
+                <a href="mailto:alex.m.sheen@gmail.com">alex.m.sheen@gmail.com</a><br>
+                <a href="https://www.instagram.com/alex.m.sheen/">instagram | alex.m.sheen</a><br>
+                <a href="https://www.linkedin.com/in/alex-sheen-b9a1a218a/">linkedin   | alex-sheen</a>
             </div>
         </div>
-        <!-- ROW 3D -->
-        <div class="w3-row">
-            <!-- ALICE -->
-            <div class="w3-third">
-                <div class="margin">
-                    <div class="project_box" style="width:100%">
-                        <img src="/assets/images/dream4_1.png" style="width:100%">
-                        <div style="width:100%" class="video_overlay"></div>
-                        <div class="project_box_desc white_text" onclick="alice()">
-                            alice-01
-                            <div class="technologies_desc">
-                                Blender3D | photogrammetry
-                            </div>
+        <div class="w3-half">
+            <div class="model-viewer-container">
+                <div>
+                    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+                    <model-viewer src="/assets/models/lovely.glb" ar ar-modes="webxr scene-viewer quick-look" 
+                        camera-controls poster="/assets/models/poster.webp" 
+                        disable-zoom
+                        auto-rotate
+                        shadow-intensity="1" camera-target="0.0m -2m -1.0m"
+                        exposure="0.85"
+                        camera-orbit="-152deg 82.44deg 75%"
+                        max-camera-orbit="auto 87deg auto"
+                        min_camera-orbit="auto 78deg auto"
+                    >
+                    <!-- max-camera-orbit="auto 87deg auto"
+                    min_camera-orbit="auto 78deg auto"
+                    min-field-of-view="15deg"
+                    max-field-of-view="21deg" -->
+                        <div class="progress-bar hide" slot="progress-bar">
+                            <div class="update-bar"></div>
                         </div>
-                    </div>
+                    </model-viewer>
+                </div>
+                <div class="center white_text">
+                    left-click - rotate | right-click - pan
+                    <br><br>
                 </div>
             </div>
-            <!-- ALICE -->
-            <!-- ALICE -->
-            <div class="w3-third">
-                <div class="margin">
-                    <div class="project_box" style="width:100%">
-                        <img src="/assets/images/alice-03-final.png" style="width:100%">
-                        <div style="width:100%" class="video_overlay"></div>
-                        <div class="project_box_desc white_text" onclick="alice()">
-                            alice-03
-                            <div class="technologies_desc">
-                                Blender3D | photogrammetry
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- ALICE -->
-            <!-- lovely -->
-            <div class="w3-third">
-                <div class="margin">
-                    <div class="project_box" style="width:100%">
-                        <img src="/assets/images/lovely/dress4.5.jpg" style="width:100%">
-                        <div style="width:100%" class="video_overlay"></div>
-                        <div class="project_box_desc white_text" onclick="lovely()">
-                            lovely
-                            <div class="technologies_desc">
-                                Blender3D | geometry-nodes
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- lovely -->
         </div>
-        <!-- ROW 3D -->
-        <!-- ROW HCI -->
-        <div class="w3-row">
-            <!-- DIVER INTERFACE -->
-            <div class="w3-third">
-                <div class="margin">
-                    <div class="project_box" style="width:100%">
-                        <img src="/assets/images/diver/wrist_left.png" style="width:100%">
-                        <div style="width:100%" class="overlay_dark" onclick="diver()">
-                            <div class="project_box_desc white_text">
-                                3D Diver Interface
-
-                                <div class="technologies_desc">
-                                    Virtual Reality - Oculus, Unity
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- DIVER INTERFACE -->
-            <!-- COVID TAKEDOWN -->
-            <div class="w3-third">
-                <div class="margin">
-                    <div class="project_box" style="width:100%">
-                        <img class="ratio_image" src="/assets/images/hci/board_cropped.jpeg" style="width:100%">
-                        <div style="width:100%" class="overlay_dark" onclick="field2()">
-                            <div class="project_box_desc white_text">
-                                covid taKedown
-
-                                <div class="technologies_desc">
-                                    Actuated User Interfaces
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- COVID TAKEDOWN -->
-            <!-- AUGMENTED REALITY -->
-            <div class="w3-third">
-                <div class="margin">
-                    <div class="project_box" style="width:100%">
-                        <img class="ratio_image" src="/assets/videos/ar/ar_still.png" style="width:100%">
-                        <div style="width:100%" class="overlay_dark" onclick="field2()">
-                            <div class="project_box_desc white_text">
-                                Frames
-
-                                <div class="technologies_desc">
-                                    Augmented Reality - field2, WebGL
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- AUGMENTED REALITY -->
-        </div>
-        <!-- ROW HCI -->
-        <!-- ROW VIDEO -->
-        <div class="w3-row">
-            <!-- DANCINGWITHDATA -->
-            <div class="w3-third">
-                <div class="margin">
-                    <div class="project_box" style="width:100%">
-                        <img class="ratio_image" src="/assets/images/dancingwithdata/cover.png" style="width:100%">
-                        <div style="width:100%" class="overlay_dark"></div>
-                        <div class="project_box_desc white_text" onclick="dancingwithdata()">
-                            Dancing with Data
-                            <div class="technologies_desc">
-                                3rd Place MAAD EXPO23
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- DANCINGWITHDATA -->
-            <!-- RABBITHOLE -->
-            <div class="w3-third">
-                <div class="margin">
-                    <div class="project_box" style="width:100%">
-                        <video class="ratio_image videoembedded" muted loop playsinline>
-                            <source src="https://alex-sheen.github.io/assets/videos/rabbithole_compressed.mp4" type="video/mp4" style="width:100%">
-                            Your browser does not support the video tag.
-                        </video>
-                        <div style="width:100%" class="video_overlay"></div>
-                        <div class="project_box_desc white_text" onclick="rabbithole()"
-                        onmouseover="this.previousElementSibling.previousElementSibling.play()" onmouseout="this.previousElementSibling.previousElementSibling.pause();"
-                        >
-                            rabbithole
-                            <div class="technologies_desc">
-                                3D camera tracking, pixel sorting
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- RABBITHOLE -->
-            <!-- DATAMOSH -->
-            <div class="w3-third">
-                <div class="margin">
-                    <div class="project_box" style="width:100%">
-                        <video class="ratio_image videoembedded" muted loop playsinline>
-                            <source src="https://alex-sheen.github.io/assets/videos/datamosh_cropped.mp4" type="video/mp4" style="width:100%">
-                            Your browser does not support the video tag.
-                        </video>
-                        <div style="width:100%" class="video_overlay"></div>
-                        <div class="project_box_desc white_text" onclick="datamosh()"
-                        onmouseover="this.previousElementSibling.previousElementSibling.play()" onmouseout="this.previousElementSibling.previousElementSibling.pause();"
-                        >
-                            datamosh
-                            <div class="technologies_desc">
-                                After Effects
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- DATAMOSH -->
-        </div>
-        <!-- ROW VIDEO -->
-        <!-- ROW CODE -->
-        <div class="w3-row">
-            <!-- FORM CODE -->
-            <div class="w3-third">
-                <div class="margin">
-                    <div class="project_box" style="width:100%">
-                        <video class="ratio_image videoembedded" muted loop playsinline>
-                            <source src="https://alex-sheen.github.io/assets/videos/formCode.mp4" type="video/mp4" style="width:100%">
-                            Your browser does not support the video tag.
-                        </video>
-                        <div style="width:100%" class="video_overlay"></div>
-                        <div class="project_box_desc white_text" onclick="formCode()"
-                            onmouseover="this.previousElementSibling.previousElementSibling.play()" onmouseout="this.previousElementSibling.previousElementSibling.pause();"
-                            >form-code
-                            <div class="technologies_desc">
-                                p5.js
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- FORM CODE -->
-            <!-- EVERYTHING I TOUCH -->
-            <div class="w3-third">
-                <div class="margin">
-                    <div class="project_box" style="width:100%">
-                        <img class="ratio_image" src="/assets/images/digital_fabrication/main.jpeg" style="width:100%">
-                        <div style="width:100%" class="overlay_dark" onclick="ricebox()">
-                            <div class="project_box_desc white_text">
-                                everything i touch
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- EVERYTHING I TOUCH -->
-        </div>
-        <!-- ROW CODE -->
     </div>
-    <!-- BODY CONTENT -->
+    <!-- ROW LOVELY -->
+    <!-- ROW HCI -->
+    <div class="w3-row">
+        <!-- DIVER INTERFACE -->
+        <div class="w3-third">
+            <div class="project_box">
+                <img src="/assets/images/diver/wrist_left.png" class="project_image" style="width:100%" onclick="diver()">
+                <div class="project_box_desc white_text">
+                    3D Diver Interface
+
+                    <div class="project_box_sub_desc">
+                        Unity, Oculus
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- DIVER INTERFACE -->
+        <!-- COVID TAKEDOWN -->
+        <div class="w3-third">
+            <div class="project_box">
+                <img src="/assets/images/hci/board_cropped.jpeg" class="project_image" style="width:100%" onclick="covidtakedown()">
+                <div class="project_box_desc white_text">
+                    covid taKedown
+
+                    <div class="project_box_sub_desc">
+                        Human-Computer Interaction
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- COVID TAKEDOWN -->
+        <!-- AUGMENTED REALITY -->
+        <div class="w3-third">
+            <div class="project_box">
+                <img src="/assets/videos/ar/ar_still.png" class="project_image" style="width:100%" onclick="field2()">
+                <div class="project_box_desc white_text">
+                    Frames
+
+                    <div class="project_box_sub_desc">
+                        AR (field2), WebGL
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- AUGMENTED REALITY -->
+    </div>
+    <!-- ROW HCI -->
+    <!-- ROW 3D -->
+    <div class="w3-row">
+        <!-- ALICE -->
+        <div class="w3-third">
+            <div class="project_box">
+                <img src="/assets/images/dream4_1.png" class="project_image" style="width:100%" onclick="alice()">
+                <div class="project_box_desc white_text">
+                    alice-01
+
+                    <div class="project_box_sub_desc">
+                        Blender3D, photogrammetry
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ALICE -->
+        <!-- ALICE -->
+        <div class="w3-third">
+            <div class="project_box">
+                <img src="/assets/images/alice-03-final.png" class="project_image" style="width:100%" onclick="alice()">
+                <div class="project_box_desc white_text">
+                    alice-03
+
+                    <div class="project_box_sub_desc">
+                        Blender3D, photogrammetry
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ALICE -->
+        <!-- lovely -->
+        <div class="w3-third">
+            <div class="project_box">
+                <img src="/assets/images/lovely/dress4.5.jpg" class="project_image" style="width:100%" onclick="lovely()">
+                <div class="project_box_desc white_text">
+                    lovely
+
+                    <div class="project_box_sub_desc">
+                        Blender3D
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- lovely -->
+    </div>
+    <!-- ROW 3D -->
+    <!-- ROW VIDEO -->
+    <div class="w3-row">
+        <!-- DANCINGWITHDATA -->
+        <div class="w3-third">
+            <div class="project_box">
+                <img src="/assets/images/dancingwithdata/cover.png" class="project_image" style="width:100%" onclick="dancingwithdata()">
+                <div class="project_box_desc white_text">
+                    Dancing with Data
+
+                    <div class="project_box_sub_desc">
+                        3rd Place MAAD EXPO23
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- DANCINGWITHDATA -->
+        <!-- RABBITHOLE -->
+        <div class="w3-third">
+            <div class="project_box">
+                <video class="project_image videoembedded" muted loop playsinline onclick="rabbithole()"
+                onmouseover="this.play();" onmouseout="this.pause();"
+                >
+                    <source src="https://alex-sheen.github.io/assets/videos/rabbithole_compressed.mp4" type="video/mp4" style="width:100%">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="project_box_desc white_text">
+                    rabbithole
+
+                    <div class="project_box_sub_desc">
+                        Blender3D, pixel sorting
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- RABBITHOLE -->
+        <!-- DATAMOSH -->
+        <div class="w3-third">
+            <div class="project_box">
+                <video class="project_image videoembedded" muted loop playsinline onclick="datamosh()"
+                onmouseover="this.play();" onmouseout="this.pause();"
+                >
+                    <source src="https://alex-sheen.github.io/assets/videos/datamosh_cropped.mp4" type="video/mp4" style="width:100%">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="project_box_desc white_text">
+                    datamosher
+
+                    <div class="project_box_sub_desc">
+                        After Effects
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- DATAMOSH -->
+    </div>
+    <!-- ROW VIDEO -->
+    <!-- ROW CODE -->
+    <div class="w3-row">
+        <!-- EVERYTHING I TOUCH -->
+        <div class="w3-third">
+            <div class="project_box">
+                <img src="/assets/images/digital_fabrication/main.jpeg" class="project_image" style="width:100%" onclick="everythingitouch()">
+                <div class="project_box_desc white_text">
+                    everything i touch
+
+                    <div class="project_box_sub_desc">
+                        Blender3D, PLA
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- EVERYTHING I TOUCH -->
+    </div>
+    <!-- ROW CODE -->
+</div>
 </body>
 </html>

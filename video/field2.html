@@ -14,66 +14,62 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 
-<body class="black_back">
+<body class="black_back base_padding">
     <!-- HEADER -->
     <header-component-white></header-component-white>
     <!-- HEADER -->
-
-    <!-- body -->
-    <div class="base_padding">
-        <!-- row 1 -->
-        <div class="w3-row">
-          <!-- half 1 -->
-          <div class="w3-half base_padding">
-            <div class="proj" style="width:100%">
-              <div class="projtitle white_text" style = "width:100%">
-                Frames
-                <div class="projtext" style = "width:100%">
-                  <br>
-                  <div class="vl">
-                    OpenEndedGroup Field2 / AR<br>
-                    2021<br>
-                  </div>
-                  <br>
-                  For this project, I partnered with an MFA graduate student to translate their physical sculptures into an interactive Augmented Reality experience.
-                  Their work frequently features hinged frames of differing dimensions and explores how their movement can reveal 
-                  new interactions between the sculpture and the space it occupies. Our AR piece extends this notion with the common idea in 
-                  AR of "a world inside a world".
-                  <br><br>
-                  
-                  I used OpenEndedGroup's Field to place virtual objects in the viewer's live camera feed of the real-world environment, allowing the viewer to 
-                  physically walk around the virtual sculpture. Our piece utilizes the OpenGL Stencil Buffer to 
-                  only draw the light gray sculptures when they are viewed <i>through</i> a black frame. Each frame is paired with a 
-                  single gray object, but overlapping frames will reveal all of their respective objects. By utilizing the Stencil 
-                  Buffer in this way, we create a metaphysical world within the frames in this AR space.
-                  <br><br>
-
-                  A non-AR test is shown below. You can see how the red and green cubes only appear when viewed through certain frames.
-                  Some frames reveal just red cubes, some just green, and others both. At the end, the camera looks behind the frames
-                  to find that the cubes don't exist outside of the world as seen through the frames.
-                  <br><br>
-                </div>
-
-                <video style="width:100%" id="vid" muted autoplay loop playsinline>
-                  <source src="/assets/videos/ar/frames_test_compressed.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
+    <!-- row 1 -->
+    <div class="w3-row">
+      <!-- half 1 -->
+      <div class="w3-half base_container_padding">
+        <div class="proj" style="width:100%">
+          <div class="projtitle white_text" style = "width:100%">
+            Frames
+            <div class="projtext" style = "width:100%">
+              <br>
+              <div class="vl">
+                OpenEndedGroup Field2 / AR<br>
+                2021<br>
               </div>
+              <br>
+              For this project, I partnered with an MFA graduate student to translate their physical sculptures into an interactive Augmented Reality experience.
+              Their work frequently features hinged frames of differing dimensions and explores how their movement can reveal 
+              new interactions between the sculpture and the space it occupies. Our AR piece extends this notion with the common idea in 
+              AR of "a world inside a world".
+              <br><br>
+              
+              I used OpenEndedGroup's Field to place virtual objects in the viewer's live camera feed of the real-world environment, allowing the viewer to 
+              physically walk around the virtual sculpture. Our piece utilizes the OpenGL Stencil Buffer to 
+              only draw the light gray sculptures when they are viewed <i>through</i> a black frame. Each frame is paired with a 
+              single gray object, but overlapping frames will reveal all of their respective objects. By utilizing the Stencil 
+              Buffer in this way, we create a metaphysical world within the frames in this AR space.
+              <br><br>
+
+              A non-AR test is shown below. You can see how the red and green cubes only appear when viewed through certain frames.
+              Some frames reveal just red cubes, some just green, and others both. At the end, the camera looks behind the frames
+              to find that the cubes don't exist outside of the world as seen through the frames.
+              <br><br>
             </div>
+
+            <video style="width:100%" id="vid" muted autoplay loop playsinline>
+              <source src="/assets/videos/ar/frames_test_compressed.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
           </div>
-          <!-- half 1 -->
-          <!-- half 2 -->
-          <div class="w3-half base_padding">
-            <div class="proj" style="width:100%">
-              <video style="width:100%" id="vid" muted autoplay loop playsinline>
-                <source src="/assets/videos/ar_final_compressed3.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-            </div>
-          </div>
-          <!-- half 2 -->
         </div>
-        <!-- row 1 -->
+      </div>
+      <!-- half 1 -->
+      <!-- half 2 -->
+      <div class="w3-half base_container_padding">
+        <div class="proj" style="width:100%">
+          <video style="width:100%" id="vid" muted autoplay loop playsinline>
+            <source src="/assets/videos/ar_final_compressed3.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+      <!-- half 2 -->
     </div>
+    <!-- row 1 -->
 </body>
 </html>

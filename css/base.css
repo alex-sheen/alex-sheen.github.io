@@ -3,12 +3,17 @@
   src: url("/assets/fonts/raleway/Raleway-Light.ttf") format("truetype");
 }
 
+@font-face {
+  font-family:"poppins";
+  src: url("/assets/fonts/poppins/Poppins-Regular.ttf") format("truetype");
+}
+
 html {
   font-size: 34px;
 }
 
 .header {
-  text-align: center;
+  text-align: left;
 }
 
 @media screen and (min-width: 601px) {
@@ -42,22 +47,16 @@ html {
   color: rgb(205, 205, 205);
 }
 
+.beige_text {
+  color: rgb(140, 135, 125);
+}
+
 .base_padding {
-  padding: 25px 30px 20px 30px;
+  padding: 2vh 8vw 0vw 8vw;
 }
 
-.base_padding_more {
-  padding: 1vw 3vw 1vw 3vw;
-}
-
-.base_padding_even_more {
-  padding: 40px 100px 20px 100px;
-}
-
-.base_padding_index {
-  /* padding: 0px 120px 40px 120px; */
-  padding: 0px 6vw 0vw 6vw;
-
+.base_container_padding {
+  padding: 0.5vw 0.5vw 0.5vw 0.5vw;
 }
 
 .cards_padding {
@@ -72,8 +71,10 @@ html {
 }
 
 .name {
-  font-family: railway;
+  /* font-family: railway; */
+  font-family: 'poppins';
   font-size: 6em;
+  line-height: 1em;
 }
 
 .title {
@@ -103,10 +104,6 @@ a:hover {
   text-decoration: line-through;
 }
 
-span {
-  margin: 0 20px;
-}
-
 .videoembedded {
   position: relative;
   width: 100%;
@@ -115,8 +112,8 @@ span {
   display: block
 }
 
-.ratio_image {
-  object-fit: cover;
-  width: 100%;
-  aspect-ratio: 1/1
-}
+/* .button-index {
+  font-size: 38px;
+  color: rgb(205, 205, 205);
+  background-color: rgb(25, 25, 25);
+} */

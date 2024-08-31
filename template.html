@@ -1,52 +1,85 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="/css/base.css">
-  <link rel="stylesheet" href = "/css/containers.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href = "css/containers.css">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-  <script type="text/javascript" src="/js/main.js"></script>
-  <script type="text/javascript" src="/js/code.js"></script>
-  <script type="text/javascript" src="/js/video.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+  <script type="text/javascript" src="js/code.js"></script>
+  <script type="text/javascript" src="js/video.js"></script>
+
+  <script src="components/header.js" type="text/javascript" defer></script>
+
+  <link href='https://fonts.googleapis.com/css?family=EB Garamond' rel='stylesheet'>
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 
-<body>
-    <!-- header -->
-    <div class="base_padding header">
-        <div class="w3-row">
-            <div class="name">
-                Alex Sheen
-            </div>
-        </div>
+<body class="black_back">
+    <!-- HEADER -->
+    <header-component-white></header-component-white>
+    <!-- HEADER -->
 
+    <!-- BODY CONTENT -->
+    <div class="base_padding_index w3-row">
+        <!-- ROW HCI -->
         <div class="w3-row">
-            <div class="title">
-                Computer Science | Media Arts & Design
-            </div>
-        </div>
+            <!-- DIVER INTERFACE -->
+            <div class="w3-third">
+                <div class="margin">
+                    <div class="project_box">
+                        <img src="/assets/images/diver/wrist_left.png" class="project_image" style="width:100%" onclick="diver()">
+                        <div class="project_box_desc white_text">
+                            3D Diver Interface
 
-        <div class="w3-row">
-            <div class="links">
-                <a href="/">CS</a><span></span>
-                <a href="/art.html">Art</a><span></span>
-                <a href = "mailto: alexsheen@uchicago.edu">Email</a>
+                            <div class="project_box_sub_desc">
+                                Unity, Oculus
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+            <!-- DIVER INTERFACE -->
+            <!-- COVID TAKEDOWN -->
+            <!-- <div class="w3-third">
+                <div class="margin">
+                    <div class="project_box" style="width:100%">
+                        <img class="ratio_image" src="/assets/images/hci/board_cropped.jpeg" style="width:100%">
+                        <div style="width:100%" class="overlay_dark" onclick="covidtakedown()">
+                            <div class="project_box_desc white_text">
+                                covid taKedown
+
+                                <div class="technologies_desc">
+                                    Actuated User Interfaces
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <!-- COVID TAKEDOWN -->
+            <!-- AUGMENTED REALITY -->
+            <!-- <div class="w3-third">
+                <div class="margin">
+                    <div class="project_box" style="width:100%">
+                        <img class="ratio_image" src="/assets/videos/ar/ar_still.png" style="width:100%">
+                        <div style="width:100%" class="overlay_dark" onclick="field2()">
+                            <div class="project_box_desc white_text">
+                                Frames
+
+                                <div class="technologies_desc">
+                                    Augmented Reality - field2, WebGL
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <!-- AUGMENTED REALITY -->
         </div>
+        <!-- ROW HCI -->
     </div>
-
-    <!-- body -->
-    <div class="base_padding">
-        <!-- MAIN LEFT -->
-        <div class="w3-half">
-        </div>
-        <!-- MAIN LEFT -->
-
-        <!-- MAIN RIGHT -->
-        <div class="w3-half">
-        </div>
-        <!-- MAIN RIGHT -->
-    </div>
+    <!-- BODY CONTENT -->
 </body>
 </html>

@@ -58,8 +58,8 @@ function rabbithole() {
     window.location.href = "/video/rabbithole.html";
 }
 
-function ricebox() {
-    window.location.href = "video/ricebox.html"
+function everythingitouch() {
+    window.location.href = "video/everythingitouch.html"
 }
 
 function spook_world_1() {
