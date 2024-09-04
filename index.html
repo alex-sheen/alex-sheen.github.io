@@ -42,7 +42,14 @@
             <div class="model-viewer-container">
                 <div>
                     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-                    <model-viewer src="/assets/models/lovely.glb" ar ar-modes="webxr scene-viewer quick-look" 
+                    <model-viewer src="/assets/models/alice-01.glb" ar ar-modes="webxr scene-viewer quick-look" 
+                        camera-controls poster="/assets/models/poster.webp" 
+                        disable-zoom
+                        shadow-intensity="1" camera-target="0.0m 0.0m 0.0m"
+                        exposure="0.85"
+                        min-camera-orbit="-65deg 70deg auto" max-camera-orbit="26deg 100deg auto" camera-orbit="-34.62deg 80.79deg 11.24m"
+                    >
+                    <!-- <model-viewer src="/assets/models/lovely.glb" ar ar-modes="webxr scene-viewer quick-look" 
                         camera-controls poster="/assets/models/poster.webp" 
                         disable-zoom
                         auto-rotate
@@ -51,11 +58,7 @@
                         camera-orbit="-152deg 82.44deg 75%"
                         max-camera-orbit="auto 87deg auto"
                         min_camera-orbit="auto 78deg auto"
-                    >
-                    <!-- max-camera-orbit="auto 87deg auto"
-                    min_camera-orbit="auto 78deg auto"
-                    min-field-of-view="15deg"
-                    max-field-of-view="21deg" -->
+                    > -->
                         <div class="progress-bar hide" slot="progress-bar">
                             <div class="update-bar"></div>
                         </div>

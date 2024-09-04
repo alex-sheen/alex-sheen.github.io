@@ -15,13 +15,13 @@
 </head>
 
 <body class="black_back base_padding">
-    <!-- HEADER -->
-    <header-component-white></header-component-white>
-    <!-- HEADER -->
-
     <!-- row 1 -->
     <div class="w3-row">
-      <div class="w3-third">
+      <div class="w3-half">
+        <!-- HEADER -->
+        <header-component-white></header-component-white>
+        <!-- HEADER -->
+        
         <div class="proj base_container_padding" style="width:100%">
           <div class="projtitle white_text" style = "width:100%">
             lovely
@@ -40,15 +40,29 @@
         </div>
       </div>
       <!-- Second Container -->
-      <div class="w3-third">
-        <div class="proj" style="width:100%">
-          <img src="/assets/images/lovely/look1.1.png" style="width:100%">
-        </div>
-      </div>
-      <!-- Third Container -->
-      <div class="w3-third">
-        <div class="proj" style="width:100%">
-            <img src="/assets/images/lovely/look1.2.png" style="width:100%">
+      <div class="w3-half">
+        <div class="model-viewer-container">
+          <div>
+              <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+              <model-viewer src="/assets/models/lovely.glb" ar ar-modes="webxr scene-viewer quick-look" 
+                  camera-controls poster="/assets/models/poster_lovely.webp" 
+                  disable-zoom
+                  auto-rotate
+                  shadow-intensity="1" camera-target="0.0m -2.2m -1.0m"
+                  exposure="0.85"
+                  camera-orbit="-152deg 82.44deg 75%"
+                  max-camera-orbit="auto 87deg auto"
+                  min_camera-orbit="auto 78deg auto"
+              >
+                  <div class="progress-bar hide" slot="progress-bar">
+                      <div class="update-bar"></div>
+                  </div>
+              </model-viewer>
+          </div>
+          <div class="center white_text">
+              left-click - rotate | right-click - pan
+              <br><br>
+          </div>
         </div>
       </div>
     </div>
@@ -77,6 +91,16 @@
     </div>
   </div>
   <!-- row 3 -->
+  <!-- row blue -->
+  <div class="w3-row">
+    <div class="w3-half">
+      <img src="/assets/images/lovely/look1.1.png" style="width:100%">
+    </div>
+    <div class="w3-half">
+      <img src="/assets/images/lovely/look1.2.png" style="width:100%">
+    </div>
+  </div>
+  <!-- row blue -->
   <!-- row 4 -->
   <div class="w3-row">
     <div class="w3-half">
