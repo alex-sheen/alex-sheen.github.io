@@ -26,61 +26,73 @@
             covid taKedown
             <div class="projtext" style = "width:100%">
               <br>
-              Visualization of K-means Clustering via Portable Clinic Placements for Covid Pandemic
+              <i>Visualization of K-means Clustering via Portable Clinic Placements for Covid Pandemic</i>
               <br><br>
               <div class="vl">
-                toio<br>
+                <i>toio robots, 3D printing, projector</i><br>
                 2023<br>
               </div>
               <br>
-              Our project was created during the Covid-19 pandemic to create an interactable system for optimizing the placement of 
-              temporary treatment centers or permanent hospitals to treat covid cases. The system uses a projector and toio robots 
-              to vizualize the underlying k-means clustering algorithm that drives the optimization. Our toio cubes with 3D 
-              printed shells represent the location of clinics, and they allow the user to physically interact with the algorithm.<br><br>
-
-              The basic k-means clustering algorithm is non-deterministic, so the final output is affected by the initial 
-              centroid data points selection. Our interactable system provides an interface for this selection as the user can physically
-              pick up and move each toio.<br><br>
-
-              The algorithm will update appropriately as the user places or picks up different toios. One toio is designated as a control,
-              which allows the user to scroll through the timeline by dragging it horizontally across the map. It can also be rotated to change 
-              the stylization of the centroid's regions. Additionally, it can be picked up and shaken to change the stylization of the data points.
+              For CMSC 20380, Actuated User Interfaces and Technology, created an <span class="beige_text">interactable system for optimizing the placement of 
+              temporary treatment centers or permanent hospitals to treat covid cases</span>.
               <br><br>
+              The system uses a projector and toio robots to <span class="beige_text">visualize the underlying k-means clustering algorithm</span> that drives the optimization. Our toio cubes with 3D 
+              printed shells represent the location of clinics, and they allow the user to <span class="beige_text">physically interact with and influence the algorithm</span>.
+              <br><br>
+              As the user places the 3D printed clinics on the board, the clinics will physically move to organize themselves in a formation that will better service covid patients on the map.
             </div>
           </div>
         </div>
       </div>
       <!-- Second Container -->
       <div class="w3-half base_container_padding">
-        <div class="proj" style="width:80%">
-          <iframe width="560" height="315"
-          src="https://www.youtube.com/embed/gYJIfLXcPv4?si=oHBfjVOugFivdfS1"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen>
-          </iframe>
-          <br><br>
-          <div class="projtext white_text" style = "width:100%">
-            Our team was one of teams selected to demo at the Chicago Museum of Science and Industry for their 
-            National Robot Block Party. 
+          <img src="/assets/images/hci/board_cropped.jpeg" style="width:100%">
+      </div>
+    </div>
+  </div>
+  <!-- row 1 -->
+  <!-- row text -->
+  <div class="w3-row base_container_padding">
+    <div class="w3-half">
+      <div class="proj" style="width:90%">
+        <div class="projtitle white_text" style = "width:100%">
+          Design Deep Dive
+          <div class="projtext" style = "width:100%">
+            <br>
+            K-means clustering is a <span class="beige_text">non-deterministic</span> algorithm that aims to partition a dataset into a pre-defined number of clusters.
+            The basic algorithm uses an <span class="beige_text">iterative refinement process</span> that slowly improves the position of the cluster centroids from an initial position guess.
+            <br><br>
+            Our interactable system complements the non-deterministic nature of the algorithm as our interface <span class="beige_text">allows the user to physically
+            pick up and move each toio to select the number of clusters and the initial centroid positions</span>.
+            <br><br>
+            From there, the algorithm will <span class="beige_text">continuously update</span> as the user picks up or places different toios.
+            <br><br>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="w3-half">
+      <div class="proj" style="width:90%">
+        <div class="projtitle white_text" style = "width:100%">
+          Project Demo
+          <div class="projtext" style = "width:100%">
+            <br>
+            For an in-depth explanation and example use-cases, check out the demo!
+            <br><br>
+            <iframe width="560" height="315"
+              src="https://www.youtube.com/embed/gYJIfLXcPv4?si=oHBfjVOugFivdfS1"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen>
+            </iframe>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <!-- row 1 -->
-  <!-- row 3 -->
-  <div class="w3-row base_container_padding">
-    <div class="w3-half">
-      <img src="/assets/images/hci/buildings.jpeg" style="width:100%">
-    </div>
-    <div class="w3-half">
-      <img src="/assets/images/hci/toio.png" style="width:100%">
-    </div>
-  </div>
-  <!-- row 3 -->
+  <!-- row text -->
   <!-- row 4 -->
   <div class="w3-row base_container_padding">
     <div class="w3-half">
@@ -101,15 +113,24 @@
     </div>
   </div>
   <!-- row 5 -->
-  <!-- row 5 -->
+  <!-- row prints -->
   <div class="w3-row base_container_padding">
     <div class="w3-half">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/urFLXfo5F6E?si=BOGTVz-CQCxYVJ1n" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <div class="proj" style="width:90%">
+        <div class="projtitle white_text" style = "width:100%">
+          Museum of Science and Industry
+          <div class="projtext" style = "width:100%">
+            <br>
+            Our team was one of a couple selected to demo at the <span class="beige_text">Museum of Science and Industry for their National Robot Block Party</span>. There we got the opportunity to present our
+            work to families at the museum. It was especially fun to watch the kids interact with our demo!
+          </div>
+        </div>
+      </div>
     </div>
     <div class="w3-half">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/N5FApxZLt1o?si=gj9mwKNkkOGAv2VB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>      </div>
+      <img src="/assets/images/hci/toio.png" style="width:100%">
+    </div>
   </div>
-  <!-- row 5 -->
+  <!-- row prints -->
 </body>
 </html>
-

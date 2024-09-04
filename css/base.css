@@ -4,6 +4,11 @@
 }
 
 @font-face {
+  font-family:"railway-bold";
+  src: url("/assets/fonts/raleway/Raleway-Regular.ttf") format("truetype");
+}
+
+@font-face {
   font-family:"poppins";
   src: url("/assets/fonts/poppins/Poppins-Regular.ttf") format("truetype");
 }
@@ -48,7 +53,8 @@ html {
 }
 
 .beige_text {
-  color: rgb(140, 135, 125);
+  /* color: rgb(140, 135, 125); */
+  color: rgb(194, 170, 128);
 }
 
 .base_padding {
