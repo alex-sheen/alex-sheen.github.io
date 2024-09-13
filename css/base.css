@@ -57,6 +57,10 @@ html {
   color: rgb(194, 170, 128);
 }
 
+.base_padding_index_header {
+  padding: 0 8vw 0vw 8vw;
+}
+
 .base_padding {
   padding: 2vh 8vw 0vw 8vw;
 }
