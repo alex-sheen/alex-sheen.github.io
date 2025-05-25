@@ -38,9 +38,8 @@
               new interactions between the sculpture and the space it occupies. Our AR piece extends this notion with the common idea in 
               AR of <span class="beige_text">"a world inside a world"</span>.
               <br><br>
-              
               I used OpenEndedGroup's Field to place virtual objects in the viewer's live camera feed of the real-world environment, allowing the viewer to 
-              physically walk around the virtual sculpture. <span class="beige_text">Our piece utilizes the OpenGL Stencil Buffer to 
+              physically walk around the virtual sculpture. <span class="beige_text">Our piece utilizes the <a href="https://learnopengl.com/Advanced-OpenGL/Stencil-testing">OpenGL Stencil Buffer</a> to 
               only draw the light gray sculptures when they are viewed <i>through</i> a black frame</span>. Each frame is paired with a 
               single gray object, but overlapping frames will reveal all of their respective objects. By utilizing the Stencil 
               Buffer in this way, we create a metaphysical world within the frames in this AR space.
@@ -72,5 +71,27 @@
       <!-- half 2 -->
     </div>
     <!-- row 1 -->
+    <!-- row 2 -->
+    <div class="w3-row">
+      <!-- half 1 -->
+      <div class="w3-half base_container_padding">
+        <img src="/assets/images/frames_raw.png" style="width:100%">
+      </div>
+      <!-- half 1 -->
+      <!-- half 2 -->
+      <div class="w3-half base_container_padding">
+        <!-- <iframe
+          style="background: #FFFFFF;"
+          src="/assets/images/3_set_stencil.txt"
+          frameBorder="0"
+          class=""
+          scrolling="auto"
+          height="100%"
+          width="100%">
+      </iframe> -->
+      </div>
+      <!-- half 2 -->
+    </div>
+    <!-- row 2 -->
 </body>
 </html>
