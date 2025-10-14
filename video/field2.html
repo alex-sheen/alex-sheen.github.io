@@ -20,9 +20,9 @@
     <!-- HEADER -->
       
     <!-- row 1 -->
-    <div class="w3-row">
+    <div class="w3-row base_container_padding">
       <!-- half 1 -->
-      <div class="w3-half base_container_padding">
+      <div class="w3-twothird base_container_padding">
         <div class="proj" style="width:100%">
           <div class="projtitle white_text" style = "width:100%">
             Frames
@@ -39,7 +39,7 @@
               AR of <span class="beige_text">"a world inside a world"</span>.
               <br><br>
               I used OpenEndedGroup's Field to place virtual objects in the viewer's live camera feed of the real-world environment, allowing the viewer to 
-              physically walk around the virtual sculpture. <span class="beige_text">Our piece utilizes the <a href="https://learnopengl.com/Advanced-OpenGL/Stencil-testing">OpenGL Stencil Buffer</a> to 
+              physically walk around and through the virtual sculpture. <span class="beige_text">Our piece utilizes the <a href="https://learnopengl.com/Advanced-OpenGL/Stencil-testing">OpenGL Stencil Buffer</a> to 
               only draw the light gray sculptures when they are viewed <i>through</i> a black frame</span>. Each frame is paired with a 
               single gray object, but overlapping frames will reveal all of their respective objects. By utilizing the Stencil 
               Buffer in this way, we create a metaphysical world within the frames in this AR space.
@@ -50,17 +50,12 @@
               to find that the cubes don't exist outside of the world as seen through the frames.
               <br><br>
             </div>
-
-            <video style="width:100%" id="vid" muted autoplay loop playsinline>
-              <source src="/assets/videos/ar/frames_test_compressed.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
           </div>
         </div>
       </div>
       <!-- half 1 -->
       <!-- half 2 -->
-      <div class="w3-half base_container_padding">
+      <div class="w3-third base_container_padding">
         <div class="proj" style="width:100%">
           <video style="width:100%" id="vid" muted autoplay loop playsinline>
             <source src="/assets/videos/ar_final_compressed3.mp4" type="video/mp4">
@@ -80,15 +75,10 @@
       <!-- half 1 -->
       <!-- half 2 -->
       <div class="w3-half base_container_padding">
-        <!-- <iframe
-          style="background: #FFFFFF;"
-          src="/assets/images/3_set_stencil.txt"
-          frameBorder="0"
-          class=""
-          scrolling="auto"
-          height="100%"
-          width="100%">
-      </iframe> -->
+        <video style="width:100%" id="vid" muted autoplay loop playsinline>
+          <source src="/assets/videos/ar/frames_test_compressed.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
       </div>
       <!-- half 2 -->
     </div>

@@ -10,6 +10,7 @@
   <script type="text/javascript" src="js/video.js"></script>
 
   <script src="components/header.js" type="text/javascript" defer></script>
+  <script src="components/project_cards.js" type="text/javascript" defer></script>
 
   <link href='https://fonts.googleapis.com/css?family=EB Garamond' rel='stylesheet'>
 
@@ -17,7 +18,13 @@
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
 </head>
-    
+
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+</style>
+
 <body class="base_padding black_back">
         
     <!-- ROW LOVELY -->
@@ -34,8 +41,11 @@
             <div style="padding-top: 2em; font-size: 1.2em">
                 <span class="beige_text">Contact Info</span>
                 <br>
-                <a href="https://www.instagram.com/alex.m.sheen/">instagram | alex.m.sheen</a><br>
-                <a href="https://www.linkedin.com/in/alex-sheen-b9a1a218a/">linkedin   | alex-sheen</a>
+                <a href="https://www.tiktok.com/@studio.ikrus?_t=ZT-90Y4A1udK9H&_r=1">TikTok | studio.ikrus</a><br>
+                <a href="https://www.linkedin.com/in/alex-sheen-b9a1a218a/">LinkedIn   | alex-sheen</a>
+            </div>
+            <div style="padding-top: 2em; font-size: 1.2em">
+                <a class="beige_text" href="#selected-work">View Selected Work</a>
             </div>
         </div>
         <div class="w3-half">
@@ -77,171 +87,69 @@
     </div>
     <!-- ROW LOVELY -->
     <!-- ROW HCI -->
-    <div class="w3-row">
-        <!-- DIVER INTERFACE -->
+    <div id="selected-work" class="w3-row">
+        <!-- Column 1 -->
         <div class="w3-third">
-            <div class="project_box">
-                <img src="/assets/images/diver/wrist_left.png" class="project_image" style="width:100%" onclick="diver()">
-                <div class="project_box_desc white_text">
-                    3D Diver Interface
-
-                    <div class="project_box_sub_desc">
-                        Unity, Oculus
-                    </div>
-                </div>
-            </div>
+            <!-- AUGMENTED REALITY -->
+            <project-card
+                img="/assets/videos/ar/ar_still.png"
+                imgOnClick="field2()"
+                title="Frames"
+                description="AR (field2), WebGL"
+            ></project-card>
+            <!-- DIVER INTERFACE -->
+            <project-card
+                img="/assets/images/diver/wrist_left.png"
+                imgOnClick="diver()"
+                title="3D Diver Interface"
+                description="Unity, Oculus"
+            ></project-card>
+            <!-- COVID TAKEDOWN -->
+            <project-card
+                img="/assets/images/hci/board_cropped.jpeg"
+                imgOnClick="covidtakedown()"
+                title="covid taKedown"
+                description="toio robots, 3D printing, projector"
+            ></project-card>
         </div>
-        <!-- DIVER INTERFACE -->
-        <!-- COVID TAKEDOWN -->
+        <!-- Column 1 -->
+        <!-- Column 2 -->
         <div class="w3-third">
-            <div class="project_box">
-                <img src="/assets/images/hci/board_cropped.jpeg" class="project_image" style="width:100%" onclick="covidtakedown()">
-                <div class="project_box_desc white_text">
-                    covid taKedown
-
-                    <div class="project_box_sub_desc">
-                        toio robots, 3D printing, projector
-                    </div>
-                </div>
-            </div>
+            <!-- ALICE 03-->
+            <project-card
+                img="/assets/images/alice-03-final.png"
+                imgOnClick="alice()"
+                title="alice-03"
+                description="Blender3D, photogrammetry"
+            ></project-card>
+            <!-- lovely -->
+            <project-card
+                img="/assets/images/lovely/dress4.5.jpg"
+                imgOnClick="lovely()"
+                title="lovely"
+                description="Blender3D"
+            ></project-card>
         </div>
-        <!-- COVID TAKEDOWN -->
-        <!-- AUGMENTED REALITY -->
+        <!-- Column 2 -->
+        <!-- Column 3 -->
         <div class="w3-third">
-            <div class="project_box">
-                <img src="/assets/videos/ar/ar_still.png" class="project_image" style="width:100%" onclick="field2()">
-                <div class="project_box_desc white_text">
-                    Frames
-
-                    <div class="project_box_sub_desc">
-                        AR (field2), WebGL
-                    </div>
-                </div>
-            </div>
+            <!-- DANCINGWITHDATA -->
+            <project-card
+                img="/assets/images/dancingwithdata/cover.png"
+                imgOnClick="dancingwithdata()"
+                title="Dancing with Data"
+                description="3rd Place MAAD EXPO23"
+            ></project-card>
+            <!-- RABBITHOLE -->
+            <project-card-video
+                video="https://alex-sheen.github.io/assets/videos/rabbithole_compressed.mp4"
+                videoOnClick="rabbithole()"
+                title="rabbithole"
+                description="Blender3D, pixel sorting"
+            ></project-card-video>
         </div>
-        <!-- AUGMENTED REALITY -->
+        <!-- Column 3 -->
     </div>
-    <!-- ROW HCI -->
-    <!-- ROW 3D -->
-    <div class="w3-row">
-        <!-- ALICE -->
-        <div class="w3-third">
-            <div class="project_box">
-                <img src="/assets/images/dream4_1.png" class="project_image" style="width:100%" onclick="alice()">
-                <div class="project_box_desc white_text">
-                    alice-01
-
-                    <div class="project_box_sub_desc">
-                        Blender3D, photogrammetry
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- ALICE -->
-        <!-- ALICE -->
-        <div class="w3-third">
-            <div class="project_box">
-                <img src="/assets/images/alice-03-final.png" class="project_image" style="width:100%" onclick="alice()">
-                <div class="project_box_desc white_text">
-                    alice-03
-
-                    <div class="project_box_sub_desc">
-                        Blender3D, photogrammetry
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- ALICE -->
-        <!-- lovely -->
-        <div class="w3-third">
-            <div class="project_box">
-                <img src="/assets/images/lovely/dress4.5.jpg" class="project_image" style="width:100%" onclick="lovely()">
-                <div class="project_box_desc white_text">
-                    lovely
-
-                    <div class="project_box_sub_desc">
-                        Blender3D
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- lovely -->
-    </div>
-    <!-- ROW 3D -->
-    <!-- ROW VIDEO -->
-    <div class="w3-row">
-        <!-- DANCINGWITHDATA -->
-        <div class="w3-third">
-            <div class="project_box">
-                <img src="/assets/images/dancingwithdata/cover.png" class="project_image" style="width:100%" onclick="dancingwithdata()">
-                <div class="project_box_desc white_text">
-                    Dancing with Data
-
-                    <div class="project_box_sub_desc">
-                        3rd Place MAAD EXPO23
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- DANCINGWITHDATA -->
-        <!-- RABBITHOLE -->
-        <div class="w3-third">
-            <div class="project_box">
-                <video class="project_image videoembedded" muted loop playsinline onclick="rabbithole()"
-                onmouseover="this.play();" onmouseout="this.pause();"
-                >
-                    <source src="https://alex-sheen.github.io/assets/videos/rabbithole_compressed.mp4" type="video/mp4" style="width:100%">
-                    Your browser does not support the video tag.
-                </video>
-                <div class="project_box_desc white_text">
-                    rabbithole
-
-                    <div class="project_box_sub_desc">
-                        Blender3D, pixel sorting
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- RABBITHOLE -->
-        <!-- DATAMOSH -->
-        <div class="w3-third">
-            <div class="project_box">
-                <video class="project_image videoembedded" muted loop playsinline onclick="datamosh()"
-                onmouseover="this.play();" onmouseout="this.pause();"
-                >
-                    <source src="https://alex-sheen.github.io/assets/videos/datamosh_cropped.mp4" type="video/mp4" style="width:100%">
-                    Your browser does not support the video tag.
-                </video>
-                <div class="project_box_desc white_text">
-                    datamosher
-
-                    <div class="project_box_sub_desc">
-                        After Effects
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- DATAMOSH -->
-    </div>
-    <!-- ROW VIDEO -->
-    <!-- ROW CODE -->
-    <div class="w3-row">
-        <!-- EVERYTHING I TOUCH -->
-        <div class="w3-third">
-            <div class="project_box">
-                <img src="/assets/images/digital_fabrication/main.jpeg" class="project_image" style="width:100%" onclick="everythingitouch()">
-                <div class="project_box_desc white_text">
-                    everything i touch
-
-                    <div class="project_box_sub_desc">
-                        Blender3D, PLA
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- EVERYTHING I TOUCH -->
-    </div>
-    <!-- ROW CODE -->
 </div>
 </body>
 </html>

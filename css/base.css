@@ -19,6 +19,7 @@ html {
 
 .header {
   text-align: left;
+  padding: 2vw 0vw 1vw 0vw;
 }
 
 @media screen and (min-width: 601px) {
@@ -62,7 +63,7 @@ html {
 }
 
 .base_padding {
-  padding: 2vh 8vw 0vw 8vw;
+  padding: 0vw 8vw 0vw 8vw;
 }
 
 .base_container_padding {

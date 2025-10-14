@@ -64,7 +64,7 @@ class Header extends HTMLElement {
     // }
     connectedCallback() {
           this.innerHTML = `
-            <div class="w3-row">
+            <div class="w3-row header">
                 <div class="name white_text">
                 <a href="/">Alex Sheen</a><span></span>
                 </div>
