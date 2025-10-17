@@ -38,6 +38,10 @@ function formCode() {
     window.location.href = "/video/formCode.html";
 }
 
+function genesis() {
+    window.location.href = "/video/genesis.html";
+}
+
 function greece() {
     window.location.href = "/video/greece.html";
 }

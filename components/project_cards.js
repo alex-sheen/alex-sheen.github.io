@@ -9,11 +9,12 @@ class ProjectCard extends HTMLElement {
         const imgOnClick = this.getAttribute("imgOnClick") || "";
         const title = this.getAttribute("title") || "";
         const description = this.getAttribute("description") || "";
+        const imgObjectPosition = this.getAttribute("imgObjectPosition") || "50% 50%";
         
         this.innerHTML = `
         <div class="w3-row">
             <div class="project_box">
-                <img src="${img}" class="project_image" style="width:100%" onclick="${imgOnClick}">
+                <img src="${img}" class="project_image" style="width:100%; object-position: ${imgObjectPosition};" onclick="${imgOnClick}">
                 <div class="project_box_desc white_text">
                     ${title}
 
