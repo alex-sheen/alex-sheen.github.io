@@ -1,0 +1,8 @@
+{
+  "title": "Chiventure",
+  "description": "Open-source text adventure game engine",
+  "tech": "C",
+  "href": "/code/chiventure",
+  "img": "../../assets/images/chiventure-terminal.jpg",
+  "order": 8
+}

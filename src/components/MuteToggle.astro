@@ -1,0 +1,17 @@
+---
+---
+<button id="mute-btn" aria-label="Toggle sound" style="background:none;border:none;cursor:pointer;padding:0;">
+  <img id="mute-icon" src="/assets/images/muted.png" alt="muted" style="width:4vw;height:4vw;" />
+</button>
+
+<script>
+  const btn = document.getElementById('mute-btn') as HTMLButtonElement;
+  const icon = document.getElementById('mute-icon') as HTMLImageElement;
+  const vid = document.getElementById('vid') as HTMLVideoElement;
+  btn.addEventListener('click', () => {
+    vid.muted = !vid.muted;
+    icon.src = vid.muted
+      ? '/assets/images/muted.png'
+      : '/assets/images/unmuted.png';
+  });
+</script>

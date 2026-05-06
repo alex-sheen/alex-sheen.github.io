@@ -1,0 +1,108 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { Image } from 'astro:assets';
+import wristLeftImg from '../../assets/images/diver/wrist_left.png';
+import numberpadImg from '../../assets/images/diver/numberpad.png';
+import crewmatesImg from '../../assets/images/diver/crewmates.png';
+import wristRightImg from '../../assets/images/diver/wrist_right.png';
+import trackImg from '../../assets/images/diver/track.png';
+import wristInputImg from '../../assets/images/diver/wrist_input.png';
+import phoneInputImg from '../../assets/images/diver/phone_input.png';
+import hangupInputImg from '../../assets/images/diver/hangup_input.png';
+---
+<PageLayout title="3D Diver Interface — Alex Sheen">
+  <div class="base_padding">
+    <div class="w3-row">
+      <div class="w3-third base_container_padding">
+        <div class="proj" style="width:100%">
+          <div class="projtitle white_text" style="width:100%">
+            3D Diver Interface
+            <div class="projtext" style="width:100%">
+              <br />
+              <div class="vl">
+                <i>Unity, Meta Oculus</i><br />
+                2022<br />
+              </div>
+              <br />
+              For CMSC 20300, Intro to Human-Computer Interaction, we were tasked with creating an <span class="beige_text">intuitive and functional HUD interface for scuba divers</span>.
+              <br /><br />
+              Our <span class="beige_text">design philosophy</span> focused on providing <span class="beige_text">fast access to frequently used functionality</span> and <span class="beige_text">inputs tailored for VR interactions</span>.
+              <br /><br />
+              To test our interface without a real scuba suit, we simulated
+              the diver's underwater experience in virtual reality using an Oculus headset and a diving simulation running in Unity.
+              <br /><br />
+              <a href="https://www.youtube.com/watch?v=XjCmiEwIndo"><span class="beige_text">Click me for a short video walk-through!</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="w3-third base_container_padding">
+        <div class="proj" style="width:100%">
+          <Image src={wristLeftImg} style="width:100%" alt="Wrist left" />
+        </div>
+        <div class="white_text base_container_padding" style="width:100%">
+          The left wrist provides quick access to high priority buttons for the Crewmates Manager and the Radio. <br /><br />An SOS button is always accessible above for emergencies.
+        </div>
+      </div>
+
+      <div class="w3-third base_container_padding">
+        <div class="proj" style="width:100%">
+          <Image src={numberpadImg} style="width:100%" alt="Number pad" />
+        </div>
+        <div class="white_text base_container_padding" style="width:100%">
+          The Radio allows users to call crewmates.<br /><br />
+          Our <span class="beige_text">horizontal numberpad design</span> encourages a swipe-through motion which <span class="beige_text">suits the VR environment better</span> than a typical 2D button-tap interface.
+        </div>
+      </div>
+    </div>
+
+    <div class="w3-row">
+      <div class="w3-third base_container_padding">
+        <div class="proj" style="width:100%">
+          <Image src={crewmatesImg} style="width:100%" alt="Crewmates" />
+        </div>
+        <div class="white_text base_container_padding" style="width:100%">
+          The Crewmates Manager provides crewmate call and crewmate tracking buttons.<br /><br />
+          Our <span class="beige_text">vertical interface design</span> allows users to swipe horizontally through their desired button.
+        </div>
+      </div>
+
+      <div class="w3-third base_container_padding">
+        <div class="proj" style="width:100%">
+          <Image src={wristRightImg} style="width:100%" alt="Wrist right" />
+        </div>
+        <div class="white_text base_container_padding" style="width:100%">
+          The right wrist provides real-time updates on Altitude and Time Spent Underwater.
+        </div>
+      </div>
+
+      <div class="w3-third base_container_padding">
+        <div class="proj" style="width:100%">
+          <Image src={trackImg} style="width:100%" alt="Track" />
+        </div>
+        <div class="white_text base_container_padding" style="width:100%">
+          A left hand pinch gesture triggers a green tracking arrow that points to the designated crewmate.
+        </div>
+      </div>
+    </div>
+
+    <div class="w3-row">
+      <div class="w3-third base_container_padding">
+        <div class="proj" style="width:100%">
+          <Image src={wristInputImg} style="width:100%" alt="Wrist input" />
+        </div>
+      </div>
+      <div class="w3-third base_container_padding">
+        <div class="proj" style="width:100%">
+          <Image src={phoneInputImg} style="width:100%" alt="Phone input" />
+        </div>
+      </div>
+      <div class="w3-third base_container_padding">
+        <div class="proj" style="width:100%">
+          <Image src={hangupInputImg} style="width:100%" alt="Hangup input" />
+        </div>
+      </div>
+    </div>
+  </div>
+</PageLayout>

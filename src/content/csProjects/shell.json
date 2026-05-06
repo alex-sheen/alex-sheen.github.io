@@ -1,0 +1,8 @@
+{
+  "title": "Unix Shell",
+  "description": "POSIX-compatible shell",
+  "tech": "C",
+  "href": "https://github.com/alex-sheen",
+  "img": "../../assets/images/shell.png",
+  "order": 5
+}

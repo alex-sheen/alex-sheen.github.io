@@ -1,0 +1,60 @@
+---
+interface Props {
+  src: string;
+  poster?: string;
+  cameraOrbit?: string;
+  minCameraOrbit?: string;
+  maxCameraOrbit?: string;
+  cameraTarget?: string;
+  fieldOfView?: string;
+  exposure?: number;
+  enableAr?: boolean;
+  autoRotate?: boolean;
+  autoRotateDelay?: number;
+  rotationPerSecond?: string;
+  interactionPrompt?: string;
+}
+
+const {
+  src,
+  poster,
+  cameraOrbit = '0deg 75deg auto',
+  minCameraOrbit = 'auto auto auto',
+  maxCameraOrbit = 'auto auto auto',
+  cameraTarget,
+  fieldOfView = '30deg',
+  exposure = 1,
+  enableAr = false,
+  autoRotate = false,
+  autoRotateDelay = 2000,
+  rotationPerSecond,
+  interactionPrompt,
+} = Astro.props;
+---
+<model-viewer
+  src={src}
+  poster={poster}
+  camera-controls
+  disable-zoom
+  shadow-intensity="1"
+  camera-orbit={cameraOrbit}
+  min-camera-orbit={minCameraOrbit}
+  max-camera-orbit={maxCameraOrbit}
+  camera-target={cameraTarget}
+  field-of-view={fieldOfView}
+  exposure={exposure}
+  ar={enableAr || undefined}
+  ar-modes={enableAr ? 'webxr scene-viewer quick-look' : undefined}
+  auto-rotate={autoRotate || undefined}
+  auto-rotate-delay={autoRotate ? autoRotateDelay : undefined}
+  rotation-per-second={rotationPerSecond}
+  interaction-prompt={interactionPrompt}
+>
+  <div class="progress-bar hide" slot="progress-bar">
+    <div class="update-bar"></div>
+  </div>
+</model-viewer>
+
+<script>
+  import '@google/model-viewer';
+</script>

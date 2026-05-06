@@ -1,0 +1,8 @@
+{
+  "title": "Backgammon",
+  "description": "Full backgammon engine with AI",
+  "tech": "Racket",
+  "href": "https://github.com/alex-sheen",
+  "img": "../../assets/images/backgammon-start.png",
+  "order": 7
+}

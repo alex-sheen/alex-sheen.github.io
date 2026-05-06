@@ -1,0 +1,77 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { Image } from 'astro:assets';
+import mainImg from '../../assets/images/digital_fabrication/main.jpeg';
+import backImg from '../../assets/images/digital_fabrication/back.jpeg';
+import mediumImg from '../../assets/images/digital_fabrication/medium.jpeg';
+import closeupImg from '../../assets/images/digital_fabrication/closeup.jpeg';
+import printingImg from '../../assets/images/digital_fabrication/construction_printing.jpeg';
+import halfImg from '../../assets/images/digital_fabrication/construction_half.jpeg';
+import partsImg from '../../assets/images/digital_fabrication/construction_parts.jpeg';
+import blenderWideImg from '../../assets/images/digital_fabrication/blender_hand_wide.png';
+import blenderHandImg from '../../assets/images/digital_fabrication/blender_hand.png';
+import wireframeImg from '../../assets/images/digital_fabrication/blender_hand_wireframe.png';
+---
+<PageLayout title="everything i touch — Alex Sheen">
+  <div class="base_padding">
+    <div class="w3-row">
+      <div class="w3-half">
+        <div class="proj base_container_padding" style="width:100%">
+          <div class="projtitle white_text" style="width:100%">
+            everything i touch
+            <div class="projtext" style="width:100%">
+              <br />
+              <div class="vl">
+                Blender, Polycam<br />
+                PLA, chopsticks, rice box, metal scraps<br />
+                2023<br />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w3-half">
+        <div class="proj" style="width:100%">
+          <Image src={mainImg} style="width:100%" alt="everything i touch" />
+        </div>
+      </div>
+    </div>
+
+    <div class="w3-row">
+      <div class="w3-third">
+        <Image src={backImg} style="width:100%" alt="Back" />
+      </div>
+      <div class="w3-third">
+        <Image src={mediumImg} style="width:100%" alt="Medium" />
+      </div>
+      <div class="w3-third">
+        <Image src={closeupImg} style="width:100%" alt="Closeup" />
+      </div>
+    </div>
+
+    <div class="w3-row">
+      <div class="w3-third">
+        <Image src={printingImg} style="width:100%" alt="Printing" />
+      </div>
+      <div class="w3-third">
+        <Image src={halfImg} style="width:100%" alt="Half" />
+      </div>
+      <div class="w3-third">
+        <Image src={partsImg} style="width:100%" alt="Parts" />
+      </div>
+    </div>
+
+    <div class="w3-row">
+      <div class="w3-half">
+        <Image src={blenderWideImg} style="width:100%" alt="Blender wide" />
+      </div>
+      <div class="w3-half">
+        <Image src={blenderHandImg} style="width:100%" alt="Blender hand" />
+      </div>
+    </div>
+
+    <div class="w3-row">
+      <Image src={wireframeImg} style="width:100%" alt="Wireframe" />
+    </div>
+  </div>
+</PageLayout>

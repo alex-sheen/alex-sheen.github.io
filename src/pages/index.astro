@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeaderWhite from '../components/HeaderWhite.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import ProjectCardVideo from '../components/ProjectCardVideo.astro';
+import ModelViewer from '../components/ModelViewer.astro';
+import { getCollection } from 'astro:content';
+
+const allFeatured = (await getCollection('featuredProjects'))
+  .sort((a, b) => a.data.order - b.data.order);
+
+const col1 = allFeatured.slice(0, 3);
+const col2 = allFeatured.slice(3, 6);
+const col3 = allFeatured.slice(6, 8);
+---
+<BaseLayout title="Alex Sheen">
+  <div class="base_padding black_back">
+    <div class="w3-row">
+      <div class="w3-half white_text">
+        <HeaderWhite />
+        <div style="padding-top: 2em; font-size: 1.2em">
+          <span class="beige_text">Software Engineer</span> at <a style="color: rgb(149,45,55)" href="https://www.arrowstreetcapital.com/"><span>Arrowstreet Capital</span></a>.
+          <br /><br />
+        </div>
+        <div style="padding-top: 2em; font-size: 1.2em">
+          <a href="https://www.tiktok.com/@studio.ikrus?_t=ZT-90Y4A1udK9H&_r=1">TikTok | studio.ikrus</a><br />
+          <a href="https://www.linkedin.com/in/alex-sheen-b9a1a218a/">LinkedIn   | alex-sheen</a>
+        </div>
+        <div style="padding-top: 2em; font-size: 1.2em">
+          <a class="beige_text" href="#selected-work">View Selected Work</a>
+        </div>
+      </div>
+      <div class="w3-half">
+        <div class="model-viewer-container">
+          <ModelViewer
+            src="/assets/models/alice-01.glb"
+            poster="/assets/models/poster.webp"
+            enableAr={true}
+            cameraTarget="0.0m 0.0m 0.0m"
+            exposure={0.85}
+            minCameraOrbit="-65deg 75deg auto"
+            maxCameraOrbit="0deg 90deg auto"
+            cameraOrbit="-20.73deg 73.6deg 10.57m"
+            fieldOfView="28deg"
+          />
+          <div class="center white_text">
+            left-click - rotate | right-click - pan
+            <br /><br />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="selected-work" class="w3-row">
+      <div class="w3-third">
+        {col1.map((p) =>
+          p.data.video ? (
+            <ProjectCardVideo video={p.data.video} href={p.data.href} title={p.data.title} description={p.data.description} />
+          ) : (
+            <ProjectCard img={p.data.img!} href={p.data.href} title={p.data.title} description={p.data.description} imgObjectPosition={p.data.imgObjectPosition} />
+          )
+        )}
+      </div>
+      <div class="w3-third">
+        {col2.map((p) =>
+          p.data.video ? (
+            <ProjectCardVideo video={p.data.video} href={p.data.href} title={p.data.title} description={p.data.description} />
+          ) : (
+            <ProjectCard img={p.data.img!} href={p.data.href} title={p.data.title} description={p.data.description} imgObjectPosition={p.data.imgObjectPosition} />
+          )
+        )}
+      </div>
+      <div class="w3-third">
+        {col3.map((p) =>
+          p.data.video ? (
+            <ProjectCardVideo video={p.data.video} href={p.data.href} title={p.data.title} description={p.data.description} />
+          ) : (
+            <ProjectCard img={p.data.img!} href={p.data.href} title={p.data.title} description={p.data.description} imgObjectPosition={p.data.imgObjectPosition} />
+          )
+        )}
+      </div>
+    </div>
+  </div>
+</BaseLayout>

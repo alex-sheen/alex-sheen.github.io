@@ -1,0 +1,94 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import ModelViewer from '../../components/ModelViewer.astro';
+import { Image } from 'astro:assets';
+import geoNodes1 from '../../assets/images/lovely/lovely_geometry_nodes_1.png';
+import geoNodes2 from '../../assets/images/lovely/lovely_geometry_nodes_2.png';
+import lovely1 from '../../assets/images/lovely/lovely_1.png';
+import lovely2 from '../../assets/images/lovely/lovely_2.png';
+import lovely3 from '../../assets/images/lovely/lovely_3.png';
+import look11 from '../../assets/images/lovely/look1.1.png';
+import look12 from '../../assets/images/lovely/look1.2.png';
+import dress44 from '../../assets/images/lovely/dress4.4.jpg';
+import dress45 from '../../assets/images/lovely/dress4.5.jpg';
+---
+<PageLayout title="lovely — Alex Sheen">
+  <div class="base_padding">
+    <div class="w3-row">
+      <div class="w3-half">
+        <div class="proj base_container_padding" style="width:100%">
+          <div class="projtitle white_text" style="width:100%">
+            lovely
+            <div class="projtext" style="width:100%">
+              <br />
+              <div class="vl">
+                Blender, Daz Studios<br />
+                2022<br />
+              </div>
+              <br />
+              "lovely" was inspired by the work of my friends in MODA, the University of Chicago's fashion student organization. Each year, MODA hosts a runway showcase featuring original garments designed and modeled by students.
+              <br /><br />
+              This project explores procedurally generated texture. It was created in Blender using Geometry Nodes and the Shrinkwrap modifier, with the base female mesh exported from Daz Studio.<br /><br />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w3-half">
+        <div class="model-viewer-container">
+          <ModelViewer
+            src="/assets/models/lovely.glb"
+            poster="/assets/models/poster_lovely.webp"
+            enableAr={true}
+            cameraTarget="0.0m -2.2m -1.0m"
+            exposure={0.85}
+            cameraOrbit="-152deg 82.44deg 80%"
+            maxCameraOrbit="auto 87deg auto"
+            minCameraOrbit="auto 78deg auto"
+            autoRotate={true}
+            autoRotateDelay={2000}
+            rotationPerSecond="0.2rad"
+            interactionPrompt="none"
+          />
+          <div class="center white_text">
+            left-click - rotate | right-click - pan
+            <br /><br />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="w3-row">
+      <Image src={geoNodes1} style="width:100%" alt="Geometry nodes 1" />
+    </div>
+    <div class="w3-row">
+      <Image src={geoNodes2} style="width:100%" alt="Geometry nodes 2" />
+    </div>
+    <div class="w3-row">
+      <div class="w3-third">
+        <Image src={lovely1} style="width:100%" alt="Lovely 1" />
+      </div>
+      <div class="w3-third">
+        <Image src={lovely2} style="width:100%" alt="Lovely 2" />
+      </div>
+      <div class="w3-third">
+        <Image src={lovely3} style="width:100%" alt="Lovely 3" />
+      </div>
+    </div>
+    <div class="w3-row">
+      <div class="w3-half">
+        <Image src={look11} style="width:100%" alt="Look 1.1" />
+      </div>
+      <div class="w3-half">
+        <Image src={look12} style="width:100%" alt="Look 1.2" />
+      </div>
+    </div>
+    <div class="w3-row">
+      <div class="w3-half">
+        <Image src={dress44} style="width:100%" alt="Dress 4.4" />
+      </div>
+      <div class="w3-half">
+        <Image src={dress45} style="width:100%" alt="Dress 4.5" />
+      </div>
+    </div>
+  </div>
+</PageLayout>

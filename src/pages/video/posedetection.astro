@@ -1,0 +1,53 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+---
+<PageLayout title="Pose Detection — Alex Sheen">
+  <div class="base_padding">
+    <div class="w3-row">
+      <div class="projtitle white_text base_padding" style="width:100%">
+        Pose-Detection
+        <div class="projtext" style="width:100%">
+          <br />
+          <div class="vl">
+            TensorFlow<br />
+            2022<br />
+          </div>
+        </div>
+      </div>
+      <div class="proj" style="width:100%">
+        <video style="width:100%" muted autoplay loop playsinline>
+          <source src="/assets/videos/pose-detection/posenet.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+
+    <div class="w3-row">
+      <div class="w3-half base_padding">
+        <div class="proj" style="width:100%">
+          <div class="projtitle white_text" style="width:100%">
+            <div class="projtext" style="width:100%">
+              This project used pre-trained pose-detection TensorFlow.js models to create an interactive art installation which was
+              showcased in the lobby of UChicago's Media Arts, Data, and Design Center (MADD).<br /><br />
+
+              I set up a camera to catch the movements of passersby
+              and projected the generated visual on to the wall using the MADD center's projector. Various parameters are tied to the position, distance, angle,
+              and speed of the user's hands, feet, and arms. The installation accommodated multiple users.
+
+              <br /><br />
+              Unfortunately, I can't find videos/images of the installation at the moment, but you can see a test-run of the pose-detection to the right.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w3-half base_padding">
+        <div class="proj" style="width:100%">
+          <video style="width:100%" muted autoplay loop playsinline>
+            <source src="/assets/videos/pose-detection/blazepose.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</PageLayout>

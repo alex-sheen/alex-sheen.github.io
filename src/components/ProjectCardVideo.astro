@@ -1,0 +1,24 @@
+---
+interface Props {
+  video: string;
+  href: string;
+  title: string;
+  description: string;
+}
+
+const { video, href, title, description } = Astro.props;
+---
+<div class="project_box">
+  <a href={href}>
+    <video class="project_image" data-hover-video src={video} muted loop playsinline></video>
+  </a>
+  <div class="projtitle white_text">{title}</div>
+  <div class="projtext white_text"><em>{description}</em></div>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLVideoElement>('[data-hover-video]').forEach((v) => {
+    v.addEventListener('mouseenter', () => v.play());
+    v.addEventListener('mouseleave', () => { v.pause(); v.currentTime = 0; });
+  });
+</script>

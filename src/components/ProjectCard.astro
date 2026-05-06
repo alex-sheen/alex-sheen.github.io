@@ -1,0 +1,27 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  img: ImageMetadata;
+  href: string;
+  title: string;
+  description: string;
+  imgObjectPosition?: string;
+}
+
+const { img, href, title, description, imgObjectPosition = '50% 50%' } = Astro.props;
+---
+<div class="project_box">
+  <a href={href}>
+    <Image
+      src={img}
+      alt={title}
+      class="project_image"
+      style={`object-position: ${imgObjectPosition}`}
+      transition:name={`project-image-${title}`}
+    />
+  </a>
+  <div class="projtitle white_text">{title}</div>
+  <div class="projtext white_text"><em>{description}</em></div>
+</div>

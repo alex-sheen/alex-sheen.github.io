@@ -1,0 +1,8 @@
+{
+  "title": "Cache Sim",
+  "description": "Direct-mapped and set-associative cache simulator",
+  "tech": "C",
+  "href": "https://github.com/alex-sheen",
+  "img": "../../assets/images/cache.png",
+  "order": 6
+}

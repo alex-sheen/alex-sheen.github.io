@@ -1,0 +1,61 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { Image } from 'astro:assets';
+import dream4_1 from '../../assets/images/dream4_1.png';
+import alice03final from '../../assets/images/alice-03-final.png';
+---
+<PageLayout title="alice — Alex Sheen">
+  <div class="base_padding">
+    <div class="w3-row base_container_padding">
+      <div class="w3-half base_container_padding">
+        <div class="proj" style="width:100%">
+          <div class="projtitle white_text" style="width:100%">
+            alice-01
+            <div class="projtext" style="width:100%">
+              <br />
+              <div class="vl">
+                Blender, AliceVision Meshroom<br />
+                2021<br />
+              </div>
+              <br />
+              I often find myself going down YouTube rabbit holes—especially about digital art—and that's how I first discovered <span class="beige_text">photogrammetry</span>. alice-01 was the result. I began by 3D scanning my head and shoulders, then I duplicated the resulting mesh and applied a combination of modifiers to generate the web-like projections.
+              <br /><br />
+              As for the name, I had just watched Alice in Wonderland and was experimenting with AliceVision Meshroom for the first time—thus the "alice-{'{n}'}" series was born.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w3-half base_container_padding">
+        <div class="proj" style="width:100%">
+          <Image src={dream4_1} style="width:100%" alt="alice-01" />
+        </div>
+      </div>
+    </div>
+
+    <div class="w3-row base_container_padding">
+      <div class="w3-half base_container_padding">
+        <div class="proj" style="width:100%">
+          <div class="projtitle white_text" style="width:100%">
+            alice-02
+            <div class="projtext" style="width:100%">
+              <br />
+              <div class="vl">
+                Blender, AliceVision Meshroom<br />
+                2021<br />
+              </div>
+              <br />
+              alice-02 was inspired by <span class="beige_text">Midge Sinnaeve</span>, a digital artist whose YouTube series explores the techniques behind his procedural and generative works.
+              <br /><br />
+              For this piece, I photoscanned vines growing on the Kent Chemical Laboratory building at the University of Chicago. I then took a 3D base model of a human bust and unwrapped its mesh to a 2D plane so that I could use a Surface Deform modifier to project the scanned vine geometry onto the unwrapped mesh, allowing the organic texture to conform to the contours of the original form.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w3-half base_container_padding">
+        <div class="proj" style="width:100%">
+          <Image src={alice03final} style="width:100%" alt="alice-02" />
+        </div>
+      </div>
+    </div>
+  </div>
+</PageLayout>

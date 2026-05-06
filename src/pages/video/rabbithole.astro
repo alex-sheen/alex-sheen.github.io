@@ -1,0 +1,17 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import MuteToggle from '../../components/MuteToggle.astro';
+---
+<PageLayout title="rabbithole — Alex Sheen">
+  <div class="w3-content">
+    <div class="w3-col" style="width:150px">
+      <MuteToggle />
+    </div>
+    <div class="w3-rest">
+      <video id="vid" style="width:100%" autoplay muted loop playsinline>
+        <source src="https://alex-sheen.github.io/assets/videos/rabbithole_compressed.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</PageLayout>

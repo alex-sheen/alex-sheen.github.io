@@ -1,0 +1,59 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { Image } from 'astro:assets';
+import framesRawImg from '../../assets/images/frames_raw.png';
+---
+<PageLayout title="Frames — Alex Sheen">
+  <div class="base_padding">
+    <div class="w3-row base_container_padding">
+      <div class="w3-twothird base_container_padding">
+        <div class="proj" style="width:100%">
+          <div class="projtitle white_text" style="width:100%">
+            Frames
+            <div class="projtext" style="width:100%">
+              <br />
+              <div class="vl">
+                OpenEndedGroup Field2 / AR<br />
+                2021<br />
+              </div>
+              <br />
+              For this project, <span class="beige_text">partnered with an MFA graduate student to translate their physical sculptures into an interactive Augmented Reality experience</span>.
+              Their work frequently features hinged frames of differing dimensions and explores how their movement can reveal
+              new interactions between the sculpture and the space it occupies. Our AR piece extends this notion with the common idea in
+              AR of <span class="beige_text">"a world inside a world"</span>.
+              <br /><br />
+              I used OpenEndedGroup's Field to place virtual objects in the viewer's live camera feed of the real-world environment, allowing the viewer to
+              physically walk around and through the virtual sculpture. <span class="beige_text">Our piece utilizes the <a href="https://learnopengl.com/Advanced-OpenGL/Stencil-testing">OpenGL Stencil Buffer</a> to
+              only draw the light gray sculptures when they are viewed <i>through</i> a black frame</span>. Each frame is paired with a
+              single gray object, but overlapping frames will reveal all of their respective objects. By utilizing the Stencil
+              Buffer in this way, we create a metaphysical world within the frames in this AR space.
+              <br /><br />
+              A non-AR test is shown below. You can see how the red and green cubes only appear when viewed through certain frames.
+              <br /><br />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w3-third base_container_padding">
+        <div class="proj" style="width:100%">
+          <video style="width:100%" muted autoplay loop playsinline>
+            <source src="/assets/videos/ar_final_compressed3.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </div>
+
+    <div class="w3-row">
+      <div class="w3-half base_container_padding">
+        <Image src={framesRawImg} style="width:100%" alt="Frames raw" />
+      </div>
+      <div class="w3-half base_container_padding">
+        <video style="width:100%" muted autoplay loop playsinline>
+          <source src="/assets/videos/ar/frames_test_compressed.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </div>
+</PageLayout>

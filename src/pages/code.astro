@@ -1,0 +1,64 @@
+---
+import { Image } from 'astro:assets';
+import CodeLayout from '../layouts/CodeLayout.astro';
+import { getCollection } from 'astro:content';
+
+const allCs = (await getCollection('csProjects'))
+  .sort((a, b) => a.data.order - b.data.order);
+
+const left = allCs.slice(0, 4);
+const right = allCs.slice(4, 8);
+---
+<CodeLayout title="Alex Sheen — CS">
+  <div class="base_padding">
+    <div class="w3-half">
+      <div class="w3-row">
+        <div class="links center white_text">
+          Projects | Experiences
+        </div>
+        <div class="cards_padding w3-content" id="photos">
+          <div class="w3-half">
+            {left.map((p) => (
+              <div class="margin" style="margin-bottom: 8px;">
+                <div class="proj" style="width:100%; position:relative; overflow:hidden;">
+                  <Image src={p.data.img} alt={p.data.title} style="width:100%; display:block;" />
+                  <a href={p.data.href} style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.55);opacity:0;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0'">
+                    <div class="desc white_text" style="padding:12px;text-align:center;">
+                      {p.data.title}
+                      <div class="proj_lang" style="font-size:0.7em;margin-top:6px;">{p.data.tech}</div>
+                      <div class="proj_lang" style="font-size:0.6em;margin-top:4px;">{p.data.description}</div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div class="w3-half">
+            {right.map((p) => (
+              <div class="margin" style="margin-bottom: 8px;">
+                <div class="proj" style="width:100%; position:relative; overflow:hidden;">
+                  <Image src={p.data.img} alt={p.data.title} style="width:100%; display:block;" />
+                  <a href={p.data.href} style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.55);opacity:0;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0'">
+                    <div class="desc white_text" style="padding:12px;text-align:center;">
+                      {p.data.title}
+                      <div class="proj_lang" style="font-size:0.7em;margin-top:6px;">{p.data.tech}</div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="w3-half">
+      <div class="w3-row">
+        <div class="links center white_text">
+          Resume
+        </div>
+        <iframe src="/assets/images/sheen_resume_cs_11_26_22.pdf#toolbar=0" width="100%" height="800px"></iframe>
+      </div>
+    </div>
+  </div>
+</CodeLayout>

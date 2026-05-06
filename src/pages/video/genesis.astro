@@ -1,0 +1,78 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { Image } from 'astro:assets';
+import mainImg from '../../assets/images/hand/2_main.jpeg';
+import headImg from '../../assets/images/hand/2_head.jpeg';
+import closeImg from '../../assets/images/hand/2_close.jpeg';
+import farImg from '../../assets/images/hand/far.jpg';
+import shelfImg from '../../assets/images/hand/shelf.jpg';
+import handLeftImg from '../../assets/images/hand/hand_left.jpg';
+---
+<PageLayout title="Genesis — Alex Sheen">
+  <div class="base_padding">
+    <div class="w3-row base_container_padding">
+      <div class="w3-half base_container_padding">
+        <div class="proj" style="width:100%">
+          <div class="projtitle white_text" style="width:100%">
+            Genesis
+            <div class="projtext" style="width:100%">
+              <br />
+              <div class="vl">
+                Blender3D, Bambu Lab 3D Printer<br />
+                PLA Plastic, PVA Glue, Tile Grout, Spider Plant<br />
+                2025<br />
+              </div>
+              <br />
+              <div class="vl">
+                This functional sculpture blends the precision of digital fabrication with the organic irregularities of nature. The 3D printed form of my hand is designed to evolve over time, shaped by the growth of the spider plant it holds.
+                <br /><br />
+                The sculpture began with a 3D scan of my hand and forearm.
+                The scan was processed and refined in Blender to form an outstretched hand
+                designed to hold a plant. The model was printed on a Bambu Lab PS1 3D printer
+                and reinforced with a cement core to counterbalance the cantilevered form.
+                The exterior surface was finished with a mixture of PVA glue and tile grout,
+                producing a matte, stone-like texture.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w3-half base_container_padding">
+        <div class="proj" style="width:100%; height: 80vh;">
+          <Image src={mainImg} style="width:100%; object-fit: cover; height: 78vh;" alt="Genesis main" />
+        </div>
+      </div>
+    </div>
+
+    <div class="w3-row base_container_padding">
+      <div class="w3-half">
+        <div class="proj" style="width:100%; display: flex; justify-content: center;">
+          <Image src={headImg} style="width:70%; object-position: center" alt="Genesis head" />
+        </div>
+      </div>
+      <div class="w3-half">
+        <div class="proj" style="width:100%; display: flex; justify-content: center;">
+          <Image src={closeImg} style="width:70%; object-position: center" alt="Genesis close" />
+        </div>
+      </div>
+    </div>
+
+    <div class="w3-row base_container_padding">
+      <div class="w3-third">
+        <div class="proj" style="width:100%">
+          <Image src={farImg} style="width:100%" alt="Far" />
+        </div>
+      </div>
+      <div class="w3-third">
+        <div class="proj" style="width:100%">
+          <Image src={shelfImg} style="width:100%" alt="Shelf" />
+        </div>
+      </div>
+      <div class="w3-third">
+        <div class="proj" style="width:100%">
+          <Image src={handLeftImg} style="width:100%" alt="Hand left" />
+        </div>
+      </div>
+    </div>
+  </div>
+</PageLayout>

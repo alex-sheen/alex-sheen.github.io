@@ -1,0 +1,134 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { Image } from 'astro:assets';
+import civFrame1Img from '../../assets/images/civ/civ_frame1.png';
+import civCcImg from '../../assets/images/civ/civ_cc.png';
+import civCcCloudImg from '../../assets/images/civ/civ_cc_cloud.png';
+import civBlenderImg from '../../assets/images/civ/civ_blender.png';
+---
+<PageLayout title="Greece: Shadows of the Past — Alex Sheen">
+  <div class="w3-padding-64 w3-content" id="photos">
+    <div class="w3-padding-16 white_text" style="margin:0 -16px">
+
+      <div class="w3-row">
+        <div class="w3-rest">
+          <div class="proj" style="width:100%">
+            <div class="projtitle" style="width:100%">
+              Greece: Shadows of the Past
+              <div class="projtext" style="width:100%">
+                <br />
+                <div class="vl">
+                  Blender, AliceVision Meshroom<br />
+                  2023<br />
+                </div>
+                <br />
+                Is it possible to escape the shadow of the past in Greece today?
+                <br /><br />
+                The reality is that the Greek state has already erased certain aspects of its own past
+                to create a homogenous and unifying memory that dominates public perception of Greece, both locally and abroad.
+                To escape the undesirable shadows of its past, Greece has attempted to establish a national identity around a continuous
+                history from Classical, Byzantine, to Modern Greece, selecting certain memories of the past while ignoring all others.
+                Whether it is through the removal of non-Classical structures on the Athenian Acropolis or the forced
+                renaming of towns from Slavic to Greek names, these attempts have largely demonstrated success in shaping perceptions by the
+                average individual. This work walks through a photogrammetric reconstruction of the Ancient Athenian Agora and the adjacent
+                Adrianou street, a site where historical and modern strata meet in tension. By shifting and dissolving these strata, the work
+                visualizes the steps the modern Greek State has already taken to curate its historical narratives and exposes the voices and
+                cultural vibrancies that will be overwritten by a continuation of such efforts.
+                <br /><br />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a href="https://www.youtube.com/watch?v=greece_video">
+        <Image src={civFrame1Img} style="width:100%;" alt="Greece video thumbnail" />
+      </a>
+
+      <div class="w3-row">
+        <div class="w3-rest">
+          <div class="proj" style="width:100%">
+            <br />
+            Sanitization of Greek History
+            <div class="projtext" style="width:100%">
+              <br />
+              In its efforts to root its nation's foundations in the Classical period, the Greek state has metaphorically and physically destroyed
+              aspects from its past to create a sanitized version that permeates popular culture both locally and internationally. The modern
+              presentation of the Athenian Acropolis, for example, has stripped the site of any non-Classical or non-structural elements. Lacking the
+              metal adornments, free-standing statues, polychromatic colors, and post-Classical buildings that should be visible, the current Acropolis
+              is a barren, white-washed, curated image that has become the embodiment of Greece as a whole, one that attracts millions of
+              tourists each year.
+              <br /><br />
+              In recent years, there has been increased pushback against the destructive tendencies that arise from such historical sanitization.
+              In 2019, the Greek courts blocked the demolition of two Art Deco era buildings on Dionysiou Areopagitou Street in Athens.
+              <br /><br />
+              New city plans have been designed with western grid systems with Neoclassical architecture that expunge any Ottoman influence.
+              Most impactful, perhaps, has been Konstantine Paparrigopoulos' <i>History of the Hellenic Nation from the Ancient Times Until the Modern</i>,
+              which traces an unbroken history from Classical, Byzantine, and Modern Greece.
+              <br /><br />
+              Alcock, Susan. <i>Archaeologies of the Greek Past: Landscape, Monuments, and Memories</i>. Cambridge: Cambridge University Press, 2002.
+              <br /><br />
+              Camp, John. "The Athenian Agora: A Short Guide." Accessed May 27, 2022.<br />
+              http://www.agathe.gr/icons/pdfs/agorapicbk-16.pdf
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="w3-row">
+        <div class="w3-half">
+          <div class="proj" style="width:100%">
+            <br />
+            Documentation | Process
+            <div class="projtext" style="width:100%">
+              281 images of the Ancient Athenian Agora were processed with photogrammetric software AliceVision Meshroom to
+              produce a 3D mesh reconstruction. The 3D mesh was then modified manually in Blender3D to replace missing pieces
+              and to imagine how the Agora might extend below the modern street.
+              <br /><br />
+              The 3D mesh reconstruction was then processed with CloudCompare to produce a uniform-density point cloud.
+              <br /><br />
+              The resulting point cloud was then animated and rendered in Blender3D.
+            </div>
+          </div>
+        </div>
+        <div class="w3-half">
+          <div class="proj_rel" style="width:100%">
+            <br />
+            <div class="projtext" style="width:100%">
+              <Image src={civCcImg} style="width:100%;" alt="CloudCompare" />
+            </div>
+            <br /><br />
+            <div class="projtext" style="width:100%">
+              <Image src={civCcCloudImg} style="width:100%;" alt="Point cloud" />
+            </div>
+            <br /><br />
+            <div class="projtext" style="width:100%">
+              <Image src={civBlenderImg} style="width:100%;" alt="Blender" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="w3-row">
+        <div class="w3-rest">
+          <div class="proj" style="width:100%">
+            Documentation | Photogrammetry
+            <div class="projtext" style="width:100%">
+              Computation Time - 19 hours<br /><br />
+              Meshroom ran on UChicago's Peanut Cluster using 281 photos taken from the Ancient Agora in Athens, Greece.
+            </div>
+          </div>
+          <div class="proj" style="width:100%">
+            Documentation | Animation
+            <div class="projtext" style="width:100%">
+              Render Time - 50 hours (~2:30 per frame for 1200 frames)<br /><br />
+              Video fly-through animated and rendered using Blender's Cycles. The point cloud was imported using <a href="https://github.com/uhlik/bpy">Point Cloud Visualizer</a> add-on
+              with Blender3D Version 2.83.0.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</PageLayout>
