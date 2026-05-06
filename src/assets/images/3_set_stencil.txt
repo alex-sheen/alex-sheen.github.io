@@ -1,0 +1,66 @@
+// 3. Set Stencil
+
+for (let i = 1; i<= 10; i++) {
+	
+	/* attempt to pair plane to object at unique mask while avoiding accidental bit overlap */
+	let mask = i < 8? 1 << i : (1 << i) + 128;
+	
+	/* set render order: planes -> frames -> objects */
+	findByName("Plane_" + (i<10? "0" : "") + i).renderOrder = i;
+	
+	/* set stencil for planes */
+	findByName("Plane_" + (i<10? "0" : "") + i).onBeforeRender = (renderer) => {
+		var gl = renderer.getContext()
+		renderer.sortObjects = true; // need to rearrange meshes in proper order
+		
+		gl.colorMask(false, false, false, false) // make planes invisible
+		gl.enable( gl.STENCIL_TEST ); // enable stencil test
+		gl.stencilMask( mask ); // enable masked bits to be written to stencil buffer
+		
+		/* ALWAYS set stencil to 1 if on plane */
+		gl.stencilFunc( gl.ALWAYS, mask, mask );
+		gl.stencilOp( gl.KEEP, gl.KEEP, gl.REPLACE );
+		
+		/* Turn off depth test to reveal frames "behind" planes */
+		gl.disable( gl.DEPTH_TEST );
+		gl.depthMask(false)
+	}
+	
+	/* set render order */
+	findByName("Frame_" + (i<10? "0" : "") + i).renderOrder = i + 10;
+	
+	/* set stencil for frames */
+	findByName("Frame_" + (i<10? "0" : "") + i).onBeforeRender = (renderer) => {
+		var gl = renderer.getContext()
+		gl.colorMask(true, true, true, true);
+		
+		gl.enable( gl.STENCIL_TEST );
+		gl.stencilMask( 255 );
+		gl.stencilFunc( gl.ALWAYS, 0, 255 );
+		gl.stencilOp( gl.KEEP, gl.KEEP, gl.REPLACE); // ONLY set stencil to 0 if stencil and depth tests pass
+		
+		gl.enable( gl.DEPTH_TEST );
+		gl.depthMask(true);
+	}
+}
+
+/* set stencil for objects */
+for (let i = 1; i<= 10; i++) {
+	
+	let mask = i < 8? 1 << i : (1 << i) + 128;
+	
+	findByName("A_" + (i<10? "0" : "") + i).renderOrder = i + 20;
+	findByName("A_" + (i<10? "0" : "") + i).onBeforeRender = (renderer) => {
+		var gl = renderer.getContext()
+		gl.colorMask(true, true, true, true)
+
+		gl.enable( gl.STENCIL_TEST );
+		gl.stencilFunc( gl.EQUAL, mask, mask ); // Only show if stencil matches
+		gl.stencilOp( gl.KEEP, gl.KEEP, gl.KEEP );
+
+		gl.disable( gl.DEPTH_TEST );
+		gl.depthMask(false);
+	}
+}
+
+
