@@ -1,0 +1,16 @@
+{
+  "name": "alex-sheen-portfolio",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.2",
+    "@google/model-viewer": "^4.2.0",
+    "astro": "^5.0.0",
+    "bootstrap-icons": "^1.13.1"
+  }
+}
