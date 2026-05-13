@@ -1,17 +1,17 @@
 ---
+import mutedImg from '../assets/images/muted.png';
+import unmutedImg from '../assets/images/unmuted.png';
 ---
 <button id="mute-btn" aria-label="Toggle sound" style="background:none;border:none;cursor:pointer;padding:0;">
-  <img id="mute-icon" src="/assets/images/muted.png" alt="muted" style="width:4vw;height:4vw;" />
+  <img id="mute-icon" src={mutedImg.src} alt="muted" style="width:4vw;height:4vw;" />
 </button>
 
-<script>
-  const btn = document.getElementById('mute-btn') as HTMLButtonElement;
-  const icon = document.getElementById('mute-icon') as HTMLImageElement;
-  const vid = document.getElementById('vid') as HTMLVideoElement;
+<script define:vars={{ mutedSrc: mutedImg.src, unmutedSrc: unmutedImg.src }}>
+  const btn = document.getElementById('mute-btn');
+  const icon = document.getElementById('mute-icon');
+  const vid = document.getElementById('vid');
   btn.addEventListener('click', () => {
     vid.muted = !vid.muted;
-    icon.src = vid.muted
-      ? '/assets/images/muted.png'
-      : '/assets/images/unmuted.png';
+    icon.src = vid.muted ? mutedSrc : unmutedSrc;
   });
 </script>
