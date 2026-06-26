@@ -1,0 +1,35 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import { Image } from 'astro:assets';
+import blush221 from '../assets/images/blush/blush_2.2.1.png';
+import blush222 from '../assets/images/blush/blush_2.2.2.png';
+import blush311 from '../assets/images/blush/blush_3.1.1.png';
+---
+<PageLayout title="blush — Alex Sheen">
+  <div class="base_padding">
+    <div class="w3-row base_container_padding">
+      <div class="proj" style="width:100%">
+        <div class="projtitle white_text">
+          blush
+          <div class="projtext">
+            <div class="vl">
+              Digital fabrication<br />
+              2026<br />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="w3-row">
+      <div class="w3-third base_container_padding">
+        <Image src={blush311} style="width:100%" alt="blush 3.1.1" />
+      </div>
+      <div class="w3-third base_container_padding">
+        <Image src={blush221} style="width:100%" alt="blush 2.2.1" />
+      </div>
+      <div class="w3-third base_container_padding">
+        <Image src={blush222} style="width:100%" alt="blush 2.2.2" />
+      </div>
+    </div>
+  </div>
+</PageLayout>
